@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Chilanka&family=Jolly+Lodger&family=Poppins:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    height: 8vh;
+    width: 100vw;
+    background-color: black;
+}
+
+.home {
+    height: 55vh;
+    width: 100vw;
+    background-image: linear-gradient(to bottom, rgb(10 12 68 / 71%), rgb(217 217 217 / 37%)), url(../images/banner.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    color: #fff;
+    text-align: center;
+}
+
+.home h1 {
+    font-family: 'Jolly Lodger', cursive;
+    font-size: 120px;
+    padding-top: 5vh;
+}
+
+.home h1 span {
+    color: #53AADB;
+}
+
+.home .slogan {
+    font-family: 'Chilanka', cursive;
+    font-size: 28px;
+    margin-bottom: 9vh;
+}
+
+.home p {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 28px;
+}
+
+.services {
+    width: 100vw;
+    background-color: rgb(48, 48, 48);
+}
+
+.services h2 {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    color: #fff;
+    font-size: 36px;
+    padding-top: 18px;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+
+.card {
+    width: 350px;
+    height: 344px;
+    background-color: #D9D9D9;
+    margin: 20px;
+    margin-bottom: 72px;
+}
+
+.card img{
+    width: 100%;
+    height: 70%;
+}
+
+.card p{
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    color: #323232;
+    font-size: 32px;
+}
+
+.contactUs {
+    width: 100vw;
+    background-color: rgb(48, 48, 48);
+}
+
+.contactUs h2 {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    color: #fff;
+    font-size: 36px;
+    padding-top: 18px;
+}
+
+.contact{
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.form{
+    width: 45%;
+    background-color: #D9D9D9;
+    margin: 20px;
+}
+
+.form form input{
+    width: 95%;
+    height: 45px;
+    margin: 5px 17px;
+    padding: 5px;
+    background-color: #BFBCBC;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+}
+
+.form form textarea{
+    width: 95%;
+    height: 200px;
+    margin: 5px 17px;
+    padding: 5px;
+    background-color: #BFBCBC;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+}
+
+#reset, #submit{
+    width: 165px;
+    height: 40px;
+    background-color: #53AADB;
+    margin: 10px 83px;
+    border-radius: 18px;
+}
+
+#reset:hover, #submit:hover{
+    cursor: pointer;
+    background-color: transparent;
+    transition: all 0.4s ease;
+    transform: scale(1.1);
+}
+
+.location{
+    width: 40%;
+    background-color: #53AADB;
+    margin: 20px;
+}
+
+.location iframe{
+    width: 100%;
+    height: 100%;
+    border: 2px solid black;
+}
