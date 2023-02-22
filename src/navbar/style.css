@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    width: 1536px;
+    height: 82px;
+    left: 0px;
+    top: 0px;
+    background: #000000;
+    font-family: 'Jolly Lodger';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 75px;
+    line-height: 91px;
+    text-align: left;
+    color: white;
+    list-style: none;
+
+}
+.nav_head{
+    margin-left:10%;
+}
+
+.nav_text li {
+    float: right;
+    list-style: none;
+    padding: 0px 10px;
+    margin-right: 1%;
+}
+
+.nav_text a {
+    font-family: 'Calibri';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 44px;
+    line-height: 54px;
+    color: white;
+    text-decoration: none;
+}
+.nav_text a:hover{
+   color: deepskyblue;
+}
+.nav_text img
+{
+  margin-top: 10%;
+    margin-bottom: 10%;
+}
