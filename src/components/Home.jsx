@@ -1,6 +1,4 @@
 import './Home.css'
-import '../images/bus.png'
-import '../images/train.jpg'
 
 function Home() {
 
@@ -16,27 +14,27 @@ function Home() {
                 <h2>Services</h2>
                 <div className="cards">
                     <div className="card">
-                        <img src="../images/train.jpg" alt="" srcset="" />
+                        <img src="./src/images/train.jpg" alt="" srcset="" />
                         <p>Book your train tickets Today!</p>
                     </div>
                     <div className="card">
-                        <img src="../images/flight.png" alt="" srcset="" />
+                        <img src="./src/images/flight.png" alt="" srcset="" />
                         <p>Book your flight tickets Today!</p>
                     </div>
                     <div className="card">
-                        <img src="../images/hotel.png" alt="" srcset="" />
+                        <img src="./src/images/hotel.png" alt="" srcset="" />
                         <p>Book your hotel rooms Today!</p>
                     </div>
                     <div className="card">
-                        <img src="../images/metro.png" alt="" srcset="" />
+                        <img src="./src/images/metro.png" alt="" srcset="" />
                         <p>Book your metro tickets Today!</p>
                     </div>
                     <div className="card">
-                        <img src="../images/bus.png" alt="" srcset="" />
+                        <img src="./src/images/bus.png" alt="" srcset="" />
                         <p>Book your bus tickets Today!</p>
                     </div>
                     <div className="card">
-                        <img src="../images/movie.png" alt="" srcset="" />
+                        <img src="./src/images/movie.png" alt="" srcset="" />
                         <p>Book your movies tickets Today!</p>
                     </div>
                 </div>
