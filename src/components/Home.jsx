@@ -47,8 +47,10 @@ function Home() {
                             <input type="text" name="Name" id="Name" placeholder="Your Name" /><br />
                             <input type="email" name="Email" id="Email" placeholder="Your Email" /><br />
                             <textarea name="Message" id="Message" cols="30" rows="10" placeholder="Your Message"></textarea><br />
-                            <input type="reset" value="Clear" id="reset" />
-                            <input type="submit" value="Submit" id="submit" />
+                            <div className="btns">
+                                <input type="reset" value="Clear" id="reset" />
+                                <input type="submit" value="Submit" id="submit" />
+                            </div>
                         </form>
                     </div>
                     <div className="location">

@@ -140,13 +140,21 @@
     border-radius: 5px;
     font-family: 'Poppins', sans-serif;
     font-size: 18px;
+    resize: none;
+}
+
+.btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 #reset, #submit{
     width: 165px;
     height: 40px;
     background-color: #53AADB;
-    margin: 10px 83px;
+    margin: 10px 20px;
     border-radius: 18px;
 }
 
@@ -182,11 +190,29 @@
     .card{
         width: 33vw;
     }
+
+    .form{
+        width: 60%;
+    }
+
+    .location{
+        width: 60%;
+        height: 50vh;
+    }
 }
 @media screen and (max-width: 872px){
     .card{
         width: 40vw;
         margin: 25px 10px 40px 10px;
+    }
+
+    .form{
+        width: 80%;
+    }
+
+    .location{
+        width: 80%;
+        height: 60vh;
     }
 }
 @media screen and (max-width: 650px){
