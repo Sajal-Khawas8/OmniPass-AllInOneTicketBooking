@@ -1,7 +1,7 @@
 import './navbar.css'
-export default function Navbar(){
-    return(
-    <><header>
+export default function Navbar() {
+    return (
+        <><header>
             <div class="head">Booknow<span>.com</span></div>
             <div class="hamburger">
                 <div class="line"></div>
@@ -16,12 +16,14 @@ export default function Navbar(){
                     <li> <a href="#"> Contact Us</a></li>
                 </ul>
             </nav>
-        </header><script>
+        </header>
+            {/* <script>
                 hamburger = document.querySelector(".hamburger");
                 hamburger.onclick=function()
                 {
-                navbar = document.querySelector(".nav_text");
+                    navbar = document.querySelector(".nav_text");
                 navbar.classList.toggle("active");
                 }
-            </script></>)
+            </script> */}
+        </>)
 }
