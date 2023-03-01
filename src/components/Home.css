@@ -6,12 +6,6 @@
     box-sizing: border-box;
 }
 
-.navbar {
-    height: 8vh;
-    width: 100vw;
-    background-color: black;
-}
-
 .home {
     height: 55vh;
     width: 100vw;

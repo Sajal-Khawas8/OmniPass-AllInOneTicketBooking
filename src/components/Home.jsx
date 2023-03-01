@@ -4,7 +4,6 @@ function Home() {
 
     return (
         <>
-            <nav className="navbar"></nav>
             <div className="home">
                 <h1>booknow<span>.com</span></h1>
                 <p className="slogan">Choose the route, we'll pave the way</p>
