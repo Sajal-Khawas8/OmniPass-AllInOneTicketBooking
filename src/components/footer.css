@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Chilanka&family=Jolly+Lodger&family=Poppins:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    color:white;
+    
+}
+footer{
+    position: fixed;
+    bottom: 0px;
+    width:100%;
+    background-color: black;
+    
+}
+.foot
+{
+    display:flex;
+    margin: 2%;
+
+}
+.foot .left_box{
+    flex-basis: 33%;
+
+}
+.foot .left_box .logo{
+    font-family: 'Jolly Lodger';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 50px;
+   color: white;    
+   padding-left: 35%;
+}
+.foot .left_box .logo span{
+    color:rgba(83, 170, 219, 1);
+}
+.foot .left_box ul li{
+    padding-top: 0.5%;
+    padding-left: 40%;
+}
+.foot .centre_box{
+    flex-basis: 33%;
+    margin-top: 2%;
+}
+
+.foot .centre_box ul li{
+    padding-left: 30%;
+    padding-top: 2%;
+}
+
+.foot .right_box{
+    flex-basis: 34%;
+
+}
+.foot .right_box form{
+    padding-left: 30%;
+    padding-top: 2%;
+}
+.foot .right_box form input{
+    background-color: #565050;
+    filter: blur(5%);;
+}
+.foot .right_box form .button input{
+    background-color: #53AADB;
+    filter: blur(5%);
+    border-radius: 5px;
+    width: 100px;
+    
+}
+.foot .right_box .social{
+    margin-top: 3%;
+}
+.foot .right_box .social a{
+    height:40px;
+    width: 40px;
+    padding-left: 10%;
+    margin-left: 3%;
+
+}
+@media screen and (max-width :850px) 
+{
+    .foot .left_box .logo{
+
+        font-size: 30px;
+       padding-left: 30%;
+    }
+    
+}
+@media screen and (max-width :750px) 
+{
+    .foot .centre_box ul li{
+        padding-left: 25%;
+    }
+    .foot .right_box form{
+        padding-left: 20%;
+        padding-top: 2%;
+    }
+    .foot .right_box form input{
+        width: 50%;
+    }
+    .foot .right_box .social a{
+        height:40px;
+        width: 40px;
+        padding-left: 8%;
+        margin-left: 3%;
+    
+    }
+
+}
+@media screen and (max-width :600px){
+    .foot .left_box .logo{
+
+        font-size: 30px;
+       padding-left: 20%;
+    }
+    .foot .centre_box ul li{
+        padding-left: 20%;
+    }
+
+}
+
