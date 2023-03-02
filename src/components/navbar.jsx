@@ -1,14 +1,19 @@
+import { useState } from 'react'
 import './navbar.css'
+
+
+
 export default function Navbar() {
+    const [navOpened, openNav]=useState(false);
     return (
         <><header>
             <div class="head">Booknow<span>.com</span></div>
-            <div class="hamburger">
+            <div class="hamburger" onClick={() => openNav(!navOpened)}>
                 <div class="line"></div>
                 <div class="line"></div>
                 <div class="line"></div>
             </div>
-            <nav class="nav_text">
+            <nav class={navOpened?"nav_text active":"nav_text"}>
                 <ul>
                     <li> <a href="#" class="active"> Home</a></li>
                     <li> <a href="#"> About</a></li>
