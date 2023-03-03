@@ -13,27 +13,27 @@ function Home() {
                 <h2>Services</h2>
                 <div className="cards">
                     <div className="card">
-                        <img src="./src/images/train.jpg" alt="" srcset="" />
+                        <img src="./src/images/train.jpg" alt="" />
                         <p>Book your train tickets Today!</p>
                     </div>
                     <div className="card">
-                        <img src="./src/images/flight.png" alt="" srcset="" />
+                        <img src="./src/images/flight.png" alt="" />
                         <p>Book your flight tickets Today!</p>
                     </div>
                     <div className="card">
-                        <img src="./src/images/hotel.png" alt="" srcset="" />
+                        <img src="./src/images/hotel.png" alt="" />
                         <p>Book your hotel rooms Today!</p>
                     </div>
                     <div className="card">
-                        <img src="./src/images/metro.png" alt="" srcset="" />
+                        <img src="./src/images/metro.png" alt="" />
                         <p>Book your metro tickets Today!</p>
                     </div>
                     <div className="card">
-                        <img src="./src/images/bus.png" alt="" srcset="" />
+                        <img src="./src/images/bus.png" alt="" />
                         <p>Book your bus tickets Today!</p>
                     </div>
                     <div className="card">
-                        <img src="./src/images/movie.png" alt="" srcset="" />
+                        <img src="./src/images/movie.png" alt="" />
                         <p>Book your movies tickets Today!</p>
                     </div>
                 </div>
@@ -53,7 +53,7 @@ function Home() {
                         </form>
                     </div>
                     <div className="location">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54874.21157283973!2d76.73921828664781!3d30.728569399331903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fed818a7d6675%3A0x91114dd7dd38bbb0!2sPGGC-11%20Chandigarh!5e0!3m2!1sen!2sin!4v1677094555279!5m2!1sen!2sin" width="400" height="300" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54874.21157283973!2d76.73921828664781!3d30.728569399331903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fed818a7d6675%3A0x91114dd7dd38bbb0!2sPGGC-11%20Chandigarh!5e0!3m2!1sen!2sin!4v1677094555279!5m2!1sen!2sin" width="400" height="300" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
