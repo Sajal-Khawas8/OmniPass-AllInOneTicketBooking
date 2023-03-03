@@ -36,6 +36,18 @@ header {
     display: none;
 }
 
+.line2 {
+    opacity: 0;
+}
+
+.line1 {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.line3 {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
 .nav_text ul {
     display: flex;
 }
@@ -86,7 +98,7 @@ header {
         height: 3px;
         background: white;
         margin: 6px 0;
-
+        transition: all 0.3s ease-in;
     }
 
     .head {
