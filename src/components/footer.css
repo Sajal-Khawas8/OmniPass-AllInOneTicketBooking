@@ -9,8 +9,7 @@
     
 }
 footer{
-    position: fixed;
-    bottom: 0px;
+    position: absolute;
     width:100%;
     background-color: black;
     
