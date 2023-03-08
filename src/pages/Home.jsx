@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './Home.css'
 
 export default function Home() {
@@ -13,8 +14,10 @@ export default function Home() {
                 <h2>Services</h2>
                 <div className="cards">
                     <div className="card">
-                        <img src="./src/images/train.jpg" alt="" />
-                        <p>Book your train tickets Today!</p>
+                        <Link to="/train">
+                            <img src="./src/images/train.jpg" alt="" />
+                            <p>Book your train tickets Today!</p>
+                        </Link>
                     </div>
                     <div className="card">
                         <img src="./src/images/flight.png" alt="" />

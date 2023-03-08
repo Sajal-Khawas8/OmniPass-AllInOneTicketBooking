@@ -14,7 +14,7 @@ export default function Navbar() {
             </div>
             <nav className={navOpened ? "nav_text active" : "nav_text"}>
                 <ul>
-                    <li> <Link to="/home" className="active"> Home</Link></li>
+                    <li> <Link to="/" className="active"> Home</Link></li>
                     <li> <a href="#"> About</a></li>
                     <li> <a href="#services"> Services</a></li>
                     <li> <a href="#contactUs"> Contact Us</a></li>
