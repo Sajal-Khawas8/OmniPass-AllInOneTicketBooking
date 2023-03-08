@@ -1,3 +1,4 @@
+import { FaFacebookSquare, FaInstagramSquare, FaLinkedin, FaPinterestSquare, FaTwitterSquare } from "react-icons/fa"
 import './footer.css'
 
 export default function Footer() {
@@ -8,8 +9,8 @@ export default function Footer() {
                     <div class="logo">Booknow<span>.com</span></div>
                     <ul>
                         <li><a href="#">About</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Contact Us </a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contactUs">Contact Us </a></li>
                     </ul>
                 </div>
                 <div class="centre_box">
@@ -19,21 +20,21 @@ export default function Footer() {
                     </ul>
                 </div>
                 <div class="right_box">
-                
+
                     <form action="#">
-                    Sign up for updates
-                       <div class="text">Email*<input type="email" required /><br /></div> 
+                        Sign up for updates
+                        <div class="text">Email*<input type="email" required /><br /></div>
                         <div class="button"><input type="submit" value="Subscribe" id="button" /></div>
                     </form>
                     <div class="social">
-                        <a href="#"><span class="fab fa-facebook-f"></span></a>
-                        <a href="#"><span class="fab fa-twitter"></span></a>
-                        <a href="#"><span class="fab fa-linkedin"></span></a>
-                        <a href="#"><span class="fab fa-instagram"></span></a>
-                        <a href="#"><span class="fab fa-pinterest"></span></a>
+                        <a href="#"><FaFacebookSquare /></a>
+                        <a href="#"><FaTwitterSquare /></a>
+                        <a href="#"><FaLinkedin /></a>
+                        <a href="#"><FaInstagramSquare /></a>
+                        <a href="#"><FaPinterestSquare /></a>
                     </div>
                 </div>
             </div>
         </footer>
-        )
+    )
 }
