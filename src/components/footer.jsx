@@ -18,10 +18,11 @@ export default function Footer() {
                         <li>All Rights Reserved</li>
                     </ul>
                 </div>
-                <div class="_box">
+                <div class="right_box">
+                
                     <form action="#">
-                        Sign up for updates<br />
-                        Email*<input type="email" required /><br />
+                    Sign up for updates
+                       <div class="text">Email*<input type="email" required /><br /></div> 
                         <div class="button"><input type="submit" value="Subscribe" id="button" /></div>
                     </form>
                     <div class="social">

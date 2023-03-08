@@ -17,7 +17,7 @@ footer{
 .foot
 {
     display:flex;
-    margin: 2%;
+    margin: auto;
 
 }
 .foot .left_box{
@@ -28,7 +28,7 @@ footer{
     font-family: 'Jolly Lodger';
     font-style: normal;
     font-weight: 400;
-    font-size: 35px;
+    font-size: 50px;
     line-height: 50px;
    color: white;    
    padding-left: 35%;
@@ -39,6 +39,7 @@ footer{
 .foot .left_box ul li{
     padding-top: 0.5%;
     padding-left: 40%;
+    font-size: large;
 }
 .foot .centre_box{
     flex-basis: 33%;
@@ -48,6 +49,7 @@ footer{
 .foot .centre_box ul li{
     padding-left: 30%;
     padding-top: 2%;
+    font-size: larger;
 }
 
 .foot .right_box{
@@ -57,10 +59,21 @@ footer{
 .foot .right_box form{
     padding-left: 30%;
     padding-top: 2%;
+    font-size: larger;
+    padding-top: 3%;
+}
+.foot .right_box form .text{
+    padding-top: 2%;
 }
 .foot .right_box form input{
+  
     background-color: #565050;
-    filter: blur(5%);;
+    filter: blur(5%);
+
+
+}
+.foot .right_box form .button{
+    padding-top: 2%;
 }
 .foot .right_box form .button input{
     background-color: #53AADB;
