@@ -16,6 +16,8 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 0 100px;
+    position: sticky;
+    top: 0;
 }
 
 .head {

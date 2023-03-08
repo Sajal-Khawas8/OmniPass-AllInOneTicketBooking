@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom';
 import './navbar.css'
 
 export default function Navbar() {
@@ -13,10 +14,10 @@ export default function Navbar() {
             </div>
             <nav className={navOpened ? "nav_text active" : "nav_text"}>
                 <ul>
-                    <li> <a href="#" className="active"> Home</a></li>
+                    <li> <Link to="/home" className="active"> Home</Link></li>
                     <li> <a href="#"> About</a></li>
-                    <li> <a href="#"> Services</a></li>
-                    <li> <a href="#"> Contact Us</a></li>
+                    <li> <a href="#services"> Services</a></li>
+                    <li> <a href="#contactUs"> Contact Us</a></li>
                 </ul>
             </nav>
         </header>
