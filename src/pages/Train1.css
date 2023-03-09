@@ -8,7 +8,6 @@
 
 body {
     background-color: rgba(0, 0, 0, 0.86);
-    ;
 }
 
 .navbar {
@@ -18,7 +17,7 @@ body {
 }
 
 .image {
-    height: 55vh;
+    min-height: 100vh;
     width: 100vw;
     background-image: linear-gradient(rgba(7, 7, 16, 0.71), rgb(217 217 217/37%)), url(train.jpg);
     background-size: contain;
@@ -33,8 +32,10 @@ body {
 
 .image .button1 form {
     margin-top: 1%;
-    margin-right: 2%;
+    margin-right: 5%;
     float: right;
+    background-color: azure;
+    
 }
 
 .image .button1 form input {
@@ -43,6 +44,7 @@ body {
     height: 30px;
     width: 100px;
     border-radius: 15px;
+    padding-right: 10%;
 }
 
 .image h1 {
@@ -171,7 +173,6 @@ body {
   .image .info {
 
     height: 500px;
-
 }
 }
 
