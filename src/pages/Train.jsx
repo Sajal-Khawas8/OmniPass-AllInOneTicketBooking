@@ -1,4 +1,4 @@
-import './train1.css'
+import './Train1.css'
 
 export default function Train() {
     return (
@@ -9,7 +9,7 @@ export default function Train() {
                     <input type="submit" value="PNR Check" />
                 </form>
             </div>
-            <h1>booknow<span>.com</span></h1>
+            <h1>Booknow<span>.com</span></h1>
             <div className="button2">
                 <form>
                     <input type="submit" value="By Station" />
@@ -30,12 +30,13 @@ export default function Train() {
                         Departure Date
                         <form><input type="date" /></form>
                     </div>
-                </div>
-                <div className="Search">
+                    <div className="Search">
                     <form>
                         <input type="button" value="Search Train" />
                     </form>
                 </div>
+                </div>
+                
             </div>
         </div>
     )
