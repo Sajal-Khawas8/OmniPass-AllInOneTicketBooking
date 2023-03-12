@@ -1,6 +1,36 @@
+import * as ReactDOM from 'react-dom/client';
+import SeatCard from './SeatCard';
 import './TrainCard.css'
 
-export default function TrainCard() {
+// import {sourceStation, destinationStation, userDepartureDate} from '../pages/Train'
+
+
+function fetchSeats(trainNumber, sourceStation, destinationStation, departureDate) {
+    let userClass="SL";
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '05a1b7e16dmsh0d31aaab7a40a47p1ea8c7jsn74665b1d1c48',
+            'X-RapidAPI-Host': 'irctc1.p.rapidapi.com'
+        }
+    };
+
+    fetch(`https://irctc1.p.rapidapi.com/api/v1/checkSeatAvailability?classType=${userClass}&fromStationCode=${sourceStation}&quota=${"GN"}&toStationCode=${destinationStation}&trainNo=${trainNumber}&date=${departureDate}`, options)
+        .then(response => response.json())
+        .then(response => {
+            const seatCards = response.data.map(seat => (
+                <SeatCard
+                    fare={seat.data.total_fare}
+                    date={seat.data.date}
+                    status={seat.data.current_status}
+                />
+            ));
+            ReactDOM.createRoot(document.getElementById('seatDetails')).render(seatCards);
+        })
+        .catch(err => console.error(err));
+}
+
+export default function TrainCard(props) {
     return (
         <div className="trainCard">
             <div className="sourceDestination">
@@ -9,13 +39,13 @@ export default function TrainCard() {
             <hr />
             <div className="trainDetails">
                 <div className="block1">
-                    <div className="number">12312</div>
-                    <div className="name">Netaji Express</div>
+                    <div className="number">{props.trainNumber}</div>
+                    <div className="name">{props.trainName}</div>
                 </div>
                 <div className="block2">
                     <div className="source">
-                        <div className="departuretime">18:07</div>
-                        <div className="sourceCity">Chandigarh</div>
+                        <div className="departuretime">{props.departureTime}</div>
+                        <div className="sourceCity">{props.origin}</div>
                         <div className="departureDate">09 March 2023</div>
                     </div>
                     <div className="duration">
@@ -27,42 +57,18 @@ export default function TrainCard() {
                         </div>
                     </div>
                     <div className="destination">
-                        <div className="arrivaltime">22:15</div>
-                        <div className="destinationCity">New Delhi</div>
+                        <div className="arrivaltime">{props.arrivalTime}</div>
+                        <div className="destinationCity">{props.destination}</div>
                         <div className="arrivalDate">09 March 2023</div>
                     </div>
                 </div>
             </div>
 
             <div className="seats">
-                <div className="seatDetails">
-                    <div className="seatCard">
-                        <div className="class">Sleeper Class</div>
-                        <div className="rate">Rs. 750</div>
-                        <div className="seatsAvl"> AVL - 0012</div>
-                        <div className="btn">
-                            <button>Book Now</button>
-                        </div>
-                    </div>
-                    <div className="seatCard">
-                        <div className="class">Sleeper Class</div>
-                        <div className="rate">Rs. 750</div>
-                        <div className="seatsAvl"> AVL - 0012</div>
-                        <div className="btn">
-                            <button>Book Now</button>
-                        </div>
-                    </div>
-                    <div className="seatCard">
-                        <div className="class">Sleeper Class</div>
-                        <div className="rate">Rs. 750</div>
-                        <div className="seatsAvl"> AVL - 0012</div>
-                        <div className="btn">
-                            <button>Book Now</button>
-                        </div>
-                    </div>
-
-
+                <div className="seatDetails" id='seatDetails'>
+                    {fetchSeats(props.trainNumber, props.sourceStation, props.destinationStation, props.departureDate)}
                 </div>
+
                 <div className="quota">
                     Quota
                     <select name="quota" id="quota">
