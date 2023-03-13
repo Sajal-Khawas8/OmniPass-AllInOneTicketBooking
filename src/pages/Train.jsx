@@ -10,7 +10,7 @@ import './Train1.css';
 
 // export {sourceStation, destinationStation, userDepartureDate}
 
-function fetchTrains() {
+async function fetchTrains() {
     let sourceStation, destinationStation;
     const options = {
         method: 'GET',
@@ -21,22 +21,29 @@ function fetchTrains() {
     };
 
     //Source station code
-    fetch(`https://irctc1.p.rapidapi.com/api/v1/searchStation?query=${document.getElementById("userSourceStation").value}`, options)
-	.then(response => response.json())
-	.then(response => {
-        sourceStation=response.data[0].code
-    })
-	.catch(err => console.error(err));
+    await fetch(`https://irctc1.p.rapidapi.com/api/v1/searchStation?query=${document.getElementById("userSourceStation").value}`, options)
+        .then(response => response.json())
+        .then(response => {
+            sourceStation = response.data[0].code;
+            console.log(sourceStation);
+        })
+        .catch(err => console.error(err));
 
     //Destination station code
-    fetch(`https://irctc1.p.rapidapi.com/api/v1/searchStation?query=${document.getElementById("userDestinationStation").value}`, options)
-	.then(response => response.json())
-	.then(response => {
-        destinationStation=response.data[0].code
-    })
-	.catch(err => console.error(err));
+    await fetch(`https://irctc1.p.rapidapi.com/api/v1/searchStation?query=${document.getElementById("userDestinationStation").value}`, options)
+        .then(response => response.json())
+        .then(response => {
+            destinationStation = response.data[0].code;
+            console.log(destinationStation);
+        })
+        .catch(err => console.error(err));
 
-    fetch(`https://irctc1.p.rapidapi.com/api/v2/trainBetweenStations?fromStationCode=${sourceStation}&toStationCode=${destinationStation}`, options)
+    if (!sourceStation || !destinationStation) {
+        console.error('Could not fetch station codes');
+        return;
+    }
+
+    await fetch(`https://irctc1.p.rapidapi.com/api/v2/trainBetweenStations?fromStationCode=${sourceStation}&toStationCode=${destinationStation}`, options)
         .then(response => response.json())
         .then(response => {
             const trainCards = response.data.map(train => (
@@ -65,6 +72,10 @@ function fetchTrains() {
         .catch(err => console.error(err));
 }
 
+// function fetchTrains(params) {
+//     console.log(document.getElementById("userSourceStation").value);
+// }
+
 
 export default function Train() {
     return (
@@ -87,11 +98,11 @@ export default function Train() {
                     <div className="details">
                         <div className="From">
                             From
-                            <form> <input type="text" id='userSourceStation'/></form>
+                            <form> <input type="text" id='userSourceStation' /></form>
                         </div>
                         <div className="To">
                             To
-                            <form><input type="text" id='userDestinationStation'/></form>
+                            <form><input type="text" id='userDestinationStation' /></form>
                         </div>
                         <div className="DD">
                             Departure Date
