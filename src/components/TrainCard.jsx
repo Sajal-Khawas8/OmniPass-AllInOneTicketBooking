@@ -5,8 +5,7 @@ import './TrainCard.css'
 // import {sourceStation, destinationStation, userDepartureDate} from '../pages/Train'
 
 
-function fetchSeats(trainNumber, sourceStation, destinationStation, departureDate) {
-    let userClass="SL";
+async function fetchSeats(trainNumber, sourceStation, destinationStation, departureDate) {
     const options = {
         method: 'GET',
         headers: {
@@ -15,7 +14,9 @@ function fetchSeats(trainNumber, sourceStation, destinationStation, departureDat
         }
     };
 
-    fetch(`https://irctc1.p.rapidapi.com/api/v1/checkSeatAvailability?classType=${userClass}&fromStationCode=${sourceStation}&quota=${"GN"}&toStationCode=${destinationStation}&trainNo=${trainNumber}&date=${departureDate}`, options)
+    // wait for 1 second before making the next API request
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    fetch(`https://irctc1.p.rapidapi.com/api/v1/checkSeatAvailability?classType=${document.getElementById("classType").value}&fromStationCode=${sourceStation}&quota=${document.getElementById("quota").value}&toStationCode=${destinationStation}&trainNo=${trainNumber}&date=${departureDate}`, options)
         .then(response => response.json())
         .then(response => {
             const seatCards = response.data.map(seat => (
@@ -71,11 +72,24 @@ export default function TrainCard(props) {
 
                 <div className="quota">
                     Quota
-                    <select name="quota" id="quota">
+                    <select name="quota" id="quota" onChange={fetchSeats}>
                         <option value="General">General</option>
                         <option value="SS">SS</option>
                         <option value="Ladies">Ladies</option>
                         <option value="Tatkal">Tatkal</option>
+                    </select>
+                </div>
+
+                <div className="classType">
+                    Quota
+                    <select name="classType" id="classType" onChange={fetchSeats}>
+                        <option value="1A">1A</option>
+                        <option value="2A">2A</option>
+                        <option value="3A">3A</option>
+                        <option value="CC">CC</option>
+                        <option value="FC">FC</option>
+                        <option value="SL">SL</option>
+                        <option value="2S">2S</option>
                     </select>
                 </div>
             </div>
