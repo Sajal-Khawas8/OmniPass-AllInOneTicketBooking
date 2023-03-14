@@ -15,7 +15,7 @@ async function fetchTrains() {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': '05a1b7e16dmsh0d31aaab7a40a47p1ea8c7jsn74665b1d1c48',
+            'X-RapidAPI-Key': '407e0a62fcmsh86ef1b6e94567d8p14051fjsnd50b074d4791',
             'X-RapidAPI-Host': 'irctc1.p.rapidapi.com'
         }
     };
@@ -28,6 +28,10 @@ async function fetchTrains() {
             console.log(sourceStation);
         })
         .catch(err => console.error(err));
+
+
+    // wait for 1 second before making the next API request
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     //Destination station code
     await fetch(`https://irctc1.p.rapidapi.com/api/v1/searchStation?query=${document.getElementById("userDestinationStation").value}`, options)
@@ -43,6 +47,10 @@ async function fetchTrains() {
         return;
     }
 
+    // wait for 1 second before making the next API request
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    //Train details
     await fetch(`https://irctc1.p.rapidapi.com/api/v2/trainBetweenStations?fromStationCode=${sourceStation}&toStationCode=${destinationStation}`, options)
         .then(response => response.json())
         .then(response => {
