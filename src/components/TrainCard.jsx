@@ -10,7 +10,7 @@ function fetchSeats(trainNumber, sourceStation, destinationStation, departureDat
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': '05a1b7e16dmsh0d31aaab7a40a47p1ea8c7jsn74665b1d1c48',
+            'X-RapidAPI-Key': '407e0a62fcmsh86ef1b6e94567d8p14051fjsnd50b074d4791',
             'X-RapidAPI-Host': 'irctc1.p.rapidapi.com'
         }
     };
