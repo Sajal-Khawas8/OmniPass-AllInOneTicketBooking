@@ -15,7 +15,7 @@ async function fetchTrains() {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': '407e0a62fcmsh86ef1b6e94567d8p14051fjsnd50b074d4791',
+            'X-RapidAPI-Key': '0a17608579msh547f6c73e175602p16f6aejsna48d2e236878',
             'X-RapidAPI-Host': 'irctc1.p.rapidapi.com'
         }
     };
