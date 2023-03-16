@@ -15,7 +15,7 @@ async function fetchTrains() {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': '0a17608579msh547f6c73e175602p16f6aejsna48d2e236878',
+            'X-RapidAPI-Key': 'b81825a9ebmsh2561d93cad6bbecp1e76c3jsn1f47a1cde355',
             'X-RapidAPI-Host': 'irctc1.p.rapidapi.com'
         }
     };
@@ -69,8 +69,8 @@ async function fetchTrains() {
                     distance={train.distance}
                     classType={train.class_type}
                     dayOfJourney={train.day_of_journey}
-                    sourceStation={document.getElementById("userSourceStation").value}
-                    destinationStation={document.getElementById("userDestinationStation").value}
+                    sourceStation={sourceStation}
+                    destinationStation={destinationStation}
                     departureDate={document.getElementById("userDepartureDate").value}
                     key={train.train_number}
                 />
