@@ -11,11 +11,11 @@ import './Train1.css';
 // export {sourceStation, destinationStation, userDepartureDate}
 
 async function fetchTrains() {
-    let sourceStation, destinationStation;
+    let sourceStationCode, destinationStationCode;
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': 'b81825a9ebmsh2561d93cad6bbecp1e76c3jsn1f47a1cde355',
+            'X-RapidAPI-Key': '0cf37730e5msh5b2bfcbbe7fb14dp1ee5c0jsn1569c6fd1471',
             'X-RapidAPI-Host': 'irctc1.p.rapidapi.com'
         }
     };
@@ -24,8 +24,8 @@ async function fetchTrains() {
     await fetch(`https://irctc1.p.rapidapi.com/api/v1/searchStation?query=${document.getElementById("userSourceStation").value}`, options)
         .then(response => response.json())
         .then(response => {
-            sourceStation = response.data[0].code;
-            console.log(sourceStation);
+            sourceStationCode = response.data[0].code;
+            console.log(sourceStationCode);
         })
         .catch(err => console.error(err));
 
@@ -37,12 +37,12 @@ async function fetchTrains() {
     await fetch(`https://irctc1.p.rapidapi.com/api/v1/searchStation?query=${document.getElementById("userDestinationStation").value}`, options)
         .then(response => response.json())
         .then(response => {
-            destinationStation = response.data[0].code;
-            console.log(destinationStation);
+            destinationStationCode = response.data[0].code;
+            console.log(destinationStationCode);
         })
         .catch(err => console.error(err));
 
-    if (!sourceStation || !destinationStation) {
+    if (!sourceStationCode || !destinationStationCode) {
         console.error('Could not fetch station codes');
         return;
     }
@@ -51,7 +51,7 @@ async function fetchTrains() {
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     //Train details
-    await fetch(`https://irctc1.p.rapidapi.com/api/v2/trainBetweenStations?fromStationCode=${sourceStation}&toStationCode=${destinationStation}`, options)
+    await fetch(`https://irctc1.p.rapidapi.com/api/v2/trainBetweenStations?fromStationCode=${sourceStationCode}&toStationCode=${destinationStationCode}`, options)
         .then(response => response.json())
         .then(response => {
             const trainCards = response.data.map(train => (
@@ -60,17 +60,19 @@ async function fetchTrains() {
                     trainName={train.train_name}
                     // trainType={train.train_type}
                     // runDays={train.run_days}
-                    origin={train.train_origin_station}
-                    originCode={train.train_origin_station_code}
-                    destination={train.train_destination_station}
-                    destinationCode={train.train_destination_station_code}
+                    // origin={train.train_origin_station}
+                    // originCode={train.train_origin_station_code}
+                    // destination={train.train_destination_station}
+                    // destinationCode={train.train_destination_station_code}
                     departureTime={train.depart_time}
                     arrivalTime={train.arrival_time}
                     distance={train.distance}
-                    classType={train.class_type}
+                    // classType={train.class_type}
                     dayOfJourney={train.day_of_journey}
-                    sourceStation={sourceStation}
-                    destinationStation={destinationStation}
+                    userSourceStation={document.getElementById("userSourceStation").value}
+                    userDestinationStation={document.getElementById("userDestinationStation").value}
+                    sourceStation={sourceStationCode}
+                    destinationStation={destinationStationCode}
                     departureDate={document.getElementById("userDepartureDate").value}
                     key={train.train_number}
                 />

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import SeatCard from './SeatCard';
 import './TrainCard.css'
@@ -6,37 +7,39 @@ import './TrainCard.css'
 
 
 async function fetchSeats(trainNumber, sourceStation, destinationStation, departureDate) {
-    // const options = {
-    //     method: 'GET',
-    //     headers: {
-    //         'X-RapidAPI-Key': 'b81825a9ebmsh2561d93cad6bbecp1e76c3jsn1f47a1cde355',
-    //         'X-RapidAPI-Host': 'irctc1.p.rapidapi.com'
-    //     }
-    // };
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '0cf37730e5msh5b2bfcbbe7fb14dp1ee5c0jsn1569c6fd1471',
+            'X-RapidAPI-Host': 'irctc1.p.rapidapi.com'
+        }
+    };
 
-    // // wait for 1 second before making the next API request
-    // await new Promise((resolve) => setTimeout(resolve, 1000));
-    // fetch(`https://irctc1.p.rapidapi.com/api/v1/checkSeatAvailability?classType=${document.getElementById("classType").value}&fromStationCode=${sourceStation}&quota=${document.getElementById("quota")}&toStationCode=${destinationStation}&trainNo=${trainNumber}&date=${departureDate}`, options)
-    //     .then(response => response.json())
-    //     .then(response => {
-    //         const seatCards = response.data.map(seat => (
-    //             <SeatCard
-    //                 fare={seat.total_fare}
-    //                 date={seat.date}
-    //                 status={seat.current_status}
-    //             />
-    //         ));
-    //         ReactDOM.createRoot(document.getElementById('seatDetails')).render(seatCards);
-    //     })
-    //     .catch(err => console.error(err));
+    // wait for 1 second before making the next API request
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    fetch(`https://irctc1.p.rapidapi.com/api/v1/checkSeatAvailability?classType=${document.getElementById("classType").value}&fromStationCode=${sourceStation}&quota=${document.getElementById("quota").value}&toStationCode=${destinationStation}&trainNo=${trainNumber}&date=${departureDate}`, options)
+        .then(response => response.json())
+        .then(response => {
+            const seatCards = response.data.map(seat => (
+                <SeatCard
+                    fare={seat.total_fare}
+                    date={seat.date}
+                    status={seat.current_status}
+                    key={seat.date}
+                />
+            ));
+            ReactDOM.createRoot(document.getElementById('seatDetails')).render(seatCards);
+            // console.log(response);
+        })
+        .catch(err => console.error(err));
 
 
-    console.log(document.getElementById("classType").value)
-    console.log(document.getElementById("quota").value)
-    console.log(trainNumber);
-    console.log(sourceStation);
-    console.log(destinationStation);
-    console.log(departureDate);
+    // console.log(document.getElementById("classType").value)
+    // console.log(document.getElementById("quota").value)
+    // console.log(trainNumber);
+    // console.log(sourceStation);
+    // console.log(destinationStation);
+    // console.log(departureDate);
 
 
     // let response = {
@@ -88,10 +91,16 @@ async function fetchSeats(trainNumber, sourceStation, destinationStation, depart
 }
 
 export default function TrainCard(props) {
+    useEffect(() => {
+        fetchSeats(props.trainNumber, props.sourceStation, props.destinationStation, props.departureDate);
+    }, [props.trainNumber, props.sourceStation, props.destinationStation, props.departureDate]
+    );
+
+
     return (
         <div className="trainCard">
             <div className="sourceDestination">
-                CDG &rarr; NDLS
+                {props.sourceStation} &rarr; {props.destinationStation}
             </div>
             <hr />
             <div className="trainDetails">
@@ -102,7 +111,7 @@ export default function TrainCard(props) {
                 <div className="block2">
                     <div className="source">
                         <div className="departuretime">{props.departureTime}</div>
-                        <div className="sourceCity">{props.origin}</div>
+                        <div className="sourceCity">{props.userSourceStation}</div>
                         <div className="departureDate">09 March 2023</div>
                     </div>
                     <div className="duration">
@@ -115,20 +124,21 @@ export default function TrainCard(props) {
                     </div>
                     <div className="destination">
                         <div className="arrivaltime">{props.arrivalTime}</div>
-                        <div className="destinationCity">{props.destination}</div>
+                        <div className="destinationCity">{props.userDestinationStation}</div>
                         <div className="arrivalDate">09 March 2023</div>
                     </div>
                 </div>
             </div>
 
             <div className="seats">
+                {/* {fetchSeats(props.trainNumber, props.sourceStation, props.destinationStation, props.departureDate)} */}
                 <div className="seatDetails" id='seatDetails'>
-                    {/* {fetchSeats(props.trainNumber, props.sourceStation, props.destinationStation, props.departureDate)} */}
+
                 </div>
 
                 <div className="quota">
                     Quota
-                    <select name="quota" id="quota" onChange={()=>{fetchSeats(props.trainNumber, props.originCode, props.destination, props.departureDate)}}>
+                    <select name="quota" id="quota" onChange={() => { fetchSeats(props.trainNumber, props.sourceStation, props.destinationStation, props.departureDate) }}>
                         <option value="GN">General</option>
                         <option value="TQ">Tatkal</option>
                         <option value="PT">Premium Tatkal</option>
@@ -146,7 +156,7 @@ export default function TrainCard(props) {
 
                 <div className="classType">
                     Class
-                    <select name="classType" id="classType" onChange={()=>{fetchSeats(props.trainNumber, props.sourceStation, props.destinationStation, props.departureDate)}}>
+                    <select name="classType" id="classType" onChange={() => { fetchSeats(props.trainNumber, props.sourceStation, props.destinationStation, props.departureDate) }}>
                         <option value="SL">SL</option>
                         <option value="1A">1A</option>
                         <option value="2A">2A</option>
