@@ -1,4 +1,5 @@
 import * as ReactDOM from 'react-dom/client';
+import Error from '../components/Error';
 // import ReactDOM from 'react-dom';
 import TrainCard from '../components/TrainCard';
 import './Train1.css';
@@ -27,7 +28,9 @@ async function fetchTrains() {
             sourceStationCode = response.data[0].code;
             console.log(sourceStationCode);
         })
-        .catch(err => console.error(err));
+        .catch(err => {
+
+        });
 
 
     // wait for 1 second before making the next API request
@@ -90,6 +93,7 @@ async function fetchTrains() {
 export default function Train() {
     return (
         <>
+            <Error></Error>
             <div className="image">
                 <div className="button1">
                     <form>
