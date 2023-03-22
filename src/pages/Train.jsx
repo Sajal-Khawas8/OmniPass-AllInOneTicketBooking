@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import Error from '../components/Error';
 // import ReactDOM from 'react-dom';
@@ -11,79 +12,7 @@ import './Train1.css';
 
 // export {sourceStation, destinationStation, userDepartureDate}
 
-async function fetchTrains() {
-    let sourceStationCode, destinationStationCode;
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '0cf37730e5msh5b2bfcbbe7fb14dp1ee5c0jsn1569c6fd1471',
-            'X-RapidAPI-Host': 'irctc1.p.rapidapi.com'
-        }
-    };
 
-    //Source station code
-    await fetch(`https://irctc1.p.rapidapi.com/api/v1/searchStation?query=${document.getElementById("userSourceStation").value}`, options)
-        .then(response => response.json())
-        .then(response => {
-            sourceStationCode = response.data[0].code;
-            console.log(sourceStationCode);
-        })
-        .catch(err => {
-
-        });
-
-
-    // wait for 1 second before making the next API request
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    //Destination station code
-    await fetch(`https://irctc1.p.rapidapi.com/api/v1/searchStation?query=${document.getElementById("userDestinationStation").value}`, options)
-        .then(response => response.json())
-        .then(response => {
-            destinationStationCode = response.data[0].code;
-            console.log(destinationStationCode);
-        })
-        .catch(err => console.error(err));
-
-    if (!sourceStationCode || !destinationStationCode) {
-        console.error('Could not fetch station codes');
-        return;
-    }
-
-    // wait for 1 second before making the next API request
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    //Train details
-    await fetch(`https://irctc1.p.rapidapi.com/api/v2/trainBetweenStations?fromStationCode=${sourceStationCode}&toStationCode=${destinationStationCode}`, options)
-        .then(response => response.json())
-        .then(response => {
-            const trainCards = response.data.map(train => (
-                <TrainCard
-                    trainNumber={train.train_number}
-                    trainName={train.train_name}
-                    // trainType={train.train_type}
-                    // runDays={train.run_days}
-                    // origin={train.train_origin_station}
-                    // originCode={train.train_origin_station_code}
-                    // destination={train.train_destination_station}
-                    // destinationCode={train.train_destination_station_code}
-                    departureTime={train.depart_time}
-                    arrivalTime={train.arrival_time}
-                    distance={train.distance}
-                    // classType={train.class_type}
-                    dayOfJourney={train.day_of_journey}
-                    userSourceStation={document.getElementById("userSourceStation").value}
-                    userDestinationStation={document.getElementById("userDestinationStation").value}
-                    sourceStation={sourceStationCode}
-                    destinationStation={destinationStationCode}
-                    departureDate={document.getElementById("userDepartureDate").value}
-                    key={train.train_number}
-                />
-            ));
-            ReactDOM.createRoot(document.getElementById('trains')).render(trainCards);
-        })
-        .catch(err => console.error(err));
-}
 
 // function fetchTrains(params) {
 //     console.log(document.getElementById("userSourceStation").value);
@@ -91,9 +20,89 @@ async function fetchTrains() {
 
 
 export default function Train() {
+
+    const [flag, setFlag] = useState(true);
+    async function fetchTrains() {
+        let sourceStationCode, destinationStationCode;
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '0cf37730e5msh5b2bfcbbe7fb14dp1ee5c0jsn1569c6fd1471',
+                'X-RapidAPI-Host': 'irctc1.p.rapidapi.com'
+            }
+        };
+
+        //Source station code
+        await fetch(`https://irctc1.p.rapidapi.com/api/v1/searchStation?query=${document.getElementById("userSourceStation").value}`, options)
+            .then(response => response.json())
+            .then(response => {
+                sourceStationCode = response.data[0].code;
+                // console.log(sourceStationCode);
+            })
+            .catch(err => {
+                setFlag(false);
+            });
+        if (!sourceStationCode) {
+            return;
+        }
+
+
+        // wait for 1 second before making the next API request
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+
+        //Destination station code
+        await fetch(`https://irctc1.p.rapidapi.com/api/v1/searchStation?query=${document.getElementById("userDestinationStation").value}`, options)
+            .then(response => response.json())
+            .then(response => {
+                destinationStationCode = response.data[0].code;
+                console.log(destinationStationCode);
+            })
+            .catch(err => {
+                setFlag(false);
+            });
+
+        if (!destinationStationCode) {
+            // console.error('Could not fetch destination station codes');
+            return;
+        }
+
+        // wait for 1 second before making the next API request
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+
+        //Train details
+        await fetch(`https://irctc1.p.rapidapi.com/api/v2/trainBetweenStations?fromStationCode=${sourceStationCode}&toStationCode=${destinationStationCode}`, options)
+            .then(response => response.json())
+            .then(response => {
+                const trainCards = response.data.map(train => (
+                    <TrainCard
+                        trainNumber={train.train_number}
+                        trainName={train.train_name}
+                        // trainType={train.train_type}
+                        // runDays={train.run_days}
+                        // origin={train.train_origin_station}
+                        // originCode={train.train_origin_station_code}
+                        // destination={train.train_destination_station}
+                        // destinationCode={train.train_destination_station_code}
+                        departureTime={train.depart_time}
+                        arrivalTime={train.arrival_time}
+                        distance={train.distance}
+                        // classType={train.class_type}
+                        dayOfJourney={train.day_of_journey}
+                        userSourceStation={document.getElementById("userSourceStation").value}
+                        userDestinationStation={document.getElementById("userDestinationStation").value}
+                        sourceStation={sourceStationCode}
+                        destinationStation={destinationStationCode}
+                        departureDate={document.getElementById("userDepartureDate").value}
+                        key={train.train_number}
+                    />
+                ));
+                ReactDOM.createRoot(document.getElementById('trains')).render(trainCards);
+            })
+            .catch(err => console.error(err));
+    }
     return (
         <>
-            <Error></Error>
+            {!flag && <Error></Error>}
             <div className="image">
                 <div className="button1">
                     <form>
