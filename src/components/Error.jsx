@@ -1,12 +1,18 @@
 import React, { useState } from 'react'
 import './Error.css'
 
-export default function Error() {
+export default function Error(props) {
   const [dis, setDisplay]=useState("flex");
   return (
     <div className="error" style={{display:`${dis}`}}>
-        <p>Unable to fetch data from the server. Please ensure that you are entering correct data. If the issue persist feel free to contact us.</p>
-        <button onClick={()=>{setDisplay("none")}}></button>
+        <p>{props.errMessage} If the issue persist feel free to contact us.</p>
+        <button onClick={()=>{
+          setDisplay("none");
+          window.location.reload();
+      }}>
+          <div id="line1"></div>
+          <div id="line2"></div>
+        </button>
     </div>
   )
 }

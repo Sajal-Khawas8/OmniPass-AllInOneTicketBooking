@@ -22,8 +22,10 @@ import './Train1.css';
 export default function Train() {
 
     const [flag, setFlag] = useState(true);
+    const [errorMessage, setErrMessage]=useState("");
+
     async function fetchTrains() {
-        let sourceStationCode, destinationStationCode;
+        let sourceStationCode, destinationStationCode, trainData = true;
         const options = {
             method: 'GET',
             headers: {
@@ -41,6 +43,7 @@ export default function Train() {
             })
             .catch(err => {
                 setFlag(false);
+                setErrMessage("Couldn't fetch source station. Please try again later and ensure that you are searching for valid station name.")
             });
         if (!sourceStationCode) {
             return;
@@ -59,6 +62,7 @@ export default function Train() {
             })
             .catch(err => {
                 setFlag(false);
+                setErrMessage("Couldn't fetch destination station. Please try again later and ensure that you are searching for valid station name.")
             });
 
         if (!destinationStationCode) {
@@ -98,11 +102,18 @@ export default function Train() {
                 ));
                 ReactDOM.createRoot(document.getElementById('trains')).render(trainCards);
             })
-            .catch(err => console.error(err));
+            .catch(err => {
+                trainData = false;
+                setFlag(false);
+                setErrMessage(`Couldn't fetch trains between ${document.getElementById("userSourceStation").value} and ${document.getElementById("userDestinationStation").value}. Please try again later.`)
+            });
+        if (!trainData) {
+            return;
+        }
     }
     return (
         <>
-            {!flag && <Error></Error>}
+            {!flag && <Error errMessage={errorMessage}></Error>}
             <div className="image">
                 <div className="button1">
                     <form>
