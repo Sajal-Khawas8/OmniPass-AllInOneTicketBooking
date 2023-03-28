@@ -64,17 +64,16 @@ header {
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 28px;
+    font-size: 22px;
     line-height: 42px;
 }
 
 .nav_text ul li a:hover {
-    background-color: rgb(63, 65, 67);
+    background-color: rgb(43 148 255);
 }
 
 .nav_text ul li a.active {
-    background-color: rgb(63, 65, 67);
-
+    background-color: rgb(43 148 255);
 }
 
 @media only screen and (max-width: 1320px) {
