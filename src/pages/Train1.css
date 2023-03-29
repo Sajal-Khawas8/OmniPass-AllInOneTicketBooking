@@ -11,7 +11,7 @@ body {
 }
 
 .image {
-   height:40vh;
+    height: 40vh;
     width: 100vw;
     background-image: linear-gradient(rgba(7, 7, 16, 0.71), rgb(217 217 217/37%)), url(train.jpg);
     background-size: contain;
@@ -28,13 +28,13 @@ body {
     margin-top: 1%;
     margin-right: 5%;
     float: right;
-        height:8vh;
-    width:20vw;
-    
+    height: 8vh;
+    width: 20vw;
+
 }
 
 .image .button1 form input {
-    background-color:rgb(43 148 255);
+    background-color: rgb(43 148 255);
     color: white;
     height: 40px;
     width: 100px;
@@ -66,7 +66,7 @@ body {
 }
 
 .image .button2 form input {
-    background-color:rgb(43 148 255);
+    background-color: rgb(43 148 255);
     color: white;
     height: 5vh;
     width: 10vw;
@@ -78,8 +78,8 @@ body {
 
 .image .info {
     background-color: #353635;
-    height: 200px;
-    width: 800px;
+    height: 15vh;
+    width: 60vw;
     margin: auto;
     border-radius: 10px;
     margin-top: 10px;
@@ -87,62 +87,62 @@ body {
 }
 
 .image .details {
-    height: 60%;
+    height: 100%;
     margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.image .details .From {
+.image .details .From, .image .details .To, .image .details .DD {
+    background: rgba(35, 41, 35, 0.204);
+    border: 1px solid #000000;
+    margin: auto;
+    font-size: 28px;
+    width: 240px;
+}
 
+.image .details .From form input, .image .details .To form input, .image .details .DD form input {
+    width: 95%;
+    height: 36px;
+    margin-bottom: 3%;
+    color: black;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+/* .image .details .To {
     background: rgba(35, 41, 35, 0.204);
     border: 1px solid #000000;
     margin: auto;
     font-size: large;
 
+} */
 
-}
-
-.image .details .From form input {
+/* .image .details .To form input {
+    color: black;
     width: 100%;
     height: 20px;
     margin-bottom: 5%;
-    color:black;
-}
+} */
 
-.image .details .To {
+/* .image .details .DD {
     background: rgba(35, 41, 35, 0.204);
     border: 1px solid #000000;
     margin: auto;
     font-size: large;
+} */
 
-}
-
-.image .details .To form input {
-    color:black;
+/* .image .details .DD form input {
+    color: black;
     width: 100%;
     height: 20px;
     margin-bottom: 5%;
-}
-
-.image .details .DD {
-    background: rgba(35, 41, 35, 0.204);
-    border: 1px solid #000000;
-    margin: auto;
-    font-size: large;
-
-}
-
-.image .details .DD form input {
-    color:black;
-    width: 100%;
-    height: 20px;
-    margin-bottom: 5%;
-}
+} */
 
 .image .info .Search form input {
-    background: rgb(43 148 255);;
+    background: rgb(43 148 255);
+    ;
     border-radius: 20px;
     font-family: 'Cambria';
     font-style: normal;
@@ -152,146 +152,157 @@ body {
     height: 50px;
     align-items: center;
     text-align: center;
-  
+
 }
-@media only screen and (max-width: 1400px)
-{
-    .image .button2
-    {
-           width:28vw;
+
+#trains{
+    min-height: 34vh;
+}
+
+@media only screen and (max-width: 1400px) {
+    .image .button2 {
+        width: 28vw;
     }
+
     .image .button1 form {
-        display:flex;
+        display: flex;
     }
+
     .head h1 {
         padding-top: 6%;
     }
 }
-@media only screen and (max-width: 1150px)
-{
+
+@media only screen and (max-width: 1150px) {
     .image .button1 form {
-        height:5vh;
-        width:25vw;
-        float:right;
+        height: 5vh;
+        width: 25vw;
+        float: right;
     }
 }
-@media only screen and (max-width: 950px)
-{
+
+@media only screen and (max-width: 950px) {
     .image .button1 form {
-        height:5vh;
-        width:30vw;
-        float:right;
+        height: 5vh;
+        width: 30vw;
+        float: right;
     }
 }
-@media only screen and (max-width: 1000px)
-{
-    .image .button2
-    {
-           width:35vw;
+
+@media only screen and (max-width: 1000px) {
+    .image .button2 {
+        width: 35vw;
     }
+
     .image .button2 form input {
         border-radius: 10px;
-      
+
         height: 5vh;
         width: 12vw;
     }
+
     .image .button1 form {
-        display:flex;
+        display: flex;
         height: 5vh;
     }
-   
-}  
-@media only screen and (max-width:900px){
+
+}
+
+@media only screen and (max-width:900px) {
     .image .button1 form {
-        display:flex;
+        display: flex;
     }
+
     .head h1 {
-       
-        padding-top:7%;
-       
+
+        padding-top: 7%;
+
     }
-} 
-@media only screen and (max-width: 800px)
-{
-    .image .button2
-    {
-           width:40vw;
+}
+
+@media only screen and (max-width: 800px) {
+    .image .button2 {
+        width: 40vw;
     }
+
     .image .button2 form input {
         border-radius: 10px;
-      
+
         height: 5vh;
         width: 15vw;
     }
-  
+
     .image .button1 form {
-        display:flex;
+        display: flex;
     }
-} 
-@media only screen and (max-width: 700px)
-{
-    .image .button2
-    {
-           width:45vw;
+}
+
+@media only screen and (max-width: 700px) {
+    .image .button2 {
+        width: 45vw;
     }
+
     .image .button1 form {
-        height:5vh;
-        width:50vw;
+        height: 5vh;
+        width: 50vw;
         float: right;
     }
 
-} 
+}
+
 @media only screen and (max-width: 1200px) {
     .image .info {
         background-color: #353635;
         height: 35vh;
         width: 90vw;
-    }  
+    }
 }
+
 @media only screen and (max-width: 500px) {
-    .image .button2
-    {
-        height:15vh;
-           width:28vw;
-         
+    .image .button2 {
+        height: 15vh;
+        width: 28vw;
+
 
     }
-   
+
     .image .button2 form input {
         border-radius: 10px;
         height: 5vh;
         width: 18vw;
-        padding-bottom: 5px;       
+        padding-bottom: 5px;
     }
+
     .image .button1 form {
-        height:5vh;
-        width:55vw;
+        height: 5vh;
+        width: 55vw;
         display: flex;
     }
-  
+
 }
 
-@media only screen and (max-width: 450px) 
-{
-    
-.image .button1 form {
-    height:5vh;
-    width:50vw;
-    display: flex;
+@media only screen and (max-width: 450px) {
+
+    .image .button1 form {
+        height: 5vh;
+        width: 50vw;
+        display: flex;
+    }
+
+    .image .button2 {
+        height: 15vh;
+        width: 30vw;
+        padding: auto;
+    }
+
+    .image .button2 form input {
+        border-radius: 10px;
+
+        height: 5vh;
+        width: 25vw;
+        margin: auto;
+    }
 }
-.image .button2
-{
-    height:15vh;
-       width:30vw;
-       padding: auto;
-}
-.image .button2 form input {
-    border-radius: 10px;
-  
-    height: 5vh;
-    width: 25vw;
-    margin:auto;
-}}
 
 @media only screen and (max-width: 610px) {
     .image h1 {
@@ -299,21 +310,23 @@ body {
         text-align: center;
         padding-top: 9%;
     }
+
     .image .button2 form input {
         font-size: medium;
     }
 
 }
+
 @media only screen and (max-width: 800px) {
-  .image .details{
-    flex-direction: column;
-    height:80%;
-  }
-  .image .info {
+    .image .details {
+        flex-direction: column;
+        height: 80%;
+    }
 
-    height: 300px;
-    padding-top: 10%;
+    .image .info {
 
+        height: 300px;
+        padding-top: 10%;
+
+    }
 }
-}
-
