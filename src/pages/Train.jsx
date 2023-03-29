@@ -121,7 +121,7 @@ export default function Train() {
                         <input type="submit" value="PNR Check" />
                     </form>
                 </div>
-                <h1>Booknow<span>.com</span></h1>
+                <div className='head'><h1>Booknow<span>.com</span></h1></div>
                 <div className="button2">
                     <form>
                         <input type="submit" value="By Station" />
