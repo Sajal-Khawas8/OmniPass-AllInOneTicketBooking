@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './navbar.css'
 import { useAuth0 } from "@auth0/auth0-react";
 import Error from './Error';
+import Button from './Button';
 
 export default function Navbar() {
     const [navOpened, openNav] = useState(false);
@@ -24,11 +25,11 @@ export default function Navbar() {
                     <li> <a href="#contactUs"> Contact Us</a></li>
                     {
                         isAuthenticated ?
-                            <li><button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+                            <li><Button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })} content="Log out" style={{ width: '110px', height: '45px' }}>
                                 Log Out
-                            </button></li>
+                            </Button></li>
                             :
-                            <li> <button className='active' onClick={() => loginWithRedirect({ redirectUri: window.location.href, onRedirectCallback: () => {} })}> Log in</button></li>
+                            <li> <Button className='active' onClick={() => loginWithRedirect({ redirectUri: window.location.href, onRedirectCallback: () => {} })} content="Log in" style={{ width: '110px', height: '45px' }}> Log in</Button></li>
                     }
                     {error && !isAuthenticated && <Error errMessage={"Please verify your email and Click on Log in button"}></Error>}
                 </ul>
