@@ -25,11 +25,13 @@ export default function Navbar() {
                     <li> <a href="#contactUs"> Contact Us</a></li>
                     {
                         isAuthenticated ?
-                            <li><Button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })} content="Log out" style={{ width: '110px', height: '45px' }}>
+                            <li><Button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })} content="Log out" style={{ width: '110px', height: '37px' }}>
                                 Log Out
                             </Button></li>
                             :
-                            <li> <Button className='active' onClick={() => loginWithRedirect({ redirectUri: window.location.href, onRedirectCallback: () => {} })} content="Log in" style={{ width: '110px', height: '45px' }}> Log in</Button></li>
+                            // <li> <Button className='active' onClick={() => loginWithRedirect({ redirectUri: window.location.href, onRedirectCallback: () => {} })} content="Log in" style={{ width: '110px', height: '45px' }}> Log in</Button></li>
+                            // <li> <Button className='active' onClick={() => loginWithRedirect({ redirectUri: window.location.href})} content="Log in" style={{ width: '110px', height: '45px' }}> Log in</Button></li>
+                            <li> <Button className='active' onClick={() => loginWithRedirect()} content="Log in" style={{ width: '110px', height: '37px' }}> Log in</Button></li>
                     }
                     {error && !isAuthenticated && <Error errMessage={"Please verify your email and Click on Log in button"}></Error>}
                 </ul>

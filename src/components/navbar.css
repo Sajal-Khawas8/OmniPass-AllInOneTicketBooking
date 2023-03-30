@@ -52,6 +52,7 @@ header {
 
 .nav_text ul {
     display: flex;
+    align-items: center;
 }
 
 .nav_text ul li a {

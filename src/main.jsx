@@ -11,6 +11,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       clientId="RKIBJgkUC9T4w8DQ07g1l2yifYbaOZ4M"
       authorizationParams={{
         redirect_uri: window.location.origin
+        // redirectUri: window.location.href
       }}
     >
       <App />
