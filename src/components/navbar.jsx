@@ -1,11 +1,13 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './navbar.css'
 import { useAuth0 } from "@auth0/auth0-react";
+import Error from './Error';
 
 export default function Navbar() {
     const [navOpened, openNav] = useState(false);
-    const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
+    const { loginWithRedirect, logout, isAuthenticated, error } = useAuth0();
+    const history = useNavigate();
     return (
         <header>
             <div className="head">Booknow<span>.com</span></div>
@@ -26,8 +28,9 @@ export default function Navbar() {
                                 Log Out
                             </button></li>
                             :
-                            <li> <button className='active' onClick={() => loginWithRedirect()}> Log in</button></li>
+                            <li> <button className='active' onClick={() => loginWithRedirect({ redirectUri: window.location.href, onRedirectCallback: () => {} })}> Log in</button></li>
                     }
+                    {error && !isAuthenticated && <Error errMessage={"Please verify your email and Click on Log in button"}></Error>}
                 </ul>
             </nav>
         </header>
