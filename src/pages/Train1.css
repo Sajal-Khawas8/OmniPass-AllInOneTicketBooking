@@ -142,7 +142,6 @@ body {
 
 .image .info .Search form input {
     background: rgb(43 148 255);
-    ;
     border-radius: 20px;
     font-family: 'Cambria';
     font-style: normal;
@@ -260,8 +259,8 @@ body {
 
 @media only screen and (max-width: 500px) {
     .image .button2 {
-        height: 15vh;
-        width: 28vw;
+        height: 8vh;
+        width:55vw;
 
 
     }
@@ -270,7 +269,6 @@ body {
         border-radius: 10px;
         height: 5vh;
         width: 18vw;
-        padding-bottom: 5px;
     }
 
     .image .button1 form {
@@ -278,7 +276,19 @@ body {
         width: 55vw;
         display: flex;
     }
-
+    .image .details .From ,.image .details .To,.image .details .DD{
+        margin-bottom: 2%;
+        margin-top: 1%;
+        height: 65px;
+        width:80%;
+        font-size: 23px;
+    }
+    .image .details .From form input, .image .details .To form input, .image .details .DD form input {
+        width: 60%;
+        height: 20px;
+    }
+    
+    
 }
 
 @media only screen and (max-width: 450px) {
@@ -288,20 +298,19 @@ body {
         width: 50vw;
         display: flex;
     }
-
     .image .button2 {
-        height: 15vh;
-        width: 30vw;
-        padding: auto;
+        height: 8vh;
+        width:61vw;
+
+
     }
 
     .image .button2 form input {
         border-radius: 10px;
-
         height: 5vh;
-        width: 25vw;
-        margin: auto;
+        width: 20vw;
     }
+
 }
 
 @media only screen and (max-width: 610px) {
@@ -324,9 +333,47 @@ body {
     }
 
     .image .info {
+        padding-top: 5%;
+        width:55vw;
+        height:40vh;
+    }
+    .image .details .From ,.image .details .To,.image .details .DD{
+        margin-bottom: 1%;
+        margin-top: 1%;
+        height: 65px;
+        font-size: 23px;
+    }
+    .image .details .From form input, .image .details .To form input, .image .details .DD form input {
+        width: 80%;
+        height: 20px;
+    }
+    .image .details .Search{
+        padding-top: 1%;
+    }
+    .image .details .Search form input{
+        height: 40px;
+        width: 170px;
+        border-radius: 10px;
+    }
+    .image .head
+    {
+        font-size: 1.5em;
+        padding-top:none;
+    }
+}
+@media only screen and (max-width: 400px)
+{
+    .image .button2 {
+        height: 8vh;
+        width:65vw;
 
-        height: 300px;
-        padding-top: 10%;
 
     }
+
+    .image .button2 form input {
+        border-radius: 10px;
+        height: 5vh;
+        width: 22vw;
+    }
+   
 }
