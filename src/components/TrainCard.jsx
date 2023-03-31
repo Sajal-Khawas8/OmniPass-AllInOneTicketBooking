@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import SeatCard from './SeatCard';
 import './TrainCard.css'
@@ -6,32 +6,32 @@ import './TrainCard.css'
 // import {sourceStation, destinationStation, userDepartureDate} from '../pages/Train'
 
 
-async function fetchSeats(trainNumber, sourceStation, destinationStation, departureDate) {
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '0cf37730e5msh5b2bfcbbe7fb14dp1ee5c0jsn1569c6fd1471',
-            'X-RapidAPI-Host': 'irctc1.p.rapidapi.com'
-        }
-    };
+// async function fetchSeats(trainNumber, sourceStation, destinationStation, departureDate) {
+//     const options = {
+//         method: 'GET',
+//         headers: {
+//             'X-RapidAPI-Key': '20e3324d81msh30c319765e14b90p1c79dfjsneaf38a999169',
+//             'X-RapidAPI-Host': 'irctc1.p.rapidapi.com'
+//         }
+//     };
 
-    // wait for 1 second before making the next API request
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    fetch(`https://irctc1.p.rapidapi.com/api/v1/checkSeatAvailability?classType=${document.getElementById("classType").value}&fromStationCode=${sourceStation}&quota=${document.getElementById("quota").value}&toStationCode=${destinationStation}&trainNo=${trainNumber}&date=${departureDate}`, options)
-        .then(response => response.json())
-        .then(response => {
-            const seatCards = response.data.map(seat => (
-                <SeatCard
-                    fare={seat.total_fare}
-                    date={seat.date}
-                    status={seat.current_status}
-                    key={seat.date}
-                />
-            ));
-            ReactDOM.createRoot(document.getElementById('seatDetails')).render(seatCards);
-            // console.log(response);
-        })
-        .catch(err => console.error(err));
+//     // wait for 1 second before making the next API request
+//     await new Promise((resolve) => setTimeout(resolve, 1000));
+//     fetch(`https://irctc1.p.rapidapi.com/api/v1/checkSeatAvailability?classType=${document.getElementById("classType").value}&fromStationCode=${sourceStation}&quota=${document.getElementById("quota").value}&toStationCode=${destinationStation}&trainNo=${trainNumber}&date=${departureDate}`, options)
+//         .then(response => response.json())
+//         .then(response => {
+//             const seatCards = response.data.map(seat => (
+//                 <SeatCard
+//                     fare={seat.total_fare}
+//                     date={seat.date}
+//                     status={seat.current_status}
+//                     key={seat.date}
+//                 />
+//             ));
+//             ReactDOM.createRoot(document.getElementById('seatDetails')).render(seatCards);
+//             // console.log(response);
+//         })
+//         .catch(err => console.error(err));
 
 
     // console.log(document.getElementById("classType").value)
@@ -88,9 +88,39 @@ async function fetchSeats(trainNumber, sourceStation, destinationStation, depart
     //     />
     // ));
     // ReactDOM.createRoot(document.getElementById('seatDetails')).render(seatCards);
-}
+// }
 
 export default function TrainCard(props) {
+    const [flag, setFlag] = useState(true);
+    
+    async function fetchSeats(trainNumber, sourceStation, destinationStation, departureDate) {
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '20e3324d81msh30c319765e14b90p1c79dfjsneaf38a999169',
+                'X-RapidAPI-Host': 'irctc1.p.rapidapi.com'
+            }
+        };
+    
+        // wait for 1 second before making the next API request
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        fetch(`https://irctc1.p.rapidapi.com/api/v1/checkSeatAvailability?classType=${document.getElementById("classType").value}&fromStationCode=${sourceStation}&quota=${document.getElementById("quota").value}&toStationCode=${destinationStation}&trainNo=${trainNumber}&date=${departureDate}`, options)
+            .then(response => response.json())
+            .then(response => {
+                const seatCards = response.data.map(seat => (
+                    <SeatCard
+                        fare={seat.total_fare}
+                        date={seat.date}
+                        status={seat.current_status}
+                        key={seat.date}
+                    />
+                ));
+                ReactDOM.createRoot(document.getElementById('seatDetails')).render(seatCards);
+                // console.log(response);
+            })
+            .catch(err => setFlag(false));
+        }
+    
     useEffect(() => {
         fetchSeats(props.trainNumber, props.sourceStation, props.destinationStation, props.departureDate);
     }, [props.trainNumber, props.sourceStation, props.destinationStation, props.departureDate]
@@ -99,6 +129,7 @@ export default function TrainCard(props) {
 
     return (
         <div className="trainCard">
+            {!flag && <Error errMessage="Couldn't fetch seat details at the moment. Please try again later."></Error>}
             <div className="sourceDestination">
                 {props.sourceStation} &rarr; {props.destinationStation}
             </div>

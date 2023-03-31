@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './navbar.css'
 import { useAuth0 } from "@auth0/auth0-react";
 import Error from './Error';
@@ -8,7 +8,6 @@ import Button from './Button';
 export default function Navbar() {
     const [navOpened, openNav] = useState(false);
     const { loginWithRedirect, logout, isAuthenticated, error } = useAuth0();
-    const history = useNavigate();
     return (
         <header>
             <div className="head">Booknow<span>.com</span></div>
@@ -29,9 +28,9 @@ export default function Navbar() {
                                 Log Out
                             </Button></li>
                             :
-                            // <li> <Button className='active' onClick={() => loginWithRedirect({ redirectUri: window.location.href, onRedirectCallback: () => {} })} content="Log in" style={{ width: '110px', height: '45px' }}> Log in</Button></li>
+                            <li> <Button className='active' onClick={() => loginWithRedirect({ redirectUri: window.location.href, onRedirectCallback: () => {} })} content="Log in" style={{ width: '110px', height: '45px' }}> Log in</Button></li>
                             // <li> <Button className='active' onClick={() => loginWithRedirect({ redirectUri: window.location.href})} content="Log in" style={{ width: '110px', height: '45px' }}> Log in</Button></li>
-                            <li> <Button className='active' onClick={() => loginWithRedirect()} content="Log in" style={{ width: '110px', height: '37px' }}> Log in</Button></li>
+                            // <li> <Button className='active' onClick={() => loginWithRedirect()} content="Log in" style={{ width: '110px', height: '37px' }}> Log in</Button></li>
                     }
                     {error && !isAuthenticated && <Error errMessage={"Please verify your email and Click on Log in button"}></Error>}
                 </ul>

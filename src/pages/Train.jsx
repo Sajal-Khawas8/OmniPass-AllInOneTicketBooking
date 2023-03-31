@@ -5,6 +5,7 @@ import Error from '../components/Error';
 // import ReactDOM from 'react-dom';
 import TrainCard from '../components/TrainCard';
 import './Train1.css';
+import { Link } from 'react-router-dom';
 
 // userSourceStation=document.getElementById("userSourceStation").value
 // userDestinationStation=document.getElementById("userDestinationStation").value
@@ -30,7 +31,7 @@ export default function Train() {
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': '0cf37730e5msh5b2bfcbbe7fb14dp1ee5c0jsn1569c6fd1471',
+                'X-RapidAPI-Key': '20e3324d81msh30c319765e14b90p1c79dfjsneaf38a999169',
                 'X-RapidAPI-Host': 'irctc1.p.rapidapi.com'
             }
         };
@@ -117,13 +118,13 @@ export default function Train() {
             {!flag && <Error errMessage={errorMessage}></Error>}
             <div className="image">
                 <div className="button1">
-                <Button className='active'  content="Live Status" style={{ width: '140px', height: '37px', "font-size":'20px',"font-weight":'300'}}> Live Status</Button>
-                <Button className='active'  content="PNR Check" style={{ width: '140px', height: '37px', "font-size":'20px' ,"font-weight":'300'}}> PNR Check</Button>  
+                <Link to='/trainLiveStatus'><Button className='active'  content="Live Status" style={{ width: '140px', height: '37px', fontSize:'20px', fontWeight:'300'}}> Live Status</Button></Link>
+                <Button className='active'  content="PNR Check" style={{ width: '140px', height: '37px', fontSize:'20px' , fontWeight:'300'}}> PNR Check</Button>  
                 </div>
                 <div className='head'><h1>Booknow<span>.com</span></h1></div>
                 <div className="button2">
-                <Button className='active'  content="BY STATION" style={{ width: '170px', height: '37px',"font-weight":'500' }}> BY STATION</Button>
-                <Button className='active'  content="BY TRAIN" style={{ width: '170px', height: '37px',"font-weight":'500' }}> BY TRAIN</Button>  
+                <Button className='active'  content="BY STATION" style={{ width: '170px', height: '37px', fontWeight:'500' }}> BY STATION</Button>
+                <Button className='active'  content="BY TRAIN" style={{ width: '170px', height: '37px', fontWeight:'500' }}> BY TRAIN</Button>  
                 </div>
                 <div className="info">
                     <div className="details">
@@ -140,7 +141,7 @@ export default function Train() {
                             <form><input type="date" id='userDepartureDate' /></form>
                         </div>
                         <div className="Search">
-                        <Button className='active'  content="Search Train" style={{ width: '180px', height: '40px' ,"font-weight":'550'}}> Search Train</Button> 
+                        <Button className='active' content="Search Train" style={{ width: '180px', height: '40px' , fontWeight:'550'}} onClick={fetchTrains}> Search Train</Button> 
                         </div>
                     </div>
                    
