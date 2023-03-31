@@ -63,7 +63,7 @@ body {
     width: 30vw;
     margin: auto;
     display: flex;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -85,7 +85,10 @@ body {
     align-items: center;
 }
 
-.image .details .From, .image .details .To, .image .details .DD {
+.image .details .From,
+.image .details .To,
+.image .details .DD,
+.image .details .trainSearchNumber {
     background: rgba(35, 41, 35, 0.204);
     border: 1px solid #000000;
     margin: auto;
@@ -93,7 +96,10 @@ body {
     width: 240px;
 }
 
-.image .details .From form input, .image .details .To form input, .image .details .DD form input {
+.image .details .From form input,
+.image .details .To form input,
+.image .details .DD form input,
+.image .details .trainSearchNumber form input {
     width: 95%;
     height: 36px;
     margin-bottom: 3%;
@@ -131,249 +137,263 @@ body {
     margin-bottom: 5%;
 } */
 
-#trains{
+#trains {
     min-height: 34vh;
 }
 
-@media only screen and (max-width: 1450px)
- {
-    .image .info
-    {
-        width:70vw;
+@media only screen and (max-width: 1450px) {
+    .image .info {
+        width: 70vw;
     }
 }
 
-@media only screen and (max-width: 1400px)
- {
-    .image .button1
-    {
-        width:22vw;
-    }
- }
- @media only screen and (max-width: 1350px)
- {
-    .image .button1
-    {
-        width:24vw;
-    }
-    .image .info
-    {
-        width:75vw;
-    }
- }
- @media only screen and (max-width: 1300px)
- {
-    .image .info
-    {
-        width:82vw;
-    }
-    .image .button1
-    {
-        width:26vw;
+@media only screen and (max-width: 1400px) {
+    .image .button1 {
+        width: 22vw;
     }
 }
-@media only screen and (max-width: 1250px)
- {
-    .image .info
-    {
-        width:80vw;
-    } 
-    .image .button2 {
-        width:33vw;
+
+@media only screen and (max-width: 1350px) {
+    .image .button1 {
+        width: 24vw;
+    }
+
+    .image .info {
+        width: 75vw;
     }
 }
-@media only screen and (max-width: 1200px)
- {
-    .image .info
-    {
-        width:83vw;
-    } 
+
+@media only screen and (max-width: 1300px) {
+    .image .info {
+        width: 82vw;
+    }
+
+    .image .button1 {
+        width: 26vw;
+    }
+}
+
+@media only screen and (max-width: 1250px) {
+    .image .info {
+        width: 80vw;
+    }
+
     .image .button2 {
-        width:36vw;
+        width: 33vw;
     }
-    .image .button1
-    {
-        height:6vh;
+}
+
+@media only screen and (max-width: 1200px) {
+    .image .info {
+        width: 83vw;
     }
- }
- @media only screen and (max-width: 1150px)
- {
-    .image .info
-    {
-        width:88vw;
-    } 
-    .image .button1
-    {
-        width:28vw;
+
+    .image .button2 {
+        width: 36vw;
     }
- }
- @media only screen and (max-width: 1050px)
- {
-    .image .info
-    {
-        width:95vw;
-    } 
-    .image .button1
-    {
-        width:30vw;
+
+    .image .button1 {
+        height: 6vh;
     }
- }
- @media only screen and (max-width: 1000px)
- {
-    .image .info
-    {
-        width:98vw;
-    } 
-    .image .button1
-    {
-        width:32vw;
+}
+
+@media only screen and (max-width: 1150px) {
+    .image .info {
+        width: 88vw;
+    }
+
+    .image .button1 {
+        width: 28vw;
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+    .image .info {
+        width: 95vw;
+    }
+
+    .image .button1 {
+        width: 30vw;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .image .info {
+        width: 98vw;
+    }
+
+    .image .button1 {
+        width: 32vw;
         height: 5vh;
     }
+
     .image .button2 {
-        width:38vw;
+        width: 38vw;
+    }
 }
- }
- @media only screen and (max-width: 950px)
- {
-    .image .details .From, .image .details .To, .image .details .DD {
+
+@media only screen and (max-width: 950px) {
+
+    .image .details .From,
+    .image .details .To,
+    .image .details .DD,
+    .image .details .trainSearchNumber {
         width: 200px;
         font-size: 22px;
     }
-    .image .details .From form input, .image .details .To form input, .image .details .DD form input {
+
+    .image .details .From form input,
+    .image .details .To form input,
+    .image .details .DD form input,
+    .image .details .trainSearchNumber form input {
         height: 23px;
- }
+    }
 }
- @media only screen and (max-width: 900px)
- {
+
+@media only screen and (max-width: 900px) {
     .image .button2 {
-        width:43vw;
-        height:8vh;
-}
+        width: 43vw;
+        height: 8vh;
+    }
+
     .image .details {
         flex-direction: column;
     }
-    .image .info
-    {
-        width:45vw;
-        height:43vh;
+
+    .image .info {
+        width: 45vw;
+        height: 43vh;
     }
-    .image .info .details .Search
-    {
+
+    .image .info .details .Search {
         padding-bottom: 2%;
     }
-     .image .button1 {
-        width:35vw;
+
+    .image .button1 {
+        width: 35vw;
+    }
+
 }
 
- }
- @media only screen and (max-width: 850px)
- {
+@media only screen and (max-width: 850px) {
     .image .button1 {
-        width:38vw;
+        width: 38vw;
     }
+
     .image .button2 {
-        width:48vw;
-}
-.head h1 {
-    font-size: 1.8em;
-    padding-top: 6%;
-}
- }
- @media only screen and (max-width: 750px)
- {
+        width: 48vw;
+    }
+
     .head h1 {
         font-size: 1.8em;
         padding-top: 6%;
     }
- }
- @media only screen and (max-width: 670px)
- {
+}
+
+@media only screen and (max-width: 750px) {
+    .head h1 {
+        font-size: 1.8em;
+        padding-top: 6%;
+    }
+}
+
+@media only screen and (max-width: 670px) {
     .head h1 {
         padding-top: 5%;
         padding-left: 5%;
     }
+
     .image .button1 {
-        width:45vw;
-        height:3vh;
-    }
-    .image .button2 {
-        width:58vw;
-}
- }
- @media only screen and (max-width: 630px)
- {
-    .image .button1 {
-        width:50vw;
-    }
-    .image .button2 {
-        width:60vw;
-    }
-    .image .info
-    {
-        width:50vw;
+        width: 45vw;
+        height: 3vh;
     }
 
- }
- @media only screen and (max-width: 580px)
- {
-    .image .button1 {
-        width:55vw;
-    }
     .image .button2 {
-        width:68vw;
+        width: 58vw;
     }
+}
+
+@media only screen and (max-width: 630px) {
+    .image .button1 {
+        width: 50vw;
+    }
+
+    .image .button2 {
+        width: 60vw;
+    }
+
+    .image .info {
+        width: 50vw;
+    }
+
+}
+
+@media only screen and (max-width: 580px) {
+    .image .button1 {
+        width: 55vw;
+    }
+
+    .image .button2 {
+        width: 68vw;
+    }
+
     .head h1 {
         padding-top: 6%;
-}
- }
- @media only screen and (max-width: 515px)
- {
-    .image .button1 {
-        width:60vw;
     }
+}
+
+@media only screen and (max-width: 515px) {
+    .image .button1 {
+        width: 60vw;
+    }
+
     .head h1 {
         padding-top: 7%;
-}
-.image .button2 {
-    width:72vw;
-}
-.image .info
-    {
-        width:55vw;
     }
- }
- @media only screen and (max-width: 480px)
- {
-    .image .button1 {
-        width:65vw;
-    }
+
     .image .button2 {
-        width:75vw;
+        width: 72vw;
     }
- }
- @media only screen and (max-width: 460px)
- {
-    .image .button1 {
-        width:70vw;
+
+    .image .info {
+        width: 55vw;
     }
-.image .button2 {
-    width:85vw;
 }
-.image .info
-    {
-        width:68vw;
-    }
- }
- @media only screen and (max-width: 400px)
- {
+
+@media only screen and (max-width: 480px) {
     .image .button1 {
-        width:78vw;
+        width: 65vw;
     }
-.image .button2 {
-    width:90vw;
+
+    .image .button2 {
+        width: 75vw;
+    }
 }
-.image .info
-    {
-        width:72vw;
+
+@media only screen and (max-width: 460px) {
+    .image .button1 {
+        width: 70vw;
     }
- }
+
+    .image .button2 {
+        width: 85vw;
+    }
+
+    .image .info {
+        width: 68vw;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .image .button1 {
+        width: 78vw;
+    }
+
+    .image .button2 {
+        width: 90vw;
+    }
+
+    .image .info {
+        width: 72vw;
+    }
+}
