@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import * as ReactDOM from 'react-dom/client';
+import Button from '../components/Button';
 import Error from '../components/Error';
 // import ReactDOM from 'react-dom';
 import TrainCard from '../components/TrainCard';
@@ -116,17 +117,13 @@ export default function Train() {
             {!flag && <Error errMessage={errorMessage}></Error>}
             <div className="image">
                 <div className="button1">
-                    <form>
-                        <input type="submit" value="Live Status" />
-                        <input type="submit" value="PNR Check" />
-                    </form>
+                <Button className='active'  content="Live Status" style={{ width: '140px', height: '37px', "font-size":'20px',"font-weight":'300'}}> Live Status</Button>
+                <Button className='active'  content="PNR Check" style={{ width: '140px', height: '37px', "font-size":'20px' ,"font-weight":'300'}}> PNR Check</Button>  
                 </div>
                 <div className='head'><h1>Booknow<span>.com</span></h1></div>
                 <div className="button2">
-                    <form>
-                        <input type="submit" value="By Station" />
-                        <input type="submit" value="By Train" />
-                    </form>
+                <Button className='active'  content="BY STATION" style={{ width: '170px', height: '37px',"font-weight":'500' }}> BY STATION</Button>
+                <Button className='active'  content="BY TRAIN" style={{ width: '170px', height: '37px',"font-weight":'500' }}> BY TRAIN</Button>  
                 </div>
                 <div className="info">
                     <div className="details">
@@ -143,12 +140,10 @@ export default function Train() {
                             <form><input type="date" id='userDepartureDate' /></form>
                         </div>
                         <div className="Search">
-                            <form>
-                                <input type="button" value="Search Train" onClick={fetchTrains} />
-                            </form>
+                        <Button className='active'  content="Search Train" style={{ width: '180px', height: '40px' ,"font-weight":'550'}}> Search Train</Button> 
                         </div>
                     </div>
-
+                   
                 </div>
             </div>
             <div id='trains'>
