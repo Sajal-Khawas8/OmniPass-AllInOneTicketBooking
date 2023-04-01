@@ -97,7 +97,7 @@ export default function TrainCard(props) {
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': '20e3324d81msh30c319765e14b90p1c79dfjsneaf38a999169',
+                'X-RapidAPI-Key': 'bb27338656mshda7a9348ad29cffp109b05jsna821e3d95649',
                 'X-RapidAPI-Host': 'irctc1.p.rapidapi.com'
             }
         };
@@ -143,10 +143,10 @@ export default function TrainCard(props) {
                     <div className="source">
                         <div className="departuretime">{props.departureTime}</div>
                         <div className="sourceCity">{props.userSourceStation}</div>
-                        <div className="departureDate">09 March 2023</div>
+                        <div className="departureDate">{props.formattedDepartureDate}</div>
                     </div>
                     <div className="duration">
-                        04 hrs 08 mins
+                        {props.distance} kms &nbsp; &nbsp; &nbsp; {props.duration}
                         <div className="line">
                             <div className="circle"></div>
                             <hr />
@@ -156,7 +156,7 @@ export default function TrainCard(props) {
                     <div className="destination">
                         <div className="arrivaltime">{props.arrivalTime}</div>
                         <div className="destinationCity">{props.userDestinationStation}</div>
-                        <div className="arrivalDate">09 March 2023</div>
+                        <div className="arrivalDate">{props.formattedArrivalDate}</div>
                     </div>
                 </div>
             </div>

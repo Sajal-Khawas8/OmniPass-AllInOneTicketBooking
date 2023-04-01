@@ -32,7 +32,7 @@ export default function Train() {
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': '20e3324d81msh30c319765e14b90p1c79dfjsneaf38a999169',
+                'X-RapidAPI-Key': 'bb27338656mshda7a9348ad29cffp109b05jsna821e3d95649',
                 'X-RapidAPI-Host': 'irctc1.p.rapidapi.com'
             }
         };
@@ -154,14 +154,18 @@ export default function Train() {
             //     }
             //   ]
 
-            await fetch(`https://indian-railway-irctc.p.rapidapi.com/getTrainId?trainno=${document.getElementById("trainSearchNumber")}`, options2)
+            await fetch(`https://indian-railway-irctc.p.rapidapi.com/getTrainId?trainno=${document.getElementById("trainSearchNumber").value}`, options2)
                 .then(response => response.json())
                 .then(response => {
-                    response.map(train => (
-                        fetch(`https://irctc1.p.rapidapi.com/api/v2/trainBetweenStations?fromStationCode=${train.source_code}&toStationCode=${train.destination_code}`, options)
-                            .then(response => response.json())
-                            .then(response => {
-                                const trainCards = response.data.map(train => (
+                    console.log(response);
+                    response.forEach(train2 => {
+                        console.log(train2.source_code);
+                        console.log(train2.destination_code);
+                        fetch(`https://irctc1.p.rapidapi.com/api/v2/trainBetweenStations?fromStationCode=${train2.source_code}&toStationCode=${train2.destination_code}`, options)
+                            .then(response2 => response2.json())
+                            .then(response2 => {
+                                console.log(response2);
+                                const trainCards = response2.data.map(train => (
                                     <TrainCard
                                         trainNumber={train.train_number}
                                         trainName={train.train_name}
@@ -176,26 +180,35 @@ export default function Train() {
                                         distance={train.distance}
                                         // classType={train.class_type}
                                         dayOfJourney={train.day_of_journey}
-                                        userSourceStation={document.getElementById("userSourceStation").value}
-                                        userDestinationStation={document.getElementById("userDestinationStation").value}
-                                        sourceStation={sourceStationCode}
-                                        destinationStation={destinationStationCode}
+                                        userSourceStation={train.train_origin_station}
+                                        userDestinationStation={train.train_destination_station}
+                                        sourceStation={train.train_origin_station_code}
+                                        destinationStation={train.train_destination_station_code}
                                         departureDate={document.getElementById("userDepartureDate").value}
+                                        formattedDepartureDate={`${new Date(document.getElementById("userDepartureDate").value).getDate()} ${new Date(document.getElementById("userDepartureDate").value).toLocaleString('default', { month: 'long' })} ${new Date(document.getElementById("userDepartureDate").value).getFullYear()}`}
+                                        formattedArrivalDate={`${(new Date((new Date(document.getElementById("userDepartureDate").value)).getTime() + ((new Date(`1970-01-01T${train.arrival_time}`)) - (new Date(`1970-01-01T${train.depart_time}`))))).getDate()} ${(new Date((new Date(document.getElementById("userDepartureDate").value)).getTime() + ((new Date(`1970-01-01T${train.arrival_time}`)) - (new Date(`1970-01-01T${train.depart_time}`))))).toLocaleString('default', { month: 'long' })} ${(new Date((new Date(document.getElementById("userDepartureDate").value)).getTime() + ((new Date(`1970-01-01T${train.arrival_time}`)) - (new Date(`1970-01-01T${train.depart_time}`))))).getFullYear()}`}
+                                        duration={`${(Math.floor(((new Date(`1970-01-01T${train.arrival_time}`)) - (new Date(`1970-01-01T${train.depart_time}`))) / (1000 * 60 * 60))).toString().padStart(2, '0')}h ${(Math.floor((((new Date(`1970-01-01T${train.arrival_time}`)) - (new Date(`1970-01-01T${train.depart_time}`))) % (1000 * 60 * 60)) / (1000 * 60))).toString().padStart(2, '0')}m`}
+                                        //result: 30 June 2023    -16h -50m     29 June 2023
                                         key={train.train_number}
                                     />
                                 ));
                                 ReactDOM.createRoot(document.getElementById('trains')).render(trainCards);
                             })
-                            .catch(err => {
+                            .catch(err2 => {
+                                console.log(err2);
                                 trainData = false;
                                 setFlag(false);
-                                setErrMessage("Couldn't fetch trains at the moment. Please try again later and ensure that you are searching for valid train number.")
+                                setErrMessage("Couldn't fetch trains at the moment. Please try again later and ensure that you are searching for valid train number. Inside")
                             })
-
-                    ))
+                    });
                 })
-                .catch(err => console.error(err));
+                .catch(err => {
+                    console.log(err);
+                    setFlag(false);
+                    setErrMessage("Couldn't fetch trains at the moment. Please try again later and ensure that you are searching for valid train number. Outside")
+                });
 
+            // console.log("train");
 
             // fetch('https://irctc1.p.rapidapi.com/api/v1/searchTrain?query=190', options)
             //     .then(response => response.json())
