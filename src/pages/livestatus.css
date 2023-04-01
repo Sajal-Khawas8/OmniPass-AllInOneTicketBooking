@@ -2,210 +2,246 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
-body {
-    background: linear-gradient(#000000 47.84%, #3D5962 82.97%);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    width: 100%;
-    height: 100%;
-}
-
-header {
-
-    font-family: 'Hanuman';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 75px;
-    line-height: 110px;
-    text-align: center;
-    color: #FFFFFF;
-}
- .Searchbox {
-    background-color: white;
+.Searchbox {
     height: 20vh;
-    width: 50vw;
-    margin: auto;
-    border-radius: 20px;
+    width: 100%;
+    background-color: darkblue;
     display: flex;
     justify-content: space-evenly;
+    padding-top: 25px;
+}
+
+.Tno,
+.BoardingS,
+.StartDate {
+    width: 20vw;
+    height: 13vh;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    font-size: 28px;
+    padding-top: 10px;
+    padding-left: 25px;
+}
+
+.Tno form input,
+.BoardingS form input,
+.StartDate form input {
+    width: 95%;
+    height: 36px;
+    margin-bottom: 3%;
+    color: black;
+    font-size: 22px;
+}
+
+.Search {
+    padding-top: 30px;
+}
+
+.Content {
+    padding-top: 20px;
+    background-color: rgb(51, 83, 146);
+    height: 70vh;
+}
+
+.Train_details span {
+    color: black;
+    font-size: 30px;
+    font-weight: 300;
+
+
+}
+
+.Train_details ul {
+    display: flex;
+}
+
+.Train_details ul li {
+    color: black;
+    padding: 0 20px;
+    font-size: 25px;
+    font-weight: 200;
+}
+
+.Train_details {
+    padding-top: 15px;
+    display: flex;
+    text-align: center;
+    justify-content: space-evenly;
+    padding-left: 20px;
+    margin: auto;
+    width: 90vw;
+    height: 8vh;
+    background-color: rgb(144, 169, 215);
+    color: black;
+    border-radius: 10px;
+    font-size: 25px;
+    font-weight: 200;
+}
+
+.Train_details .type {
+    color: black;
+    display: flex;
+}
+
+.Train_details .type form {
+    padding-left: 10px;
+}
+
+.Train_details .type form input {
+    color: black;
+    width: 8vw;
+    height: 4vh;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 100;
+
+}
+
+.Traintime {
+    background-color: aliceblue;
+    color: black;
+    width: 90vw;
+    height: 18vh;
+    margin-top: 10px;
+    margin-left: 75px;
+    border-radius: 2px;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.Traintime ul li {
+    color: black;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.Traintime ul {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.Shapes {
+    display: flex;
     align-items: center;
+    justify-content: end;
+}
+
+.Shapes .circle {
+    background-color: black;
+    height: 2vh;
+    width: 1vw;
+    border-radius: 10px;
+}
+
+.Shapes .line {
+    margin-left: 0%;
+    margin-right: 0%;
+    width: 100vw;
+    height: 0.6vh;
+    background-color: black;
+}
+
+.Stations {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: black;
+    padding-top: 15px;
+    font-size: 20px;
+}
+
+.Stations ul li {
+
+    padding: 0 20px;
+    margin: 0 3px;
+    border: 1px solid;
+    border-color: black;
+}
+
+.Calender {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90vw;
+    height: 10vh;
+    margin-top: 10px;
+    margin-left: 75px;
+    border-radius: 2px;
+    padding-left: 80px;
+    padding-right: 80px;
+    background-color: white;
+}
+
+.Calender ul {
+    display: flex;
+    align-items: center;
+}
+
+.Calender ul li {
+    color: black;
+    padding: 0 20px;
+    margin: 0 10px;
+    border: 1px solid;
+    border-color: black;
+    background-color: rgb(225, 222, 222);
+}
+
+.Calender form input {
+    color: black;
+    width: 8vw;
+    height: 4vh;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 100;
+}
+
+.livestatus {
+    width: 90vw;
+    height: 25vh;
+    margin-top: 10px;
+    margin-left: 75px;
+    background-color: aliceblue;
+    color: black;
+    text-align: center;
+}
+.tablehead{
+    background-color: rgb(144, 169, 215);
+    height:8vh;
+    padding-left: 50px;
+    padding-right: 80px;
+    padding-top: 15px;
+    
 
 }
-.Searchbox .train_no{
-    background:  linear-gradient(90.04deg, rgba(255, 156, 85, 0.77) -35.64%, #D9B32E 115.61%);
-    height:15vh;
-    width: 15vw;
-    text-align: center;
-    border-radius: 10px;
-    font-size: 1.5em;
-    font-weight: 700;
-    color:black;
-}
-.Searchbox .train_no form{
-    margin-top: 10%;
-
-}
-.Searchbox .date{
-    background:  linear-gradient(90.04deg, rgba(255, 156, 85, 0.77) -35.64%, #D9B32E 115.61%);
-    height:15vh;
-    width: 15vw;
-    text-align: center;
-    border-radius: 10px;
-    font-size :1.5em;
-    font-weight: 700;
+.tablehead  th{
+    padding: 0 83px;
+    font-size: 30px;
     color: black;
 }
-.Searchbox .date form{
-    margin-top: 10%;
-
+.Table{
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
-.Searchbox input{
-    width :8vw;
-}
- #button1{
-    height: 5vh;
-    border-radius: 20px;
-    background:  linear-gradient(90.04deg, rgba(255, 156, 85, 0.77) -35.64%, #D9B32E 115.61%);
+.Table span {
     color:black;
-    font-weight: 700;
-    font-size: 1.5em;
+    border: 1px solid;
+    border-radius: 15px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
-.train_info{
-    width: 28vw;
-    height: 70vh;
-    background-color: #FFFFFF;
-    margin-left: 8%;
-    margin-top: 5%;
-    border-radius: 10px;
-    text-align: center;
-    padding-top: 2%;
-    font-weight: 700;
-    font-size: 38px;
-}
-.train_info .train_details{
-   background:  linear-gradient(90.04deg, rgba(255, 156, 85, 0.77) -35.64%, #D9B32E 115.61%);
-   width:25vw;
-   margin: auto;
-   border-radius: 20px;
-   padding-top: 5%;
-   
-font-weight: 400;
-font-size: 20px;
-line-height: 19px;
+.Table td{
 
-}
-.shapes{
-    margin-top: 2%;
-    display: flex;
-    align-items: center;
-    margin-left: 2%;
-    margin-right: 2%;
-    padding-bottom: 5%;
-}
-.circle1{
-    border-radius: 100px;
-    background-color: black;
-    height:14px;
-    width: 14px;
-    padding-left: 2%;
-}
-.line{
-   background-color: black;
-    height: 3px;
-    width:27vw;
-}
-.circle2{
-    border-radius: 100px;
-    background-color: black;
-    height:14px;
-    width: 14px;
-    padding-left: 2%;
-}
-.source_des{
-    margin-top: 5%;
-    height: 8vh;
-    background-color: rgba(128, 116, 116, 0.278);
-    width:25vw;
-    margin-left: 5%;
-    border-radius: 10px;
-    text-align: left;
-    padding-left: 8%;
-    padding-top: 2%;
-    display: flex;
-    align-items: center;
-}
-.source_des .sdate{
-    font-size: 0.5em;
-    margin :auto;
-    background:  linear-gradient(90.04deg, rgba(255, 156, 85, 0.77) -35.64%, #D9B32E 115.61%);
-    width:10vw;
-    height:5vh;
-    text-align: center;
-    padding-top: 2%;
-    border-radius: 5px;
-}
-.sidebox{
-    display: flex;
-    font-size: 0.5em;
-    align-items: center;
-    margin: auto;
-    padding-left: 10%;
-    padding-top: 5%;
-}
-.sidebox .os{
-    font-size:medium ;
-    margin:auto;
-}
-.line2{
-    background-color: rgba(188, 180, 180, 1);
-    height: 5px;
-    width:25vw;
-    margin-left: 5%;
-    margin-top: 2%;
-}
-.livestatus{
-    display: flex;
-   
-}
-.status{
-    background-color: white;
-    width:55vw;
-    height:80vh;
-    margin-top: 5%;
-    border-radius: 10px;
-    margin-left: 5%;
-    padding-top: 1%;
-}
-
-.status span{
-    background:  linear-gradient(90.04deg, rgba(255, 156, 85, 0.77) -35.64%, #D9B32E 115.61%);
-    font-size: larger;
-    font-weight: bold;
-    margin-left: 5%;
-    margin-top: 10%;
-
-}
-.line4{
-    background-color: black;
-    width:10px;
-    height:7vh;
-    margin-left: 10%;
-}
-.line3{
-    background-color: rgba(188, 180, 180, 1);
-    height: 5px;
-    width:50vw;
-    margin-left: 5%;
-    margin-top: 2%;
-
-}
-.circle2{
-    border-radius: 100px;
-    background-color: black;
-    height:14px;
-    width: 14px;
-    padding-left: 2%;
+    font-size: 30px;
+   text-align: center;
+    color:black;
+    padding: 0 90px;
+    
 }
