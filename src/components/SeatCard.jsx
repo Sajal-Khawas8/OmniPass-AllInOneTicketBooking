@@ -8,7 +8,7 @@ import logo from '../images/bus.png';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import htmlToPdfmake from 'html-to-pdfmake';
-import mailgun from 'mailgun-js';
+// import mailgun from 'mailgun-js';
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -22,27 +22,27 @@ export default function SeatCard(props) {
         sendEmail(user.email, 'Invoice', invoice);
     };
 
-    const mg = mailgun({
-        apiKey: '271caf3d840e2ee672014cb907645cf3-d51642fa-0e47930a',
-        domain: 'sandbox6c4f2c495ece41589562301dcebcee05.mailgun.org'
-    });
+    // const mg = mailgun({
+    //     apiKey: '271caf3d840e2ee672014cb907645cf3-d51642fa-0e47930a',
+    //     domain: 'sandbox6c4f2c495ece41589562301dcebcee05.mailgun.org'
+    // });
 
-    const sendEmail = (toEmail, subject, attachment) => {
-        const data = {
-            from: 'OmniPass <support@OmniPass>',
-            to: toEmail,
-            subject: subject,
-            attachment: attachment
-        };
+    // const sendEmail = (toEmail, subject, attachment) => {
+    //     const data = {
+    //         from: 'OmniPass <support@OmniPass>',
+    //         to: toEmail,
+    //         subject: subject,
+    //         attachment: attachment
+    //     };
 
-        mg.messages().send(data, (error, body) => {
-            if (error) {
-                console.log('Error sending email:', error);
-            } else {
-                console.log('Email sent:', body);
-            }
-        });
-    };
+    //     mg.messages().send(data, (error, body) => {
+    //         if (error) {
+    //             console.log('Error sending email:', error);
+    //         } else {
+    //             console.log('Email sent:', body);
+    //         }
+    //     });
+    // };
 
     const handlePaymentError = (paymentRequest) => {
         setPaymentStatus('error');
