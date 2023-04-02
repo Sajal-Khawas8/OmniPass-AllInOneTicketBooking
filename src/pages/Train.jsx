@@ -6,6 +6,7 @@ import Error from '../components/Error';
 import TrainCard from '../components/TrainCard';
 import './Train1.css';
 import { Link } from 'react-router-dom';
+import moment from 'moment/moment';
 
 // userSourceStation=document.getElementById("userSourceStation").value
 // userDestinationStation=document.getElementById("userDestinationStation").value
@@ -32,7 +33,7 @@ export default function Train() {
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': 'bb27338656mshda7a9348ad29cffp109b05jsna821e3d95649',
+                'X-RapidAPI-Key': '67fa0219fdmsh1ccb35d28a17eddp1847c6jsn0bb426fc84fa',
                 'X-RapidAPI-Host': 'irctc1.p.rapidapi.com'
             }
         };
@@ -185,10 +186,12 @@ export default function Train() {
                                         sourceStation={train.train_origin_station_code}
                                         destinationStation={train.train_destination_station_code}
                                         departureDate={document.getElementById("userDepartureDate").value}
-                                        formattedDepartureDate={`${new Date(document.getElementById("userDepartureDate").value).getDate()} ${new Date(document.getElementById("userDepartureDate").value).toLocaleString('default', { month: 'long' })} ${new Date(document.getElementById("userDepartureDate").value).getFullYear()}`}
-                                        formattedArrivalDate={`${(new Date((new Date(document.getElementById("userDepartureDate").value)).getTime() + ((new Date(`1970-01-01T${train.depart_time}`)) - (new Date(`1970-01-01T${train.arrival_time}`))))).getDate()} ${(new Date((new Date(document.getElementById("userDepartureDate").value)).getTime() + ((new Date(`1970-01-01T${train.depart_time}`)) - (new Date(`1970-01-01T${train.arrival_time}`))))).toLocaleString('default', { month: 'long' })} ${(new Date((new Date(document.getElementById("userDepartureDate").value)).getTime() + ((new Date(`1970-01-01T${train.depart_time}`)) - (new Date(`1970-01-01T${train.arrival_time}`))))).getFullYear()}`}
-                                        duration={`${(Math.floor(((new Date(`1970-01-01T${train.depart_time}`)) - (new Date(`1970-01-01T${train.arrival_time}`))) / (1000 * 60 * 60))).toString().padStart(2, '0')}h ${(Math.floor((((new Date(`1970-01-01T${train.depart_time}`)) - (new Date(`1970-01-01T${train.arrival_time}`))) % (1000 * 60 * 60)) / (1000 * 60))).toString().padStart(2, '0')}m`}
-                                        //result: 30 June 2023    -16h -50m     29 June 2023
+                                        // For reference only --> durationInMilliSeconds={(train.day_of_journey*24*60*60*1000)+((new Date(`2000-01-01T${train.arrival_time}`)-new Date(`2000-01-01T${train.depart_time}`))+24*60*60*1000)}
+                                        duration={`${(Math.floor(((train.day_of_journey * 24 * 60 * 60 * 1000) + ((new Date(`2000-01-01T${train.arrival_time}`) - new Date(`2000-01-01T${train.depart_time}`)) + 24 * 60 * 60 * 1000)) / (60 * 60 * 1000))).toString().padStart(2, '0')}h 
+                                                        ${(Math.floor((((train.day_of_journey * 24 * 60 * 60 * 1000) + ((new Date(`2000-01-01T${train.arrival_time}`) - new Date(`2000-01-01T${train.depart_time}`)) + 24 * 60 * 60 * 1000)) / (60 * 1000)) % 60)).toString().padStart(2, '0')}m 
+                                                        ${(Math.floor((((train.day_of_journey * 24 * 60 * 60 * 1000) + ((new Date(`2000-01-01T${train.arrival_time}`) - new Date(`2000-01-01T${train.depart_time}`)) + 24 * 60 * 60 * 1000)) / 1000) % 60)).toString().padStart(2, '0')}s`}
+                                        formattedArrivalDate={new Date((new Date(document.getElementById("userDepartureDate").value + `T${train.depart_time}+05:30`)).getTime() + ((train.day_of_journey * 24 * 60 * 60 * 1000) + ((new Date(`2000-01-01T${train.arrival_time}`) - new Date(`2000-01-01T${train.depart_time}`)) + 24 * 60 * 60 * 1000))).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
+                                        formattedDepartureDate={new Date(document.getElementById("userDepartureDate").value).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
                                         key={train.train_number}
                                     />
                                 ));
