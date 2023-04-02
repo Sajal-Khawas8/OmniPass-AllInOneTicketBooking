@@ -15,7 +15,6 @@
 }
 
 .Tno,
-.BoardingS,
 .StartDate {
     width: 20vw;
     height: 13vh;
@@ -28,7 +27,6 @@
 }
 
 .Tno form input,
-.BoardingS form input,
 .StartDate form input {
     width: 95%;
     height: 36px;
@@ -72,7 +70,8 @@
     text-align: center;
     justify-content: space-evenly;
     padding-left: 20px;
-    margin: auto;
+    margin-top: 5px;
+    margin-left: 75px;
     width: 90vw;
     height: 8vh;
     background-color: rgb(144, 169, 215);
@@ -209,27 +208,31 @@
     color: black;
     text-align: center;
 }
-.tablehead{
+
+.tablehead {
     background-color: rgb(144, 169, 215);
-    height:8vh;
+    height: 8vh;
     padding-left: 50px;
     padding-right: 80px;
     padding-top: 15px;
-    
+
 
 }
-.tablehead  th{
+
+.tablehead th {
     padding: 0 83px;
     font-size: 30px;
     color: black;
 }
-.Table{
+
+.Table {
     padding-top: 15px;
     padding-left: 15px;
     padding-right: 15px;
 }
+
 .Table span {
-    color:black;
+    color: black;
     border: 1px solid;
     border-radius: 15px;
     padding-top: 3px;
@@ -237,11 +240,643 @@
     padding-left: 5px;
     padding-right: 5px;
 }
-.Table td{
+
+.Table td {
 
     font-size: 30px;
-   text-align: center;
-    color:black;
+    text-align: center;
+    color: black;
     padding: 0 90px;
+
+}
+
+@media only screen and (max-width: 1450px) {
+    .tablehead th {
+        padding: 0 80px;
+        font-size: 27px;
+    }
+
+    .Table td {
+        font-size: 27px;
+        padding: 0 85px;
+    }
+}
+
+@media only screen and (max-width: 1350px) {
+    .tablehead th {
+        padding: 0 75px;
+        font-size: 25px;
+    }
+
+    .Table td {
+        font-size: 25px;
+        padding: 0 80px;
+    }
+
+}
+
+@media only screen and (max-width: 1300px) {
+    .tablehead th {
+        padding: 0 70px;
+
+    }
+
+    .Table td {
+
+        padding: 0 75px;
+    }
+}
+
+@media only screen and (max-width: 1250px) {
+    .tablehead th {
+        padding: 0 68px;
+
+    }
+
+    .Table td {
+
+        padding: 0 70px;
+    }
+
+    .tablehead {
+        padding-left: 10px;
+    }
+
+    .Table {
+        padding-left: 5px;
+    }
+
+    .Train_details .type form input {
+        width: 9vw;
+
+    }
+
+    .Tno,
+    .BoardingS,
+    .StartDate {
+        padding-left: 15px;
+    }
+}
+
+@media only screen and (max-width: 1130px) {
+    .tablehead th {
+        padding: 0 63px;
+
+    }
+
+    .Table td {
+
+        padding: 0 65px;
+    }
+
+    .tablehead {
+        padding-left: 8px;
+    }
+
+    .Table {
+        padding-left: 0px;
+    }
+
+    .Train_details .type form input {
+        width: 10vw;
+
+    }
+}
+
+@media only screen and (max-width: 1090px) {
+    .tablehead th {
+        padding: 0 55px;
+    }
+
+    .Table td {
+        padding: 0 60px;
+    }
+
+    .Tno,
+    .BoardingS,
+    .StartDate {
+        padding-left: 10px;
+    }
+
+    .Train_details {
+        margin-left: 60px;
+        padding-left: 0px;
+    }
+
+    .Calender {
+        margin-left: 60px;
+    }
+
+    .Traintime {
+        margin-left: 60px;
+    }
+
+    .livestatus {
+        margin-left: 60px;
+    }
+}
+
+@media only screen and (max-width: 1020px) {
+    .tablehead th {
+        padding: 0 50px;
+    }
+
+    .Table td {
+        padding: 0 55px;
+    }
+
+    .Calender {
+        padding-left: 35px;
+
+    }
+
+}
+
+@media only screen and (max-width: 950px) {
+    .tablehead th {
+        padding: 0 45px;
+    }
+
+    .Table td {
+        padding: 0 50px;
+    }
+
+    .Train_details span {
+        font-size: 25px;
+        font-weight: 200;
+    }
+
+    .Train_details ul li {
+        padding: 0 10px;
+        font-size: 20px;
+        font-weight: 150;
+    }
+
+    .Train_details {
+        font-size: 20px;
+        font-weight: 150;
+    }
+
+    .Train_details .type form input {
+        width: 12vw;
+
+    }
+
+    .Tno form input,
+    .BoardingS form input,
+    .StartDate form input {
+        height: 32px;
+    }
+
+    .Tno,
+    .BoardingS,
+    .StartDate {
+
+        font-size: 26px;
+    }
+
+    .Calender form input {
+        width: 10vw;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .tablehead th {
+        padding: 0 40px;
+    }
+
+    .Table td {
+        padding: 0 45px;
+    }
+
+    .Calender {
+        padding-left: 10px;
+
+    }
+
+    .Tno,
+    .BoardingS,
+    .StartDate {
+        width: 24vw;
+    }
+
+}
+
+@media only screen and (max-width: 850px) {
+    .tablehead th {
+        padding: 0 35px;
+    }
+
+    .Table td {
+        padding: 0 40px;
+    }
+
+    .Calender ul li {
+        color: black;
+        padding: 0 10px;
+    }
+
+    .Train_details {
+        margin-left: 50px;
+        padding-left: 0px;
+    }
+
+    .Calender {
+        margin-left: 50px;
+    }
+
+    .Traintime {
+        margin-left: 50px;
+    }
+
+    .livestatus {
+        margin-left: 50px;
+    }
+}
+
+@media only screen and (max-width: 810px) {
+    .Train_details {
+        width: 93vw;
+        margin-left: 40px;
+    }
+
+    .Calender {
+        margin-left: 40px;
+        width: 93vw;
+    }
+
+    .Traintime {
+        margin-left: 40px;
+        width: 93vw;
+    }
+
+    .livestatus {
+        margin-left: 40px;
+        width: 93vw;
+    }
+
+    .Train_details .type form input {
+        font-size: 15px;
+    }
+
+}
+
+@media only screen and (max-width: 780px) {
+    .Calender form {
+        margin-left: 30px;
+    }
+
+    .Train_details span {
+        font-size: 20px;
+        font-weight: 200;
+    }
+
+    .Train_details ul li {
+        font-size: 18px;
+        font-weight: 150;
+    }
+
+    .Train_details {
+        font-size: 18px;
+        font-weight: 150;
+    }
+
+    .Stations ul li {
+
+        padding: 0 5px;
+        margin: 0 8px;
+    }
+
+    .Table td {
+        font-size: 23px;
+    }
+
+    .livestatus {
+        height: 22vh;
+    }
+
+    .tablehead th {
+        padding: 0 30px;
+    }
+
+    .Table td {
+        padding: 0 35px;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .Calender form {
+        margin-left: 15px;
+    }
+
+    .Calender form input {
+        font-size: 15px;
+    }
+
+}
+
+@media only screen and (max-width: 735px) {
+    .tablehead th {
+        padding: 0 27px;
+    }
+
+    .Tno,
+    .StartDate {
+        font-size: 20px;
+        height: 10vh;
+    }
+
+    .Train_details {
+        margin-left: 30px;
+        padding-left: 0px;
+    }
+
+    .Calender {
+        margin-left: 30px;
+    }
+
+    .Traintime {
+        margin-left: 30px;
+    }
+
+    .livestatus {
+        margin-left: 30px;
+    }
+
+    .Tno form input,
+    .BoardingS form input,
+    .StartDate form input {
+        height: 25px;
+    }
+
+    .Search {
+        padding-top: 16px;
+    }
+
+    .Searchbox {
+        height: 15vh;
+        padding-top: 20px;
+    }
+
+    .Calender ul li {
+        padding: 0 8px;
+        margin: 0 8px;
+    }
+}
+@media only screen and (max-width: 680px){
+    .tablehead th {
+        padding: 0 23px;
+    }
+    .Table td {
+        padding: 0 30px;
+    }
+    .Calender ul li {
+        
+        padding: 0 8px;
+        margin :0 5px;
+    }
+
+}
+@media only screen and (max-width: 650px){
+    .tablehead th {
+        padding: 0 17px;
+    }
+    .Table td {
+        padding: 0 25px;
+    }
+    .Calender ul li {
+        padding: 0 5px;
+        margin: 0 5px;
+    }
     
+    .Train_details ul li {
+        padding: 0 6px;
+    }
+    .Train_details .type form{
+        padding-left: 5px;
+    }
+    .Train_details .type form input {
+        width: 15vw;
+
+    }
+    .Train_details {
+        margin-left: 20px;
+        padding-left: 0px;
+    }
+
+    .Calender {
+        margin-left: 20px;
+    }
+
+    .Traintime {
+        margin-left: 20px;
+    }
+
+    .livestatus {
+        margin-left: 20px;
+    }
+}
+@media only screen and (max-width: 600px){
+    .Searchbox {
+        height: 32vh;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 2px;
+    }
+    .Search {
+        padding-top: 5px;
+    }
+    .Tno,
+    .BoardingS,
+    .StartDate {
+        width: 30vw;
+    }
+    .Calender ul li {
+        
+        padding: 0 3px;
+        margin :0 3px;
+    }
+    .tablehead th {
+        padding: 0 14px;
+    }
+    .Table td {
+        padding: 0 20px;
+    }
+    .Traintime {
+        
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .Train_details span {
+        font-size: 18px;
+        font-weight: 150;
+    }
+
+    .Train_details ul li {
+        font-size: 15px;
+        font-weight: 100;
+    }
+    .Calender form {
+        margin-left: 5px;
+    }
+}
+@media only screen and (max-width: 550px){
+    .Table td {
+        font-size: 21px;
+    }
+    .tablehead th {
+        font-size: 25px;
+        padding: 0 13px;
+        font-weight: 195;
+    }
+    .Calender form{
+        display: none;
+    }
+    .Calender ul li {
+        
+        padding: 0 5px;
+        margin :0 5px;
+    }
+    .Train_details ul li {
+        padding: 0 4px;
+    }
+    .Traintime {
+        
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .Train_details{
+        font-size: 15px;
+    }
+
+}
+@media only screen and (max-width: 520px){
+    .tablehead th {
+        padding: 0 10px;
+    }
+    .Table td {
+        padding: 0 15px;
+    }
+    .Calender ul li {
+        
+        padding: 0 3px;
+        margin :0 3px;
+    }
+    .Stations ul li {
+
+        padding: 0 5px;
+        margin: 0 5px;
+    }
+}
+@media only screen and (max-width: 500px){
+    .Train_details .type form input {
+        width: 13vw;
+        height: 3vh;
+        border-radius: 10px;
+        font-size: 10px;
+        font-weight: 50;
+    }
+    .Traintime ul li {
+        color: black;
+        font-size: 25px;
+        font-weight: 400;
+    }
+    .Train_details ul li {
+        color: black;
+        padding: 0 5px;
+        font-size: 15px;
+    }
+    .Train_details{
+        font-size: 12px;
+    }
+    .Train_details span {
+        font-size: 18px;
+    }
+    .Calender ul li {
+        
+        padding: 0 2px;
+        margin :0 2px;
+    }
+    .tablehead th {
+        padding: 0 5px;
+        font-size: 25px;
+    }
+    .Table td {
+        padding: 0 12px;
+    }
+    .Calender ul li {
+        font-size: 15px;
+    }
+
+}
+@media only screen and (max-width: 460px){
+    .Tno,
+    .BoardingS,
+    .StartDate {
+        width: 35vw;
+    }
+    .tablehead th {
+        padding: 0 3px;
+    }
+    .Table td {
+        padding: 0 10px;
+    }
+    .Stations {
+        font-size: 15px;
+    }
+    .Train_details ul li {
+        color: black;
+        padding: 0 3px;
+        font-size: 12px;
+    }
+    .Train_details{
+        font-size: 10px;
+    }
+    .Train_details span {
+        font-size: 15px;
+    }
+}
+@media only screen and (max-width: 425px){
+    .Calender ul li {
+        font-size: 13px;
+    }
+    .tablehead th {
+        padding: 0 2px; 
+       font-size: 8;
+       font-weight: 50;
+    }
+    .Table td {
+        padding: 0 8px;
+    }
+
+}
+@media only screen and (max-width: 415px){
+    .Calender {
+        margin-left: 15px;
+        width:95vw;
+        
+    }
+
+    .Traintime {
+        margin-left: 15px;
+        width:95vw;
+        padding-left: 15px;
+    }
+
+    .livestatus {
+        margin-left: 15px;
+        width:95vw;
+    }
+    .Train_details {
+        margin-left: 15px;
+        width:95vw;
+       
+
+    }
+    .tablehead th {
+        padding: 0 1px; 
+   
+    }
+
 }
