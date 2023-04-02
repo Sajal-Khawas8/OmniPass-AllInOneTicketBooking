@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import './SeatCard.css';
-import { GooglePayButton } from '@google-pay/button-react';
+// import { GooglePayButton } from '@google-pay/button-react';
+import * as GooglePayButton from '@google-pay/button-react';
 import { useAuth0 } from '@auth0/auth0-react';
 import Error from './Error';
-import logo from './logo.png';
+import logo from '../images/bus.png';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import htmlToPdfmake from 'html-to-pdfmake';
+import mailgun from 'mailgun-js';
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -20,7 +22,7 @@ export default function SeatCard(props) {
         sendEmail(user.email, 'Invoice', invoice);
     };
 
-    const mailgun = require('mailgun-js')({
+    const mg = mailgun({
         apiKey: '271caf3d840e2ee672014cb907645cf3-d51642fa-0e47930a',
         domain: 'sandbox6c4f2c495ece41589562301dcebcee05.mailgun.org'
     });
@@ -33,7 +35,7 @@ export default function SeatCard(props) {
             attachment: attachment
         };
 
-        mailgun.messages().send(data, (error, body) => {
+        mg.messages().send(data, (error, body) => {
             if (error) {
                 console.log('Error sending email:', error);
             } else {
