@@ -8,7 +8,8 @@ import logo from '../images/bus.png';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import htmlToPdfmake from 'html-to-pdfmake';
-// import mailgun from 'mailgun-js';
+import sendgrid from '@sendgrid/mail';
+// import Button from './Button';
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -16,36 +17,12 @@ export default function SeatCard(props) {
     const [paymentStatus, setPaymentStatus] = useState('');
     const { loginWithRedirect, logout, isAuthenticated, error, user } = useAuth0();
 
+    const [errorMessage, setErrorMessage] = useState('');
+
     const handlePaymentSuccess = (paymentRequest) => {
         setPaymentStatus('success');
         const invoice = generateInvoice(paymentRequest);
-        sendEmail(user.email, 'Invoice', invoice);
-    };
-
-    // const mg = mailgun({
-    //     apiKey: '271caf3d840e2ee672014cb907645cf3-d51642fa-0e47930a',
-    //     domain: 'sandbox6c4f2c495ece41589562301dcebcee05.mailgun.org'
-    // });
-
-    // const sendEmail = (toEmail, subject, attachment) => {
-    //     const data = {
-    //         from: 'OmniPass <support@OmniPass>',
-    //         to: toEmail,
-    //         subject: subject,
-    //         attachment: attachment
-    //     };
-
-    //     mg.messages().send(data, (error, body) => {
-    //         if (error) {
-    //             console.log('Error sending email:', error);
-    //         } else {
-    //             console.log('Email sent:', body);
-    //         }
-    //     });
-    // };
-
-    const handlePaymentError = (paymentRequest) => {
-        setPaymentStatus('error');
+        sendEmail(user.email, 'Ticket cum Invoive', invoice);
     };
 
     const generateInvoice = (paymentRequest) => {
@@ -99,63 +76,129 @@ export default function SeatCard(props) {
         return fileName;
     };
 
-
-    const handleBookNowClick = () => {
-        if (!isAuthenticated || !user.email_verified) {
-            return <Error message="Please login and verify your email to book ticket." />;
-        }
-
-        const paymentRequest = {
-            apiVersion: 2,
-            apiVersionMinor: 0,
-            allowedPaymentMethods: [
+    const sendEmail = (toEmail, subject, attachment) => {
+        const msg = {
+            to: toEmail,
+            from: 'gouravkhawas@gmail.com', // Replace with your email address
+            subject: subject,
+            attachments: [
                 {
-                    type: 'CARD',
-                    parameters: {
-                        allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
-                        allowedCardNetworks: ['MASTERCARD', 'VISA'],
-                    },
-                    tokenizationSpecification: {
-                        type: 'PAYMENT_GATEWAY',
-                        parameters: {
-                            gateway: 'example',
-                            gatewayMerchantId: 'exampleGatewayMerchantId',
-                        },
-                    },
-                },
-                {
-                    type: 'UPI',
-                    parameters: {
-                        'pa': 'example@upi',
-                        'pn': 'Merchant Name',
-                        'tr': '1234567890',
-                        'tn': 'Purchase Description',
-                    },
+                    content: attachment.buffer.toString('base64'),
+                    filename: attachment.name,
+                    type: attachment.type,
+                    disposition: 'attachment',
                 },
             ],
-            merchantInfo: {
-                merchantId: '12345678901234567890',
-                merchantName: 'Demo Merchant',
-            },
-            transactionInfo: {
-                totalPriceStatus: 'FINAL',
-                totalPriceLabel: 'Total',
-                totalPrice: props.fare,
-                currencyCode: 'INR',
-                countryCode: 'IN',
-            },
-            shippingAddressRequired: true,
-            callbackIntents: ['PAYMENT_AUTHORIZATION'],
         };
+        sendgrid.setApiKey('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'); // Replace with your SendGrid API key
+        sendgrid.send(msg)
+            .then(() => console.log('Email sent'))
+            .catch((error) => console.error(error));
+    };
 
-        return (
+
+    const handlePaymentError = (paymentRequest) => {
+        setPaymentStatus('error');
+    };
+
+
+    const handleBookNowClick = () => {
+        // if (!isAuthenticated || !user.email_verified) {
+        //     return <Error errMessage="Please login and verify your email to book ticket." />;
+        // }
+
+        // const paymentRequest = {
+        //     apiVersion: 2,
+        //     apiVersionMinor: 0,
+        //     allowedPaymentMethods: [
+        //         {
+        //             type: 'CARD',
+        //             parameters: {
+        //                 allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+        //                 allowedCardNetworks: ['MASTERCARD', 'VISA'],
+        //             },
+        //             tokenizationSpecification: {
+        //                 type: 'PAYMENT_GATEWAY',
+        //                 parameters: {
+        //                     gateway: 'OmniPass',
+        //                     gatewayMerchantId: '2153465453123456545',
+        //                 },
+        //             },
+        //         },
+        //         {
+        //             type: 'UPI',
+        //             parameters: {
+        //                 'pa': 'example@upi',
+        //                 'pn': 'OmniPass',
+        //                 'tr': '1234567890',
+        //                 'tn': 'Purchase Description',
+        //             },
+        //         },
+        //     ],
+        //     merchantInfo: {
+        //         merchantId: '12345678901234567890',
+        //         merchantName: 'OmniPass',
+        //     },
+        //     transactionInfo: {
+        //         totalPriceStatus: 'FINAL',
+        //         totalPriceLabel: 'Total',
+        //         totalPrice: props.fare,
+        //         currencyCode: 'INR',
+        //         countryCode: 'IN',
+        //     },
+        //     shippingAddressRequired: false,
+        //     callbackIntents: ['PAYMENT_AUTHORIZATION'],
+        // };
+
+        // return (
             <GooglePayButton
                 environment="TEST"
-                paymentRequest={paymentRequest}
+                paymentRequest={{
+                    apiVersion: 2,
+                    apiVersionMinor: 0,
+                    allowedPaymentMethods: [
+                        {
+                            type: 'CARD',
+                            parameters: {
+                                allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+                                allowedCardNetworks: ['MASTERCARD', 'VISA'],
+                            },
+                            tokenizationSpecification: {
+                                type: 'PAYMENT_GATEWAY',
+                                parameters: {
+                                    gateway: 'OmniPass',
+                                    gatewayMerchantId: '2153465453123456545',
+                                },
+                            },
+                        },
+                        {
+                            type: 'UPI',
+                            parameters: {
+                                'pa': 'example@upi',
+                                'pn': 'OmniPass',
+                                'tr': '1234567890',
+                                'tn': 'Purchase Description',
+                            },
+                        },
+                    ],
+                    merchantInfo: {
+                        merchantId: '12345678901234567890',
+                        merchantName: 'OmniPass',
+                    },
+                    transactionInfo: {
+                        totalPriceStatus: 'FINAL',
+                        totalPriceLabel: 'Total',
+                        totalPrice: props.fare,
+                        currencyCode: 'INR',
+                        countryCode: 'IN',
+                    },
+                    shippingAddressRequired: false,
+                    callbackIntents: ['PAYMENT_AUTHORIZATION'],
+                }}
                 onLoadPaymentData={handlePaymentSuccess}
                 onError={handlePaymentError}
             />
-        );
+        // );
     };
 
     return (
@@ -163,8 +206,9 @@ export default function SeatCard(props) {
             <div className="fare">Rs. {props.fare}</div>
             <div className="date">{props.date}</div>
             <div className="seatsAvl">{props.status}</div>
+            {/* <Button content="Book" /> */}
             {handleBookNowClick()}
-            {paymentStatus === 'error' && <Error message="Payment failed. Please try again later." />}
+            {paymentStatus === 'error' && <Error errMessage="Payment failed. Please try again later." />}
         </div>
     )
 }
