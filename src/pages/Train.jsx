@@ -6,7 +6,6 @@ import Error from '../components/Error';
 import TrainCard from '../components/TrainCard';
 import './Train1.css';
 import { Link } from 'react-router-dom';
-import moment from 'moment/moment';
 
 // userSourceStation=document.getElementById("userSourceStation").value
 // userDestinationStation=document.getElementById("userDestinationStation").value
