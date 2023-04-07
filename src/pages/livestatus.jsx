@@ -1411,7 +1411,6 @@ export default function LiveStatus() {
                         <li><span>{response2.details.number}</span></li>
                         <li>| {response2.stations.length}</li>
                     </ul>
-                    Class: 5A 3A 2A 1A
                     <div className='type'>
                         Type:
                         <form><input type="button" value={response2.details.type} id="type"></input></form>
@@ -1433,34 +1432,13 @@ export default function LiveStatus() {
                     <div className='Stations'>
                         {response2.details.source_code}<br></br>
                         {response2.details.source}
-
-                        <ul>
-                            <li>S</li>
-                            <li>M</li>
-                            <li>T</li>
-                            <li>W</li>
-                            <li>T</li>
-                            <li>F</li>
-                            <li>S</li>
-                        </ul>
                         {response2.details.destination_code}<br></br>
                         {response2.details.destination}
                     </div>
 
                 </div>
-                <div className='Calender'>
-                    <ul>
-                        <li>Thursday<br></br>30/03/2023</li>
-                        <li>Friday<br></br>01/04/2023</li>
-                        <li>Saturday<br></br>02/04/2023</li>
-                        <li>Sunday<br></br>03/04/2023</li>
-                        <li>Monday<br></br>04/04/2023</li>
-
-                    </ul>
-                    <form><input type="button" value="Refresh" id="refresh"></input></form>
-                </div>
                 <div className='livestatus'>
-                    <div className='Table'><span>Thursday, 30 March,2023</span>
+                    <div className='Table'>
                         <table>
                             <thead>
                                 <tr>
