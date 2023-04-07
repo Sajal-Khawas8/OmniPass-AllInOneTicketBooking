@@ -1453,19 +1453,19 @@ export default function LiveStatus() {
                                 {response2.stations.map(element => (
                                     <tr key={element.source_code}>
                                         <td>{element.source_name}({element.source_code})<br></br>{element.distance}kms</td>
-                                        <td>{element.arrival_time}<br></br>{element.actual_arrival_time}</td>
-                                        <td>{element.departure_time}<br></br>{element.actual_departure_time}</td>
+                                        <td>{element.is_source==="1"?"Source":`${element.arrival_time}\n\n${element.actual_arrival_time}`}</td>
+                                        <td>{element.is_destination==="1"?"Destination":`${element.departure_time}\n\n${element.actual_departure_time}`}</td>
 
                                         <td>{
                                             (new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) === 0
                                                 ? "On Time"
                                                 : (
-                                                    ((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60) < 60
-                                                        ? ((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 + "m")
-                                                        : (Math.floor((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 / 60) + "h " + Math.floor((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 % 60) + "m")
+                                                    ((Math.floor((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 / 60))>0 && (Math.floor((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 % 60))>0)
+                                                    ? (Math.floor((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 / 60) + "h " + Math.floor((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 % 60) + "m")
+                                                    : (Math.floor((new Date("01/02/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 / 60) + "h " + Math.floor((new Date("01/02/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 % 60) + "m")
                                                 )
                                         }</td>
-                                        <td>{((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.actual_arrival_time).getTime()) / 1000 / 60) + "m"}</td>
+                                        <td>{(element.is_source==="1" || element.is_destination==="1")?"--":`${((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.actual_arrival_time).getTime()) / 1000 / 60) + "m"}`}</td>
                                     </tr>
                                 ))}
                             </tbody>
