@@ -1,5 +1,6 @@
 import './livestatus.css'
 import Button from '../components/Button';
+import { useState } from 'react';
 
 export default function LiveStatus() {
     const options = {
@@ -24,9 +25,9 @@ export default function LiveStatus() {
         }
     ];
 
-    console.log(api1Response[0].id)
+    // console.log(api1Response[0].id)
 
-    let api2Response = {
+    let response2 = {
         "details": {
             "id": "2739",
             "number": "12312",
@@ -1190,9 +1191,201 @@ export default function LiveStatus() {
             }
         ]
     };
-    console.log(api2Response.stations.forEach(element => {
-        console.log(element.actual_arrival_time)
-    }))
+    // console.log(api2Response.stations.forEach(element => {
+    //     console.log(element.actual_arrival_time)
+    // }))
+
+    // function fetchLiveStatus() {
+    //     console.log("Function running");
+    //     let liveStatusString = '';
+    //     fetch(`https://indian-railway-irctc.p.rapidapi.com/getTrainId?trainno=${document.getElementById("userSourceStation").value}`, options)
+    //         .then(response => response.json())
+    //         .then(response => {
+    //             fetch(`https://indian-railway-irctc.p.rapidapi.com/getTrainLiveStatusById?id=${response[0].id}&date=${document.getElementById("userDepartureDate").value}`, options)
+    //                 .then(response2 => response2.json())
+    //                 .then(response2 => {
+    //                     liveStatusString =
+    //                     <div className='Content'>
+    //                             <div className='Train_details'>
+    //                                 <ul>
+    //                                     <li>
+    //                                         <span>{response2.details.name + "/" + response2.details.name_hi}</span>
+    //                                     </li>
+    //                                     <li><span>{response2.details.number}</span></li>
+    //                                     <li>| ${response2.stations.length}</li>
+    //                                 </ul>
+    //                                 Class: 5A 3A 2A 1A
+    //                                 <div className='type'>
+    //                                     Type:
+    //                                     <form><input type="button" value={response2.details.type} id="type"></input></form>
+    //                                 </div>
+    //                             </div>
+    //                             <div className='Traintime'>
+    //                                 <ul>
+    //                                     <li>{response2.train.trs_date_full}</li>
+    //                                     <li>{response2.train.tds_date_full}</li>
+    //                                 </ul>
+    //                                 <div className='Shapes'>
+    //                                     <div className='circle'>
+    //                                     </div>
+    //                                     <div className='line'>
+    //                                     </div>
+    //                                     <div className='circle'>
+    //                                     </div>
+    //                                 </div>
+    //                                 <div className='Stations'>
+    //                                     {response2.details.source_code}<br></br>
+    //                                     {response2.details.source}
+
+    //                                     <ul>
+    //                                         <li>S</li>
+    //                                         <li>M</li>
+    //                                         <li>T</li>
+    //                                         <li>W</li>
+    //                                         <li>T</li>
+    //                                         <li>F</li>
+    //                                         <li>S</li>
+    //                                     </ul>
+    //                                     {response2.details.destination_code}<br></br>
+    //                                     {response2.details.destination}
+    //                                 </div>
+
+    //                             </div>
+    //                             <div className='Calender'>
+    //                                 <ul>
+    //                                     <li>Thursday<br></br>30/03/2023</li>
+    //                                     <li>Friday<br></br>01/04/2023</li>
+    //                                     <li>Saturday<br></br>02/04/2023</li>
+    //                                     <li>Sunday<br></br>03/04/2023</li>
+    //                                     <li>Monday<br></br>04/04/2023</li>
+
+    //                                 </ul>
+    //                                 <form><input type="button" value="Refresh" id="refresh"></input></form>
+    //                             </div>
+    //                             <div className='livestatus'>
+    //                                 <div className='tablehead'>
+    //                                     <th>Station</th>
+    //                                     <th>Arrival</th>
+    //                                     <th>Departure</th>
+    //                                     <th>Delay</th>
+    //                                     <th>Hault</th>
+
+    //                                 </div>
+    //                                 <div className='Table'><span>Thursday, 30 March,2023</span>
+    //                                     <table>
+    //                                     ${response2.stations.forEach(element => {
+    //                                         <tr>
+    //                                             <td>{element.source_name}({element.source_code})<br></br>{element.distance}kms</td>
+    //                                             <td>{element.arrival_time}<br></br>{element.actual_arrival_time}</td>
+    //                                             <td>{element.departure_time}<br></br>{element.actual_departure_time}</td>
+    //                                             <td>{(new Date("01/01/2023 " + element.actual_departure_time).getMinutes() - new Date("01/01/2023 " + element.departure_time).getMinutes()) === 0 ? "On Time" : (new Date("01/01/2023 " + element.actual_departure_time).getMinutes() - new Date("01/01/2023 " + element.departure_time).getMinutes()) + "m"}</td>
+    //                                             <td>{(new Date("01/01/2023 " + element.actual_departure_time).getMinutes() - new Date("01/01/2023 " + element.actual_arrival_time).getMinutes()) + "m"}</td>
+    //                                         </tr>
+    //                                     })}
+    //                                     </table>
+    //                                 </div>
+
+    //                             </div>
+
+    //                         </div>
+    //                 })
+    //                 .catch(err2 => console.error(err2));
+    //         })
+    //         .catch(err => console.error(err))
+    //     console.log(liveStatusString);
+    //     document.getElementById("liveStatus").innerHTML = liveStatusString;
+    // }
+
+    const [showLiveStatus, setShowLiveStatus] = useState(false);
+
+    // function fetchLiveStatus() {
+    //     console.log("Function running");
+    //     return(
+    //         <div className='Content'>
+    //             <div className='Train_details'>
+    //                 <ul>
+    //                     <li>
+    //                         <span>{response2.details.name + "/" + response2.details.name_hi}</span>
+    //                     </li>
+    //                     <li><span>{response2.details.number}</span></li>
+    //                     <li>| {response2.stations.length}</li>
+    //                 </ul>
+    //                 Class: 5A 3A 2A 1A
+    //                 <div className='type'>
+    //                     Type:
+    //                     <form><input type="button" value={response2.details.type} id="type"></input></form>
+    //                 </div>
+    //             </div>
+    //             <div className='Traintime'>
+    //                 <ul>
+    //                     <li>{response2.train.trs_date_full}</li>
+    //                     <li>{response2.train.tds_date_full}</li>
+    //                 </ul>
+    //                 <div className='Shapes'>
+    //                     <div className='circle'>
+    //                     </div>
+    //                     <div className='line'>
+    //                     </div>
+    //                     <div className='circle'>
+    //                     </div>
+    //                 </div>
+    //                 <div className='Stations'>
+    //                     {response2.details.source_code}<br></br>
+    //                     {response2.details.source}
+
+    //                     <ul>
+    //                         <li>S</li>
+    //                         <li>M</li>
+    //                         <li>T</li>
+    //                         <li>W</li>
+    //                         <li>T</li>
+    //                         <li>F</li>
+    //                         <li>S</li>
+    //                     </ul>
+    //                     {response2.details.destination_code}<br></br>
+    //                     {response2.details.destination}
+    //                 </div>
+
+    //             </div>
+    //             <div className='Calender'>
+    //                 <ul>
+    //                     <li>Thursday<br></br>30/03/2023</li>
+    //                     <li>Friday<br></br>01/04/2023</li>
+    //                     <li>Saturday<br></br>02/04/2023</li>
+    //                     <li>Sunday<br></br>03/04/2023</li>
+    //                     <li>Monday<br></br>04/04/2023</li>
+
+    //                 </ul>
+    //                 <form><input type="button" value="Refresh" id="refresh"></input></form>
+    //             </div>
+    //             <div className='livestatus'>
+    //                 <div className='tablehead'>
+    //                     <th>Station</th>
+    //                     <th>Arrival</th>
+    //                     <th>Departure</th>
+    //                     <th>Delay</th>
+    //                     <th>Hault</th>
+
+    //                 </div>
+    //                 <div className='Table'><span>Thursday, 30 March,2023</span>
+    //                     <table>
+    //                         {response2.stations.forEach(element => {
+    //                             <tr>
+    //                                 <td>{element.source_name}({element.source_code})<br></br>{element.distance}kms</td>
+    //                                 <td>{element.arrival_time}<br></br>{element.actual_arrival_time}</td>
+    //                                 <td>{element.departure_time}<br></br>{element.actual_departure_time}</td>
+    //                                 <td>{(new Date("01/01/2023 " + element.actual_departure_time).getMinutes() - new Date("01/01/2023 " + element.departure_time).getMinutes()) === 0 ? "On Time" : (new Date("01/01/2023 " + element.actual_departure_time).getMinutes() - new Date("01/01/2023 " + element.departure_time).getMinutes()) + "m"}</td>
+    //                                 <td>{(new Date("01/01/2023 " + element.actual_departure_time).getMinutes() - new Date("01/01/2023 " + element.actual_arrival_time).getMinutes()) + "m"}</td>
+    //                             </tr>
+    //                         })}
+    //                     </table>
+    //                 </div>
+
+    //             </div>
+
+    //         </div>
+    //     )
+    // }
 
     return (
         <>
@@ -1206,104 +1399,104 @@ export default function LiveStatus() {
                     <form><input type="date" id='userDepartureDate' /></form>
                 </div>
                 <div className="Search">
-                    <Button className='active' content="Check Live Status" style={{ width: '200px', height: '40px', fontWeight: '100', borderRadius: '5px', fontSize: '20px' }}> Search Train</Button>
+                    <Button className='active' onClick={() => setShowLiveStatus(true)} content="Check Live Status" style={{ width: '200px', height: '40px', fontWeight: '100', borderRadius: '5px', fontSize: '20px' }}> Search Train</Button>
                 </div>
             </div>
-            {
-                fetch(`https://indian-railway-irctc.p.rapidapi.com/getTrainId?trainno=${document.getElementById("userSourceStation").value}`, options)
-                    .then(response => response.json())
-                    .then(response => {
-                        fetch(`https://indian-railway-irctc.p.rapidapi.com/getTrainLiveStatusById?id=${response[0].id}&date=${document.getElementById("userDepartureDate").value}`, options)
-                            .then(response2 => response2.json())
-                            .then(response2 => {
-                                <div className='Content'>
-                                    <div className='Train_details'>
-                                        <ul>
-                                            <li>
-                                                <span>{response2.details.name / response2.details.name_hi}</span>
-                                            </li>
-                                            <li><span>{response2.details.number}</span></li>
-                                            <li>| {response2.stations.length}</li>
-                                        </ul>
-                                        Class: 5A 3A 2A 1A
-                                        <div className='type'>
-                                            Type:
-                                            <form><input type="button" value={response2.details.type} id="type"></input></form>
-                                        </div>
-                                    </div>
-                                    <div className='Traintime'>
-                                        <ul>
-                                            <li>{response2.train.trs_date_full}</li>
-                                            <li>{response2.train.tds_date_full}</li>
-                                        </ul>
-                                        <div className='Shapes'>
-                                            <div className='circle'>
-                                            </div>
-                                            <div className='line'>
-                                            </div>
-                                            <div className='circle'>
-                                            </div>
-                                        </div>
-                                        <div className='Stations'>
-                                            {response2.details.source_code}<br></br>
-                                            {response2.details.source}
+            {showLiveStatus && (<div className='Content'>
+                <div className='Train_details'>
+                    <ul>
+                        <li>
+                            <span>{response2.details.name + "/" + response2.details.name_hi}</span>
+                        </li>
+                        <li><span>{response2.details.number}</span></li>
+                        <li>| {response2.stations.length}</li>
+                    </ul>
+                    Class: 5A 3A 2A 1A
+                    <div className='type'>
+                        Type:
+                        <form><input type="button" value={response2.details.type} id="type"></input></form>
+                    </div>
+                </div>
+                <div className='Traintime'>
+                    <ul>
+                        <li>{response2.train.trs_date_full}</li>
+                        <li>{response2.train.tds_date_full}</li>
+                    </ul>
+                    <div className='Shapes'>
+                        <div className='circle'>
+                        </div>
+                        <div className='line'>
+                        </div>
+                        <div className='circle'>
+                        </div>
+                    </div>
+                    <div className='Stations'>
+                        {response2.details.source_code}<br></br>
+                        {response2.details.source}
 
-                                            <ul>
-                                                <li>S</li>
-                                                <li>M</li>
-                                                <li>T</li>
-                                                <li>W</li>
-                                                <li>T</li>
-                                                <li>F</li>
-                                                <li>S</li>
-                                            </ul>
-                                            {response2.details.destination_code}<br></br>
-                                            {response2.details.destination}
-                                        </div>
+                        <ul>
+                            <li>S</li>
+                            <li>M</li>
+                            <li>T</li>
+                            <li>W</li>
+                            <li>T</li>
+                            <li>F</li>
+                            <li>S</li>
+                        </ul>
+                        {response2.details.destination_code}<br></br>
+                        {response2.details.destination}
+                    </div>
 
-                                    </div>
-                                    <div className='Calender'>
-                                        <ul>
-                                            <li>Thursday<br></br>30/03/2023</li>
-                                            <li>Friday<br></br>01/04/2023</li>
-                                            <li>Saturday<br></br>02/04/2023</li>
-                                            <li>Sunday<br></br>03/04/2023</li>
-                                            <li>Monday<br></br>04/04/2023</li>
+                </div>
+                <div className='Calender'>
+                    <ul>
+                        <li>Thursday<br></br>30/03/2023</li>
+                        <li>Friday<br></br>01/04/2023</li>
+                        <li>Saturday<br></br>02/04/2023</li>
+                        <li>Sunday<br></br>03/04/2023</li>
+                        <li>Monday<br></br>04/04/2023</li>
 
-                                        </ul>
-                                        <form><input type="button" value="Refresh" id="refresh"></input></form>
-                                    </div>
-                                    <div className='livestatus'>
-                                        <div className='tablehead'>
-                                            <th>Station            </th>
-                                            <th>Arrival</th>
-                                            <th>Departure</th>
-                                            <th>Delay</th>
-                                            <th>Hault</th>
+                    </ul>
+                    <form><input type="button" value="Refresh" id="refresh"></input></form>
+                </div>
+                <div className='livestatus'>
+                    <div className='Table'><span>Thursday, 30 March,2023</span>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Station</th>
+                                    <th>Arrival</th>
+                                    <th>Departure</th>
+                                    <th>Delay</th>
+                                    <th>Hault</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {response2.stations.map(element => (
+                                    <tr key={element.source_code}>
+                                        <td>{element.source_name}({element.source_code})<br></br>{element.distance}kms</td>
+                                        <td>{element.arrival_time}<br></br>{element.actual_arrival_time}</td>
+                                        <td>{element.departure_time}<br></br>{element.actual_departure_time}</td>
 
-                                        </div>
-                                        <div className='Table'><span>Thursday, 30 March,2023</span>
-                                            <table>
-                                                {response2.stations.forEach(element => {
-                                                <tr><td>{element.source_name}({element.source_code})<br></br>{element.distance}kms</td>
-                                                    <td>{element.arrival_time}<br></br>{element.actual_arrival_time}</td>
-                                                    <td>{element.departure_time}<br></br>{element.actual_departure_time}</td>
-                                                    <td>OnTime</td>
-                                                    <td>1</td>
-                                                </tr>
-                                                })}
-                                            </table>
-                                        </div>
+                                        <td>{
+                                            (new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) === 0
+                                                ? "On Time"
+                                                : (
+                                                    ((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60) < 60
+                                                        ? ((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 + "m")
+                                                        : (Math.floor((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 / 60) + "h " + Math.floor((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 % 60) + "m")
+                                                )
+                                        }</td>
+                                        <td>{((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.actual_arrival_time).getTime()) / 1000 / 60) + "m"}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
 
-                                    </div>
+                </div>
 
-                                </div>
-                            })
-                            .catch(err2 => console.error(err2));
-                    })
-                    .catch(err => console.error(err))
-            }
-
+            </div>)}
 
 
         </>
