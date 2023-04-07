@@ -116,6 +116,7 @@
     color: black;
     font-size: 30px;
     font-weight: 400;
+    
 }
 
 .Traintime ul {
@@ -146,19 +147,22 @@
 }
 
 .Stations {
+   
+    color: black;
+    padding-top: 5px;
+    font-size: 20px;
+}
+.Stations ul{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: black;
-    padding-top: 15px;
-    font-size: 20px;
+
 }
 
 .Stations ul li {
 
     padding: 0 20px;
     margin: 0 3px;
-    border: 1px solid;
     border-color: black;
 }
 
@@ -176,35 +180,14 @@
     background-color: white;
 }
 
-.Calender ul {
-    display: flex;
-    align-items: center;
-}
 
-.Calender ul li {
-    color: black;
-    padding: 0 20px;
-    margin: 0 10px;
-    border: 1px solid;
-    border-color: black;
-    background-color: rgb(225, 222, 222);
-}
-
-.Calender form input {
-    color: black;
-    width: 8vw;
-    height: 4vh;
-    border-radius: 10px;
-    font-size: 20px;
-    font-weight: 100;
-}
 
 .livestatus {
     width: 90vw;
     /* height: 37vh; */
     margin-top: 10px;
     margin-left: 75px;
-    background-color:red;
+    background-color:aliceblue;
     color: black;
     text-align: center;
 }
@@ -220,7 +203,7 @@
 }
 .Table table thead th
  {
-    padding: 0 83px;
+    padding: 0 70px;
     font-size: 30px;
     color: black;
 }
@@ -248,7 +231,12 @@
 }
 .Table tbody td{
     color:black;
+    padding: 0 55px;
+    font-size: 23px;
+    background-color: rgb(144, 169, 215);
+
 }
+
 
 
 @media only screen and (max-width: 1450px) {
