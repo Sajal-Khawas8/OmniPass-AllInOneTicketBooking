@@ -6,6 +6,7 @@ import Error from '../components/Error';
 import TrainCard from '../components/TrainCard';
 import './Train1.css';
 import { Link } from 'react-router-dom';
+import CheckoutForm from '../components/CheckoutForm';
 
 // userSourceStation=document.getElementById("userSourceStation").value
 // userDestinationStation=document.getElementById("userDestinationStation").value
@@ -246,11 +247,14 @@ export default function Train() {
             //     });
         }
     }
+    const [showPayment, setShowPayment]=useState(false);
     return (
         <>
             {!flag && <Error errMessage={errorMessage}></Error>}
             <div className="image">
                 <div className="button1">
+                    {showPayment && <CheckoutForm style={{width:"70vw", margin:"auto"}}></CheckoutForm>}
+                    <Button content="Book" onClick={()=>setShowPayment(true)}></Button>
                     <Link to='/trainLiveStatus'><Button className='active' content="Live Status" style={{ width: '140px', height: '37px', fontSize: '20px', fontWeight: '300' }}> Live Status</Button></Link>
                     <Button className='active' content="PNR Check" style={{ width: '140px', height: '37px', fontSize: '20px', fontWeight: '300' }}> PNR Check</Button>
                 </div>
