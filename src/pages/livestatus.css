@@ -42,7 +42,7 @@
 .Content {
     padding-top: 20px;
     background-color: rgb(51, 83, 146);
-    height: 70vh;
+    /* height: 70vh; */
 }
 
 .Train_details span {
@@ -186,7 +186,7 @@
 
 .livestatus {
     width: 90vw;
-    height: 37vh;
+    /* height: 37vh; */
     margin-top: 10px;
     margin-left: 75px;
     background-color:aliceblue;
@@ -214,7 +214,7 @@
     padding-top: 15px;
     padding-left: 15px;
     padding-right: 15px;
-    height:35vh;
+    /* height:35vh; */
     width:85vw;
     overflow: hidden;
     overflow-y: scroll;

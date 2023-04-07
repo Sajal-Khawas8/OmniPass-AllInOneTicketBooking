@@ -1409,7 +1409,7 @@ export default function LiveStatus() {
                             <span>{response2.details.name + "/" + response2.details.name_hi}</span>
                         </li>
                         <li><span>{response2.details.number}</span></li>
-                        <li>| {response2.stations.length}</li>
+                        <li>| &nbsp;{response2.stations.length} Stops</li>
                     </ul>
                     <div className='type'>
                         Type:
@@ -1430,10 +1430,12 @@ export default function LiveStatus() {
                         </div>
                     </div>
                     <div className='Stations'>
-                        {response2.details.source_code}<br></br>
-                        {response2.details.source}
-                        {response2.details.destination_code}<br></br>
-                        {response2.details.destination}
+                        <ul>
+                        <li>{response2.details.source_code}<br></br>
+                        {response2.details.source}</li>
+                        <li>{response2.details.destination_code}<br></br>
+                        {response2.details.destination}</li>
+                        </ul>
                     </div>
 
                 </div>
@@ -1453,19 +1455,22 @@ export default function LiveStatus() {
                                 {response2.stations.map(element => (
                                     <tr key={element.source_code}>
                                         <td>{element.source_name}({element.source_code})<br></br>{element.distance}kms</td>
-                                        <td>{element.is_source==="1"?"Source":`${element.arrival_time}\n\n${element.actual_arrival_time}`}</td>
-                                        <td>{element.is_destination==="1"?"Destination":`${element.departure_time}\n\n${element.actual_departure_time}`}</td>
-
+                                        <td style={{ whiteSpace: "pre-wrap" }}>
+                                            {element.is_source === "1" ? "Source" : element.arrival_time + "\n" + element.actual_arrival_time}
+                                        </td>
+                                        <td style={{ whiteSpace: "pre-wrap" }}>
+                                            {element.is_destination === "1" ? "Destination" : element.departure_time + "\n" + element.actual_departure_time}
+                                        </td>
                                         <td>{
                                             (new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) === 0
                                                 ? "On Time"
                                                 : (
-                                                    ((Math.floor((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 / 60))>0 && (Math.floor((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 % 60))>0)
-                                                    ? (Math.floor((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 / 60) + "h " + Math.floor((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 % 60) + "m")
-                                                    : (Math.floor((new Date("01/02/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 / 60) + "h " + Math.floor((new Date("01/02/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 % 60) + "m")
+                                                    ((Math.floor((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 / 60)) > 0 && (Math.floor((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 % 60)) > 0)
+                                                        ? (Math.floor((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 / 60) + "h " + Math.floor((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 % 60) + "m")
+                                                        : (Math.floor((new Date("01/02/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 / 60) + "h " + Math.floor((new Date("01/02/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 % 60) + "m")
                                                 )
                                         }</td>
-                                        <td>{(element.is_source==="1" || element.is_destination==="1")?"--":`${((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.actual_arrival_time).getTime()) / 1000 / 60) + "m"}`}</td>
+                                        <td>{(element.is_source === "1" || element.is_destination === "1") ? "--" : `${((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.actual_arrival_time).getTime()) / 1000 / 60) + "m"}`}</td>
                                     </tr>
                                 ))}
                             </tbody>
