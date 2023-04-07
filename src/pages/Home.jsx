@@ -16,28 +16,28 @@ export default function Home() {
                     <div className="card">
                         <Link to="/train">
                             <img src="./src/images/train.jpg" alt="" />
-                            <p>Book your train tickets Today!</p>
+                            <p>It's a freight day to go for a ride on Train. Book your train tickets Now!!! Also check your PNR & Live Status without paying any charges</p>
                         </Link>
                     </div>
                     <div className="card">
                         <img src="./src/images/flight.png" alt="" />
-                        <p>Book your flight tickets Today!</p>
+                        <p>All you need is a passport, plane ticket & positive vibe.So get your Flight ticket ASAP... Book Now!!! </p>
                     </div>
                     <div className="card">
                         <img src="./src/images/hotel.png" alt="" />
-                        <p>Book your hotel rooms Today!</p>
+                        <p>It's never too early to book a staycation. Give yourself the gift of restfull night.Book your weekend staycation Now!</p>
                     </div>
                     <div className="card">
                         <img src="./src/images/metro.png" alt="" />
-                        <p>Book your metro tickets Today!</p>
+                        <p>Infinite eyes, a million words,a potpourre of vibes- Metro can never be boring. Grab your Metro tickets Really Quick!! Book Today!</p>
                     </div>
                     <div className="card">
                         <img src="./src/images/bus.png" alt="" />
-                        <p>Book your bus tickets Today!</p>
+                        <p>Trip Planning? Trip Avoiding? Either way,you're going to want to get this on Bus. Book your seats Immediately!!</p>
                     </div>
                     <div className="card">
                         <img src="./src/images/movie.png" alt="" />
-                        <p>Book your movies tickets Today!</p>
+                        <p>Experience the story, on the big screen.Get your tickets, see the flicks! BOOk NOW..</p>
                     </div>
                 </div>
             </div>

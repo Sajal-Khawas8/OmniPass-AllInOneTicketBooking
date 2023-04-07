@@ -201,10 +201,10 @@
 
 .livestatus {
     width: 90vw;
-    height: 25vh;
+    height: 50vh;
     margin-top: 10px;
     margin-left: 75px;
-    background-color: aliceblue;
+    background-color:white;
     color: black;
     text-align: center;
 }
@@ -229,6 +229,10 @@
     padding-top: 15px;
     padding-left: 15px;
     padding-right: 15px;
+    height:30vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    background-color: aqua;
 }
 
 .Table span {
@@ -239,16 +243,12 @@
     padding-bottom: 3px;
     padding-left: 5px;
     padding-right: 5px;
-}
-
-.Table td {
-
-    font-size: 30px;
-    text-align: center;
-    color: black;
-    padding: 0 90px;
 
 }
+.Table tbody td{
+    color:black;
+}
+
 
 @media only screen and (max-width: 1450px) {
     .tablehead th {
