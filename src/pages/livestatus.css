@@ -201,15 +201,15 @@
 
 .livestatus {
     width: 90vw;
-    height: 50vh;
+    height: 37vh;
     margin-top: 10px;
     margin-left: 75px;
-    background-color:white;
+    background-color:red;
     color: black;
     text-align: center;
 }
 
-.tablehead {
+.Table table  thead{
     background-color: rgb(144, 169, 215);
     height: 8vh;
     padding-left: 50px;
@@ -218,8 +218,8 @@
 
 
 }
-
-.tablehead th {
+.Table table thead th
+ {
     padding: 0 83px;
     font-size: 30px;
     color: black;
@@ -229,10 +229,11 @@
     padding-top: 15px;
     padding-left: 15px;
     padding-right: 15px;
-    height:30vh;
+    height:35vh;
+    width:85vw;
     overflow: hidden;
     overflow-y: scroll;
-    background-color: aqua;
+    margin:auto;
 }
 
 .Table span {
