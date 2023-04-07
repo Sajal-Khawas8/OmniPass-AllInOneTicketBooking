@@ -149,14 +149,13 @@
 .Stations {
    
     color: black;
-    padding-top: 15px;
+    padding-top: 5px;
     font-size: 20px;
 }
 .Stations ul{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: brown;
 
 }
 
@@ -164,7 +163,6 @@
 
     padding: 0 20px;
     margin: 0 3px;
-    border: 1px solid;
     border-color: black;
 }
 
