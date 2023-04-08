@@ -256,7 +256,7 @@ export default function Train() {
                     {showPayment && <CheckoutForm style={{width:"70vw", margin:"auto"}}></CheckoutForm>}
                     <Button content="Book" onClick={()=>setShowPayment(true)}></Button>
                     <Link to='/trainLiveStatus'><Button className='active' content="Live Status" style={{ width: '140px', height: '37px', fontSize: '20px', fontWeight: '300' }}> Live Status</Button></Link>
-                    <Button className='active' content="PNR Check" style={{ width: '140px', height: '37px', fontSize: '20px', fontWeight: '300' }}> PNR Check</Button>
+                    <Link to='/trainPnrStatus'><Button className='active' content="PNR Check" style={{ width: '140px', height: '37px', fontSize: '20px', fontWeight: '300' }}> PNR Check</Button></Link>
                 </div>
                 <div className='head'><h1>Booknow<span>.com</span></h1></div>
                 <div className="button2">

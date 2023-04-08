@@ -19,7 +19,7 @@ export default function Navbar() {
             <nav className={navOpened ? "nav_text active" : "nav_text"}>
                 <ul>
                     <li> <Link to="/"> Home</Link></li>
-                    <li> <a href="#"> About</a></li>
+                    <li> <Link to="/about"> About</Link></li>
                     <li> <a href="#services"> Services</a></li>
                     <li> <a href="#contactUs"> Contact Us</a></li>
                     {
