@@ -85,3 +85,80 @@
     list-style:circle;
     padding-top: 20px;
 }
+.FAQ{
+    padding-top: 30px;
+}
+.Accordion{
+    background-color: rgb(48, 48, 48);
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-top: 30px;
+    border-radius: 5px;
+    padding-left: 50px;
+    padding-right: 50px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.Accordion .flex{
+    width:30vw;
+
+
+}
+.FAQ ul {
+    padding-top: 20px;
+    
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+}
+.FAQ ul li{
+    background-color:white;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 20px;
+
+    border-radius: 4px;
+    font-size: 20px;
+}
+.FAQ ul li label{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size:26px;
+    font-weight: 500;
+    cursor:pointer;
+    color:black;
+    height:8vh;
+   
+}
+.FAQ ul li label span{
+    transform: rotate(90deg);
+    font-size:20px;
+    color: black;
+    font-weight: 800;
+}
+.FAQ label + input[type="radio"]
+{
+    display:none;
+}
+.FAQ .content{
+    padding :0 10px;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.5s;
+    background-color:#BFBCBC;
+    margin-bottom: 5px;
+   
+   
+
+}
+.FAQ .content p{
+    color:black;
+    
+}
+.FAQ label + input[type="radio"]:checked +.content{
+    max-height:400px;
+    
+}
