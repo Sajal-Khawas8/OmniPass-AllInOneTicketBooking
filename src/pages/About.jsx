@@ -1,20 +1,20 @@
 import React from 'react'
 import './About.css'
 
+
 export default function About() {
   return (
     <>
       <div className='Aboutus'>
         About Us
       </div>
-      <div className='Slider'>
-        <div className='text_box1'>
-          <p>It's a freight day to go for a ride on Train. Book your train tickets Now!!! Also check your PNR & Live Status without paying any charges</p>
+      <div className='Banner'>
+        <div className='Slider'>
+          <span>We assure to offer best deals to you</span>
         </div>
-        <div className='text_box2'>
-          <p>jhskjdvlk;lbvnk ln</p>
-        </div>
+
       </div>
+
       <div className='About_Content'>
         What OmniPass Offers
         <div className='point_cards'>

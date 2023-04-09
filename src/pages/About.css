@@ -12,16 +12,36 @@
     font-weight: 700;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.Banner{
+    background-color: #000000;
+
+}
+
+
 .Slider{
+    margin-left:80px;
+    width:90vw;
     height:60vh;
     background-image: url(slider.jpg);
     background-size: 100% 100%;
-    animation:slider 10s infinite linear ;
+    animation:slider 40s infinite linear ;
+    text-align: center;
+    padding-top:10px;
 }
 @keyframes slider{
     0%{ background-image: url(slider.jpg);}
-    35%{ background-image: url(train.jpg);}
+    20%{ background-image: url(jk-gJhev0YgUcE-unsplash.jpg);}
+    40%{background-image: url(flight.webp);}
+    60%{background-image: url(movie.jfif) ;}
+    80%{background-image: url(hotel.jpg);}
+    100%{background-image: url(travel.webp) ;}
 }
+.Slider span{
+    color: #000000;
+    font-size: 50px;
+    font-family: 'Chilanka', cursive;
+}
+
 .About_Content{
     padding-top: 10px;
     background-color: black;
