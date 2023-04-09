@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './SeatCard.css'
 import Button from './Button'
-import GooglePayButton from '@google-pay/button-react'
 import Error from './Error';
 import logo from '../images/bus.png';
 import { useAuth0 } from '@auth0/auth0-react';

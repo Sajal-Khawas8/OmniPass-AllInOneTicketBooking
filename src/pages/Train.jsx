@@ -6,7 +6,7 @@ import Error from '../components/Error';
 import TrainCard from '../components/TrainCard';
 import './Train1.css';
 import { Link } from 'react-router-dom';
-import CheckoutForm from '../components/CheckoutForm';
+import Checkout from '../components/Checkout';
 
 // userSourceStation=document.getElementById("userSourceStation").value
 // userDestinationStation=document.getElementById("userDestinationStation").value
@@ -253,7 +253,7 @@ export default function Train() {
             {!flag && <Error errMessage={errorMessage}></Error>}
             <div className="image">
                 <div className="button1">
-                    {showPayment && <CheckoutForm style={{width:"70vw", margin:"auto"}}></CheckoutForm>}
+                    <Checkout></Checkout>
                     <Button content="Book" onClick={()=>setShowPayment(true)}></Button>
                     <Link to='/trainLiveStatus'><Button className='active' content="Live Status" style={{ width: '140px', height: '37px', fontSize: '20px', fontWeight: '300' }}> Live Status</Button></Link>
                     <Link to='/trainPnrStatus'><Button className='active' content="PNR Check" style={{ width: '140px', height: '37px', fontSize: '20px', fontWeight: '300' }}> PNR Check</Button></Link>

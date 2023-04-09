@@ -1,62 +1,70 @@
 require("dotenv").config();
+const express = require("express");
+const Razorpay = require('razorpay');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
-// Require the framework and instantiate it
-const fastify = require("fastify")({ logger: true });
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const app = express();
+const port = process.env.PORT || 4242;
 
-// Fetch the publishable key to initialize Stripe.js
-fastify.get("/publishable-key", () => {
-  return { publishable_key: process.env.STRIPE_PUBLISHABLE_KEY };
+const razorpay = new Razorpay({
+    key_id: process.env.RAZORPAY_KEY_ID,
+    key_secret: process.env.RAZORPAY_SECRET,
 });
 
-// Create a payment intent and return its client secret
-fastify.post("/create-payment-intent", async () => {
-  const { amount } = request.body;
-  const paymentIntent = await stripe.paymentIntents.create({
-    amount,
-    currency: "INR",
-    payment_method_types: ["bancontact", "card"],
-  });
+app.use(cors());
+app.use(bodyParser.json());
 
-  return { client_secret: paymentIntent.client_secret };
-});
+app.post('/create-order', async (req, res) => {
+  const { amount } = req.body;
 
-
-// Set up a webhook endpoint to listen for payment_intent.succeeded events
-fastify.post("/stripe-webhook", async (request) => {
-  const sig = request.headers["stripe-signature"];
-  let event;
+  const options = {
+    amount: amount,
+    currency: 'INR',
+    receipt: `receipt#${Math.random().toString(36).substring(2, 15)}`,
+    payment_capture: 1,
+  };
 
   try {
-    event = stripe.webhooks.constructEvent(request.body, sig, process.env.STRIPE_WEBHOOK_SECRET);
-  } catch (err) {
-    console.log("Webhook signature verification failed.");
-    return { statusCode: 400 };
+    const order = await razorpay.orders.create(options);
+    res.json(order);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
   }
+});
 
-  if (event.type === "payment_intent.succeeded") {
-    // Payment succeeded, handle it here
-    const paymentIntent = event.data.object;
-    console.log("Payment succeeded:", paymentIntent.id);
-    // Do something with the paymentIntent object
-  }
-  else{
-    console.log("Payment failed");
-  }
+app.post("/capture-payment/:paymentId", async (req, res) => {
+  const { paymentId } = req.params;
+  const { amount } = req.body;
 
-  return { statusCode: 200 };
+  try {
+    const response = await razorpay.payments.capture(paymentId, amount);
+    console.log(response);
+
+    if (response.error) {
+      res.status(500).json({ error: response.error });
+    } else {
+      res.json(response);
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 });
 
 
-// Run the server
-const start = async () => {
-  try {
-    await fastify.listen(5252);
-    console.log("Server listening ... ");
-  } catch (err) {
-    fastify.log.error(err);
-    process.exit(1);
-  }
-};
+app.get('/check-payment-status/:paymentId', async (req, res) => {
+  const { paymentId } = req.params;
 
-start();
+  try {
+    const payment = await razorpay.payments.fetch(paymentId);
+    res.json(payment);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
