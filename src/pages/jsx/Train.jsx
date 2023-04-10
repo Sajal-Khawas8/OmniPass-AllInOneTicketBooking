@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import * as ReactDOM from 'react-dom/client';
-import Button from '../components/Button';
-import Error from '../components/Error';
+import Button from '../../components/jsx/Button';
+import Error from '../../components/jsx/Error';
 // import ReactDOM from 'react-dom';
-import TrainCard from '../components/TrainCard';
-import './Train1.css';
+import TrainCard from '../../components/jsx/TrainCard';
+import '../css/Train.css';
 import { Link } from 'react-router-dom';
-import Checkout from '../components/Checkout';
+import Checkout from '../../components/jsx/Checkout';
 
 // userSourceStation=document.getElementById("userSourceStation").value
 // userDestinationStation=document.getElementById("userDestinationStation").value

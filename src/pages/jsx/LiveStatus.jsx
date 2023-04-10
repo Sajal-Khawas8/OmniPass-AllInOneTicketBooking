@@ -1,5 +1,5 @@
-import './livestatus.css'
-import Button from '../components/Button';
+import '../css/LiveStatus.css'
+import Button from '../../components/jsx/Button';
 import { useState } from 'react';
 
 
@@ -1193,7 +1193,7 @@ export default function LiveStatus() {
             }
         ]
     };
-    const [show,setshow]=useState(true)
+    // const [showStatus,setShowStatus]=useState(false)
 
     // console.log(api2Response.stations.forEach(element => {
     //     console.log(element.actual_arrival_time)
@@ -1410,9 +1410,9 @@ export default function LiveStatus() {
                </div>
            </div>
         </div>
-        <div className='logo2'>
+        {!showLiveStatus &&(<div className='logo2'>
         <img src="./src/images/AppLogo.png" alt="" />
-        </div>
+        </div>)}
         
            
             {showLiveStatus && (<div className='Content'>

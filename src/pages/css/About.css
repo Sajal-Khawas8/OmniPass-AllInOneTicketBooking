@@ -27,7 +27,7 @@
 
     width: 90vw;
     height: 60vh;
-    background-image: url(slider.jpg);
+    background-image: url(../../images/slider.jpg);
     background-size: 100% 100%;
     animation: slider 10s infinite linear;
     text-align: center;
@@ -36,27 +36,27 @@
 
 @keyframes slider {
     0% {
-        background-image: url(slider.jpg);
+        background-image: url(../../images/slider.jpg);
     }
 
     20% {
-        background-image: url(jk-gJhev0YgUcE-unsplash.jpg);
+        background-image: url(../../images/jk-gJhev0YgUcE-unsplash.jpg);
     }
 
     40% {
-        background-image: url(flight.webp);
+        background-image: url(../../images/flight.webp);
     }
 
     60% {
-        background-image: url(movie.jfif);
+        background-image: url(../../images/movie.jfif);
     }
 
     80% {
-        background-image: url(hotel.jpg);
+        background-image: url(../../images/hotel.jpg);
     }
 
     100% {
-        background-image: url(travel.webp);
+        background-image: url(../../images/travel.webp);
     }
 }
 

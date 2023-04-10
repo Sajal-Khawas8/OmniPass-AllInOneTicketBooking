@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
-import './SeatCard.css'
-import Button from './Button'
-import Error from './Error';
-import logo from '../images/bus.png';
+import '../css/SeatCard.css';
+// import { GooglePayButton } from '@google-pay/button-react';
 import { useAuth0 } from '@auth0/auth0-react';
+import Error from './Error';
+import logo from '../../images/bus.png';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import htmlToPdfmake from 'html-to-pdfmake';
 import sendgrid from '@sendgrid/mail';
+// import Button from './Button';
+
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 export default function SeatCard(props) {
     const [paymentStatus, setPaymentStatus] = useState('');
     const { loginWithRedirect, logout, isAuthenticated, error, user } = useAuth0();
+
+    const [errorMessage, setErrorMessage] = useState('');
+
     const handlePaymentSuccess = (paymentRequest) => {
         setPaymentStatus('success');
         const invoice = generateInvoice(paymentRequest);
@@ -94,12 +100,58 @@ export default function SeatCard(props) {
         setPaymentStatus('error');
     };
 
-    return (
-        <div className="seatCard">
-            <div className="fare">Rs. {props.fare}</div>
-            <div className="date">{props.date}</div>
-            <div className="seatsAvl">{props.status}</div>
-            <GooglePayButton environment='TEST'
+
+    const handleBookNowClick = () => {
+        // if (!isAuthenticated || !user.email_verified) {
+        //     return <Error errMessage="Please login and verify your email to book ticket." />;
+        // }
+
+        // const paymentRequest = {
+        //     apiVersion: 2,
+        //     apiVersionMinor: 0,
+        //     allowedPaymentMethods: [
+        //         {
+        //             type: 'CARD',
+        //             parameters: {
+        //                 allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+        //                 allowedCardNetworks: ['MASTERCARD', 'VISA'],
+        //             },
+        //             tokenizationSpecification: {
+        //                 type: 'PAYMENT_GATEWAY',
+        //                 parameters: {
+        //                     gateway: 'OmniPass',
+        //                     gatewayMerchantId: '2153465453123456545',
+        //                 },
+        //             },
+        //         },
+        //         {
+        //             type: 'UPI',
+        //             parameters: {
+        //                 'pa': 'example@upi',
+        //                 'pn': 'OmniPass',
+        //                 'tr': '1234567890',
+        //                 'tn': 'Purchase Description',
+        //             },
+        //         },
+        //     ],
+        //     merchantInfo: {
+        //         merchantId: '12345678901234567890',
+        //         merchantName: 'OmniPass',
+        //     },
+        //     transactionInfo: {
+        //         totalPriceStatus: 'FINAL',
+        //         totalPriceLabel: 'Total',
+        //         totalPrice: props.fare,
+        //         currencyCode: 'INR',
+        //         countryCode: 'IN',
+        //     },
+        //     shippingAddressRequired: false,
+        //     callbackIntents: ['PAYMENT_AUTHORIZATION'],
+        // };
+
+        // return (
+            <GooglePayButton
+                environment="TEST"
                 paymentRequest={{
                     apiVersion: 2,
                     apiVersionMinor: 0,
@@ -108,14 +160,23 @@ export default function SeatCard(props) {
                             type: 'CARD',
                             parameters: {
                                 allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
-                                allowedCardNetworks: ['MASTERCARD', 'VISA', 'DISCOVER', 'AMEX'],
+                                allowedCardNetworks: ['MASTERCARD', 'VISA'],
                             },
                             tokenizationSpecification: {
                                 type: 'PAYMENT_GATEWAY',
                                 parameters: {
-                                    gateway: 'example',
-                                    gatewayMerchantId: 'exampleGatewayMerchantId',
+                                    gateway: 'OmniPass',
+                                    gatewayMerchantId: '2153465453123456545',
                                 },
+                            },
+                        },
+                        {
+                            type: 'UPI',
+                            parameters: {
+                                'pa': 'example@upi',
+                                'pn': 'OmniPass',
+                                'tr': '1234567890',
+                                'tn': 'Purchase Description',
                             },
                         },
                     ],
@@ -126,7 +187,7 @@ export default function SeatCard(props) {
                     transactionInfo: {
                         totalPriceStatus: 'FINAL',
                         totalPriceLabel: 'Total',
-                        totalPrice: `${props.fare}`,
+                        totalPrice: props.fare,
                         currencyCode: 'INR',
                         countryCode: 'IN',
                     },
@@ -135,13 +196,18 @@ export default function SeatCard(props) {
                 }}
                 onLoadPaymentData={handlePaymentSuccess}
                 onError={handlePaymentError}
-                buttonColor='Black' >
+            />
+        // );
+    };
 
-            </GooglePayButton>
-            {/* <Button content="Book Now" style={{height: '27px', fontSize: '20px', fontWeight: '500'}}></Button> */}
-            {/* <div className="btn">
-                <button>Book Now</button>
-            </div> */}
+    return (
+        <div className="seatCard">
+            <div className="fare">Rs. {props.fare}</div>
+            <div className="date">{props.date}</div>
+            <div className="seatsAvl">{props.status}</div>
+            {/* <Button content="Book" /> */}
+            <GooglePayButton></GooglePayButton>
+            {handleBookNowClick()}
             {paymentStatus === 'error' && <Error errMessage="Payment failed. Please try again later." />}
         </div>
     )

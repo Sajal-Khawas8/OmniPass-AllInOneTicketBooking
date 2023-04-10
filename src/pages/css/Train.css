@@ -13,7 +13,7 @@ body {
 .image {
     height: 40vh;
     width: 100vw;
-    background-image: linear-gradient(rgba(7, 7, 16, 0.71), rgb(217 217 217/37%)), url(train.jpg);
+    background-image: linear-gradient(rgba(7, 7, 16, 0.71), rgb(217 217 217/37%)), url(../../images/train2.jpg);
     background-size: contain;
     background-repeat: no-repeat;
     background-size: 100% 100%;
