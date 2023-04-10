@@ -4,14 +4,23 @@
     box-sizing: border-box;
 
 }
+.livestatushead{
+    background-color:black;
+    font-size: 50px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    margin:auto;
+    height:30vh;
+}
 
 .Searchbox {
     height: 20vh;
     width: 100%;
-    background-color: rgb(51, 83, 146);
+    background-color: black;
     display: flex;
     justify-content: space-evenly;
-    padding-top: 25px;
+    padding-top: 30px;
 }
 
 .Tno,
@@ -30,13 +39,31 @@
 .StartDate form input {
     width: 95%;
     height: 36px;
-    margin-bottom: 3%;
     color: black;
     font-size: 22px;
 }
 
 .Search {
     padding-top: 30px;
+}
+.logo2{
+    height:44vh;
+    background-color: black;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+ 
+
+}
+.logo2 img{
+   
+    padding: auto;
+    height: 30vh;
+    padding-top: 10px;
+    filter: blur(8px);
+
+
 }
 
 .Content {

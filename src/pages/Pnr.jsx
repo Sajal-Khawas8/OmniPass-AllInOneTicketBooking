@@ -16,6 +16,9 @@ export default function Pnr() {
         </div>
       </div>
     </div>
+    <div className='logo2'>
+    <img src="./src/images/AppLogo.png" alt="" />
+    </div>
     <div className='PNR'>
     <div className='PNR_details'>
       <ul>
