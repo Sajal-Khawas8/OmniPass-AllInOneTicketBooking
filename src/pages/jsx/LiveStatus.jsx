@@ -1394,7 +1394,7 @@ export default function LiveStatus() {
     return (
         <>
             <div className='livestatushead'>
-                LiveStatus
+                Live Status
                 <div className="Searchbox">
 
                     <div className="Tno">

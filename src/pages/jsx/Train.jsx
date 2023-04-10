@@ -258,7 +258,7 @@ export default function Train() {
                     <Link to='/trainLiveStatus'><Button className='active' content="Live Status" style={{ width: '140px', height: '37px', fontSize: '20px', fontWeight: '300' }}> Live Status</Button></Link>
                     <Link to='/trainPnrStatus'><Button className='active' content="PNR Check" style={{ width: '140px', height: '37px', fontSize: '20px', fontWeight: '300' }}> PNR Check</Button></Link>
                 </div>
-                <div className='head'><h1>Booknow<span>.com</span></h1></div>
+                <div className='head'><h1>Omni<span>Pass</span></h1></div>
                 <div className="button2">
                     <Button className='active' content="BY STATION" style={{ width: '170px', height: '37px', fontWeight: '500' }} onClick={() => setSearchMethod("station")}> BY STATION</Button>
                     <Button className='active' content="BY TRAIN" style={{ width: '170px', height: '37px', fontWeight: '500' }} onClick={() => setSearchMethod("train")}> BY TRAIN</Button>

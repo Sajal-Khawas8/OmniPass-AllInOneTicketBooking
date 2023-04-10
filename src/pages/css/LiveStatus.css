@@ -43,9 +43,6 @@
     font-size: 22px;
 }
 
-.Search {
-    padding-top: 30px;
-}
 .logo2{
     height:44vh;
     background-color: black;
@@ -697,9 +694,6 @@
         height: 25px;
     }
 
-    .Search {
-        padding-top: 16px;
-    }
 
     .Searchbox {
         height: 15vh;
