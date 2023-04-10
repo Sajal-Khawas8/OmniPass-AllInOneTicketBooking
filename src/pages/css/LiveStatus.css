@@ -15,12 +15,15 @@
 }
 
 .Searchbox {
-    height: 20vh;
-    width: 100%;
-    background-color: black;
+    height: 30vh;
+    width: 80%;
+    
+    background: linear-gradient(180deg, #7259F3 0%, rgba(218, 111, 251, 0) 100%);
     display: flex;
     justify-content: space-evenly;
     padding-top: 30px;
+    margin: auto;
+    border-radius: 10px;
 }
 
 .Tno,
@@ -65,12 +68,13 @@
 
 .Content {
     padding-top: 20px;
-    background-color: rgb(51, 83, 146);
+ 
+    background-color:black;
     /* height: 70vh; */
 }
 
 .Train_details span {
-    color: black;
+    color: white;
     font-size: 30px;
     font-weight: 300;
 
@@ -82,7 +86,7 @@
 }
 
 .Train_details ul li {
-    color: black;
+    color: white;
     padding: 0 20px;
     font-size: 25px;
     font-weight: 200;
@@ -98,15 +102,15 @@
     margin-left: 75px;
     width: 90vw;
     height: 8vh;
-    background-color: rgb(144, 169, 215);
-    color: black;
+    background: linear-gradient(180deg, #7259F3 0%, rgba(218, 111, 251, 0) 100%);
+    color: white;
     border-radius: 10px;
     font-size: 25px;
     font-weight: 200;
 }
 
 .Train_details .type {
-    color: black;
+    color: white;
     display: flex;
 }
 
@@ -211,24 +215,26 @@
     /* height: 37vh; */
     margin-top: 10px;
     margin-left: 75px;
-    background-color:aliceblue;
-    color: black;
+    background: white;
+    
+    color: white;
     text-align: center;
 }
 
 .Table table  thead{
-    background-color: rgb(144, 169, 215);
+    background-color: black;
     height: 8vh;
     padding-left: 50px;
     padding-right: 80px;
     padding-top: 15px;
+    color: azure;
 
 
 }
 .Table table thead th
  {
     font-size: 30px;
-    color: black;
+    color: white;
 }
 
 .Table {
@@ -251,10 +257,11 @@
 
 }*/
 .Table tbody td{
-    color:black;
+    color:white;
     padding: 0 80px;
     font-size: 23px;
-    background-color: rgb(144, 169, 215);
+    background: #7259F3;
+    
     text-align: center;
 
 }
