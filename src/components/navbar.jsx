@@ -10,7 +10,7 @@ export default function Navbar() {
     const { loginWithRedirect, logout, isAuthenticated, error } = useAuth0();
     return (
         <header>
-            <div className="head">Booknow<span>.com</span></div>
+            <div className="head">Omni<span>Pass</span></div>
             <div className="hamburger" onClick={() => openNav(!navOpened)}>
                 <div className={navOpened ? "line line1" : "line"}></div>
                 <div className={navOpened ? "line line2" : "line"}></div>

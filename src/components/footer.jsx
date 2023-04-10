@@ -6,7 +6,7 @@ export default function Footer() {
         <footer>
             <div className="foot">
                 <div className="left_box">
-                    <div className="logo">Booknow<span>.com</span></div>
+                    <div className="logo">Omni<span>Pass</span></div>
                     <ul>
                         <li><a href="#">About</a></li>
                         <li><a href="#services">Services</a></li>
