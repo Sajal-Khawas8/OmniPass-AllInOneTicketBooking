@@ -1,16 +1,19 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
-import './navbar.css'
+import '../css/Navbar.css'
 import { useAuth0 } from "@auth0/auth0-react";
 import Error from './Error';
 import Button from './Button';
 
 export default function Navbar() {
     const [navOpened, openNav] = useState(false);
-    const { loginWithRedirect, logout, isAuthenticated, error } = useAuth0();
+    const { loginWithRedirect, logout, isAuthenticated, error, user } = useAuth0();
     return (
         <header>
             <div className="head">Booknow<span>.com</span></div>
+            {isAuthenticated && <div className="welcomeMessage">
+                <p>Welcome {user.name}</p>
+            </div> }
             <div className="hamburger" onClick={() => openNav(!navOpened)}>
                 <div className={navOpened ? "line line1" : "line"}></div>
                 <div className={navOpened ? "line line2" : "line"}></div>

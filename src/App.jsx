@@ -1,12 +1,12 @@
 // import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Footer from './components/footer'
-import Navbar from './components/navbar'
-import Home from './pages/Home'
-import About from './pages/About'
-import Train from './pages/Train'
-import LiveStatus from './pages/livestatus'
-import Pnr from './pages/Pnr'
+import Footer from './components/jsx/Footer'
+import Navbar from './components/jsx/navbar'
+import Home from './pages/jsx/Home'
+import About from './pages/jsx/About'
+import Train from './pages/jsx/Train'
+import LiveStatus from './pages/jsx/LiveStatus'
+import Pnr from './pages/jsx/Pnr'
 
 function App() {
 
@@ -23,7 +23,7 @@ function App() {
 
         </Routes>
 
-      <Footer></Footer>
+        <Footer></Footer>
       </BrowserRouter>
     </>
   )

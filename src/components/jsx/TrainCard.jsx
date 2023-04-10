@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import SeatCard from './SeatCard';
-import './TrainCard.css'
+import '../css/TrainCard.css';
 
 // import {sourceStation, destinationStation, userDepartureDate} from '../pages/Train'
 

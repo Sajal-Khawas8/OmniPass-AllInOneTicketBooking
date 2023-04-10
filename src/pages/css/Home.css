@@ -9,7 +9,7 @@
 .home {
     height: 55vh;
     width: 100vw;
-    background-image: linear-gradient(to bottom, rgb(10 12 68 / 71%), rgb(217 217 217 / 37%)), url(../images/banner.jpg);
+    background-image: linear-gradient(to bottom, rgb(10 12 68 / 71%), rgb(217 217 217 / 37%)), url(../../images/banner.jpg);
     background-size: contain;
     background-repeat: no-repeat;
     background-size: 100% 100%;
