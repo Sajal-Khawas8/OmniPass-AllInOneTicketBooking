@@ -1,6 +1,6 @@
 import '../css/LiveStatus.css'
 import Button from '../../components/jsx/Button';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 export default function LiveStatus() {
@@ -29,7 +29,7 @@ export default function LiveStatus() {
 
     // console.log(api1Response[0].id)
 
-    let response2 = {
+    let apiResponse2 = {
         "details": {
             "id": "2739",
             "number": "12312",
@@ -1193,7 +1193,6 @@ export default function LiveStatus() {
             }
         ]
     };
-    // const [showStatus,setShowStatus]=useState(false)
 
     // console.log(api2Response.stations.forEach(element => {
     //     console.log(element.actual_arrival_time)
@@ -1213,21 +1212,21 @@ export default function LiveStatus() {
     //                             <div className='Train_details'>
     //                                 <ul>
     //                                     <li>
-    //                                         <span>{response2.details.name + "/" + response2.details.name_hi}</span>
+    //                                         <span>{data.details.name + "/" + response2.details.name_hi}</span>
     //                                     </li>
-    //                                     <li><span>{response2.details.number}</span></li>
-    //                                     <li>| ${response2.stations.length}</li>
+    //                                     <li><span>{data.details.number}</span></li>
+    //                                     <li>| ${data.stations.length}</li>
     //                                 </ul>
     //                                 Class: 5A 3A 2A 1A
     //                                 <div className='type'>
     //                                     Type:
-    //                                     <form><input type="button" value={response2.details.type} id="type"></input></form>
+    //                                     <form><input type="button" value={data.details.type} id="type"></input></form>
     //                                 </div>
     //                             </div>
     //                             <div className='Traintime'>
     //                                 <ul>
-    //                                     <li>{response2.train.trs_date_full}</li>
-    //                                     <li>{response2.train.tds_date_full}</li>
+    //                                     <li>{data.train.trs_date_full}</li>
+    //                                     <li>{data.train.tds_date_full}</li>
     //                                 </ul>
     //                                 <div className='Shapes'>
     //                                     <div className='circle'>
@@ -1238,8 +1237,8 @@ export default function LiveStatus() {
     //                                     </div>
     //                                 </div>
     //                                 <div className='Stations'>
-    //                                     {response2.details.source_code}<br></br>
-    //                                     {response2.details.source}
+    //                                     {data.details.source_code}<br></br>
+    //                                     {data.details.source}
 
     //                                     <ul>
     //                                         <li>S</li>
@@ -1250,8 +1249,8 @@ export default function LiveStatus() {
     //                                         <li>F</li>
     //                                         <li>S</li>
     //                                     </ul>
-    //                                     {response2.details.destination_code}<br></br>
-    //                                     {response2.details.destination}
+    //                                     {data.details.destination_code}<br></br>
+    //                                     {data.details.destination}
     //                                 </div>
 
     //                             </div>
@@ -1277,7 +1276,7 @@ export default function LiveStatus() {
     //                                 </div>
     //                                 <div className='Table'><span>Thursday, 30 March,2023</span>
     //                                     <table>
-    //                                     ${response2.stations.forEach(element => {
+    //                                     ${data.stations.forEach(element => {
     //                                         <tr>
     //                                             <td>{element.source_name}({element.source_code})<br></br>{element.distance}kms</td>
     //                                             <td>{element.arrival_time}<br></br>{element.actual_arrival_time}</td>
@@ -1300,7 +1299,53 @@ export default function LiveStatus() {
     //     document.getElementById("liveStatus").innerHTML = liveStatusString;
     // }
 
+    // const [data, setData] = useState({});
+    // const [showLiveStatus, setShowLiveStatus] = useState(false);
+    // fetch(`https://indian-railway-irctc.p.rapidapi.com/getTrainId?trainno=${document.getElementById("trainNumber").value}`, options)
+    //     .then(response => response.json())
+    //     .then(response => {
+    //         console.log(response);
+    //         fetch(`https://indian-railway-irctc.p.rapidapi.com/getTrainLiveStatusById?id=${response[0].id}&date=${document.getElementById("userDepartureDate").value}`, options)
+    //             .then(response2 => response2.json())
+    //             .then(response2 => {
+    //                 console.log(response2);
+    //                 setData(response2);
+    //             })
+    //             .catch(err2 => console.error(err2));
+    //     })
+    //     .catch(err => console.error(err))
+
+    const [data, setData] = useState(null);
     const [showLiveStatus, setShowLiveStatus] = useState(false);
+    const [trainId, setTrainId] = useState(null);
+    const [departureDate, setDepartureDate] = useState(null);
+
+    useEffect(() => {
+        if (trainId && departureDate) {
+            fetch(`https://indian-railway-irctc.p.rapidapi.com/getTrainId?trainno=${trainId}`, options)
+                .then(response => response.json())
+                .then(response => {
+                    console.log(response);
+                    fetch(`https://indian-railway-irctc.p.rapidapi.com/getTrainLiveStatusById?id=${response[0].id}&date=${departureDate}`, options)
+                        .then(response2 => response2.json())
+                        .then(response2 => {
+                            console.log(response2);
+                            setData(response2);
+                        })
+                        .catch(err2 => console.error(err2));
+                })
+                .catch(err => console.error(err))
+        }
+    }, [trainId, departureDate]);
+
+    const handleSearch = () => {
+        const trainNumber = document.getElementById("trainNumber").value;
+        const userDepartureDate = document.getElementById("userDepartureDate").value;
+        setTrainId(trainNumber);
+        setDepartureDate(userDepartureDate);
+        setShowLiveStatus(true);
+        console.log("handle search fired");
+    };
 
     // function fetchLiveStatus() {
     //     console.log("Function running");
@@ -1309,21 +1354,21 @@ export default function LiveStatus() {
     //             <div className='Train_details'>
     //                 <ul>
     //                     <li>
-    //                         <span>{response2.details.name + "/" + response2.details.name_hi}</span>
+    //                         <span>{data.details.name + "/" + response2.details.name_hi}</span>
     //                     </li>
-    //                     <li><span>{response2.details.number}</span></li>
-    //                     <li>| {response2.stations.length}</li>
+    //                     <li><span>{data.details.number}</span></li>
+    //                     <li>| {data.stations.length}</li>
     //                 </ul>
     //                 Class: 5A 3A 2A 1A
     //                 <div className='type'>
     //                     Type:
-    //                     <form><input type="button" value={response2.details.type} id="type"></input></form>
+    //                     <form><input type="button" value={data.details.type} id="type"></input></form>
     //                 </div>
     //             </div>
     //             <div className='Traintime'>
     //                 <ul>
-    //                     <li>{response2.train.trs_date_full}</li>
-    //                     <li>{response2.train.tds_date_full}</li>
+    //                     <li>{data.train.trs_date_full}</li>
+    //                     <li>{data.train.tds_date_full}</li>
     //                 </ul>
     //                 <div className='Shapes'>
     //                     <div className='circle'>
@@ -1334,8 +1379,8 @@ export default function LiveStatus() {
     //                     </div>
     //                 </div>
     //                 <div className='Stations'>
-    //                     {response2.details.source_code}<br></br>
-    //                     {response2.details.source}
+    //                     {data.details.source_code}<br></br>
+    //                     {data.details.source}
 
     //                     <ul>
     //                         <li>S</li>
@@ -1346,8 +1391,8 @@ export default function LiveStatus() {
     //                         <li>F</li>
     //                         <li>S</li>
     //                     </ul>
-    //                     {response2.details.destination_code}<br></br>
-    //                     {response2.details.destination}
+    //                     {data.details.destination_code}<br></br>
+    //                     {data.details.destination}
     //                 </div>
 
     //             </div>
@@ -1373,7 +1418,7 @@ export default function LiveStatus() {
     //                 </div>
     //                 <div className='Table'><span>Thursday, 30 March,2023</span>
     //                     <table>
-    //                         {response2.stations.forEach(element => {
+    //                         {data.stations.forEach(element => {
     //                             <tr>
     //                                 <td>{element.source_name}({element.source_code})<br></br>{element.distance}kms</td>
     //                                 <td>{element.arrival_time}<br></br>{element.actual_arrival_time}</td>
@@ -1399,14 +1444,14 @@ export default function LiveStatus() {
 
                     <div className="Tno">
                         Train Number
-                        <form> <input type="text" id='userSourceStation' /></form>
+                        <form> <input type="text" id='trainNumber' /></form>
                     </div>
                     <div className="StartDate">
                         Train Start Date
                         <form><input type="date" id='userDepartureDate' /></form>
                     </div>
                     <div className="Search">
-                        <Button className='active' onClick={() => setShowLiveStatus(true)} content="Check Live Status" style={{ width: '200px', height: '40px', fontWeight: '100', borderRadius: '5px', fontSize: '20px' }}> Search Train</Button>
+                        <Button className='active' onClick={handleSearch} content="Check Live Status" style={{ width: '200px', height: '40px', fontWeight: '100', borderRadius: '5px', fontSize: '20px' }}> Search Train</Button>
                     </div>
                 </div>
             </div>
@@ -1415,24 +1460,25 @@ export default function LiveStatus() {
             </div>)}
 
 
-            {showLiveStatus && (<div className='Content'>
+            {showLiveStatus && data && (<div className='Content'>
+                {console.log("data: " + data)}
                 <div className='Train_details'>
                     <ul>
                         <li>
-                            <span>{response2.details.name + "/" + response2.details.name_hi}</span>
+                            <span>{data.details.name + "/" + data.details.name_hi}</span>
                         </li>
-                        <li><span>{response2.details.number}</span></li>
-                        <li>| &nbsp;{response2.stations.length} Stops</li>
+                        <li><span>{data.details.number}</span></li>
+                        <li>| &nbsp;{data.stations.length} Stops</li>
                     </ul>
                     <div className='type'>
                         Type:
-                        <form><input type="button" value={response2.details.type} id="type"></input></form>
+                        <form><input type="button" value={data.details.type} id="type"></input></form>
                     </div>
                 </div>
                 <div className='Traintime'>
                     <ul>
-                        <li>{response2.train.trs_date_full}</li>
-                        <li>{response2.train.tds_date_full}</li>
+                        <li>{data.train.trs_date_full}</li>
+                        <li>{data.train.tds_date_full}</li>
                     </ul>
                     <div className='Shapes'>
                         <div className='circle'>
@@ -1444,10 +1490,10 @@ export default function LiveStatus() {
                     </div>
                     <div className='Stations'>
                         <ul>
-                            <li>{response2.details.source_code}<br></br>
-                                {response2.details.source}</li>
-                            <li>{response2.details.destination_code}<br></br>
-                                {response2.details.destination}</li>
+                            <li>{data.details.source_code}<br></br>
+                                {data.details.source}</li>
+                            <li>{data.details.destination_code}<br></br>
+                                {data.details.destination}</li>
                         </ul>
                     </div>
 
@@ -1465,22 +1511,50 @@ export default function LiveStatus() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {response2.stations.map(element => (
+                                {data.stations.map(element => (
                                     <tr key={element.source_code}>
-                                        <td>{element.source_name}({element.source_code})<br></br>{element.distance}kms</td>
-                                        <td style={{ whiteSpace: "pre-wrap" }}>
-                                            {element.is_source === "1" ? "Source" : element.arrival_time + "\n" + element.actual_arrival_time}
+                                        <td> <div style={{
+                                            height: '5px', width: '5px', borderRadius: '50px',
+                                            backgroundColor: element.is_arrived ? (element.is_departed ? 'green' : 'yellow') : 'red'
+                                        }}></div>
+                                            {element.source_name}{element.source_code} <br></br>{element.distance}kms</td>
+                                        {/* <td style={{ whiteSpace: "pre-wrap" }}>
+                                            {element.is_source === "1" ? (<span style={{color: ((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) === 0)?"green":"red"}}>Source</span>) 
+                                            : (<span style={{color: ((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) === 0)?"green":"red"}}>{element.actual_arrival_time}</span>) + "\n" + element.arrival_time}
                                         </td>
                                         <td style={{ whiteSpace: "pre-wrap" }}>
-                                            {element.is_destination === "1" ? "Destination" : element.departure_time + "\n" + element.actual_departure_time}
+                                            {element.is_destination === "1" ? (<span style={{color: ((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) === 0)?"green":"red"}}>Destination</span>) 
+                                            : (<span style={{color: ((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) === 0)?"green":"red"}}>{element.actual_departure_time}</span>) + "\n" + element.departure_time}
+                                        </td> */}
+                                        <td style={{ whiteSpace: "pre-wrap" }}>
+                                            {element.is_source === "1" ? (
+                                                <span style={{color: ((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) === 0)?"green":"red"}}>Source</span>
+                                            ) : (
+                                                <div>
+                                                    <span style={{color: ((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) === 0)?"green":"red"}}>{element.actual_arrival_time}</span>
+                                                    <br />
+                                                    {element.arrival_time}
+                                                </div>
+                                            )}
+                                        </td>
+                                        <td style={{ whiteSpace: "pre-wrap" }}>
+                                            {element.is_destination === "1" ? (
+                                                <span style={{color: ((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) === 0)?"green":"red"}}>Destination</span>
+                                            ) : (
+                                                <div>
+                                                    <span style={{color: ((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) === 0)?"green":"red"}}>{element.actual_departure_time}</span>
+                                                    <br />
+                                                    {element.departure_time}
+                                                </div>
+                                            )}
                                         </td>
                                         <td>{
                                             (new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) === 0
                                                 ? "On Time"
                                                 : (
                                                     ((Math.floor((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 / 60)) > 0 && (Math.floor((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 % 60)) > 0)
-                                                        ? (Math.floor((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 / 60) + "h " + Math.floor((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 % 60) + "m")
-                                                        : (Math.floor((new Date("01/02/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 / 60) + "h " + Math.floor((new Date("01/02/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 % 60) + "m")
+                                                        ? (Math.floor((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 / 60) + "h " + Math.floor((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 % 60) + "m Late")
+                                                        : (Math.floor((new Date("01/02/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 / 60) + "h " + Math.floor((new Date("01/02/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 % 60) + "m Late")
                                                 )
                                         }</td>
                                         <td>{(element.is_source === "1" || element.is_destination === "1") ? "--" : `${((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.actual_arrival_time).getTime()) / 1000 / 60) + "m"}`}</td>
