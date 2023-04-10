@@ -1393,28 +1393,28 @@ export default function LiveStatus() {
 
     return (
         <>
-        <div className='livestatushead'>
-            LiveStatus
-        <div className="Searchbox">
-               
-               <div className="Tno">
-                   Train Number
-                   <form> <input type="text" id='userSourceStation' /></form>
-               </div>
-               <div className="StartDate">
-                   Train Start Date
-                   <form><input type="date" id='userDepartureDate' /></form>
-               </div>
-               <div className="Search">
-                   <Button className='active' onClick={() => setShowLiveStatus(true)} content="Check Live Status" style={{ width: '200px', height: '40px', fontWeight: '100', borderRadius: '5px', fontSize: '20px' }}> Search Train</Button>
-               </div>
-           </div>
-        </div>
-        {!showLiveStatus &&(<div className='logo2'>
-        <img src="./src/images/AppLogo.png" alt="" />
-        </div>)}
-        
-           
+            <div className='livestatushead'>
+                LiveStatus
+                <div className="Searchbox">
+
+                    <div className="Tno">
+                        Train Number
+                        <form> <input type="text" id='userSourceStation' /></form>
+                    </div>
+                    <div className="StartDate">
+                        Train Start Date
+                        <form><input type="date" id='userDepartureDate' /></form>
+                    </div>
+                    <div className="Search">
+                        <Button className='active' onClick={() => setShowLiveStatus(true)} content="Check Live Status" style={{ width: '200px', height: '40px', fontWeight: '100', borderRadius: '5px', fontSize: '20px' }}> Search Train</Button>
+                    </div>
+                </div>
+            </div>
+            {!showLiveStatus && (<div className='logo2'>
+                <img src="./src/images/AppLogo.png" alt="" />
+            </div>)}
+
+
             {showLiveStatus && (<div className='Content'>
                 <div className='Train_details'>
                     <ul>
@@ -1444,10 +1444,10 @@ export default function LiveStatus() {
                     </div>
                     <div className='Stations'>
                         <ul>
-                        <li>{response2.details.source_code}<br></br>
-                        {response2.details.source}</li>
-                        <li>{response2.details.destination_code}<br></br>
-                        {response2.details.destination}</li>
+                            <li>{response2.details.source_code}<br></br>
+                                {response2.details.source}</li>
+                            <li>{response2.details.destination_code}<br></br>
+                                {response2.details.destination}</li>
                         </ul>
                     </div>
 
