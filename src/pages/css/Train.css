@@ -7,13 +7,13 @@
 }
 
 body {
-    background-color: rgba(0, 0, 0, 0.86);
+    background-color: black;
 }
 
 .image {
-    height: 40vh;
+    height: 45vh;
     width: 100vw;
-    background-image: linear-gradient(rgba(7, 7, 16, 0.71), rgb(217 217 217/37%)), url(../../images/train2.jpg);
+    background-image: linear-gradient(rgba(7, 7, 16, 0.71), rgb(217 217 217/37%)), url(../../images/scale.jfif);
     background-size: contain;
     background-repeat: no-repeat;
     background-size: 100% 100%;

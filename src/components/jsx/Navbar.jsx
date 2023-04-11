@@ -10,7 +10,7 @@ export default function Navbar() {
     const { loginWithRedirect, logout, isAuthenticated, error, user } = useAuth0();
     return (
         <header>
-            <div className="head">Booknow<span>.com</span></div>
+            <div className="head">Omni<span>Pass</span></div>
             {isAuthenticated && <div className="welcomeMessage">
                 <p>Welcome {user.name}</p>
             </div> }
