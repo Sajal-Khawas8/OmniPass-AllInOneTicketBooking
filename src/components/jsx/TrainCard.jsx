@@ -97,16 +97,55 @@ export default function TrainCard(props) {
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': '67fa0219fdmsh1ccb35d28a17eddp1847c6jsn0bb426fc84fa',
+                'X-RapidAPI-Key': '52b9c92824msh2b6241b5cc1c848p1b5526jsnd0dd6c360cdc',
                 'X-RapidAPI-Host': 'irctc1.p.rapidapi.com'
             }
         };
+
+        let response={
+            "status": true,
+            "message": "Success",
+            "timestamp": 1681229209578,
+            "data": [
+                {
+                    "total_fare": 715,
+                    "date": "4-7-2023",
+                    "current_status": "AVAILABLE-0059."
+                },
+                {
+                    "total_fare": 715,
+                    "date": "5-7-2023",
+                    "current_status": "AVAILABLE-0064."
+                },
+                {
+                    "total_fare": 715,
+                    "date": "6-7-2023",
+                    "current_status": "AVAILABLE-0064."
+                },
+                {
+                    "total_fare": 715,
+                    "date": "7-7-2023",
+                    "current_status": "AVAILABLE-0064."
+                },
+                {
+                    "total_fare": 715,
+                    "date": "8-7-2023",
+                    "current_status": "AVAILABLE-0053."
+                },
+                {
+                    "total_fare": 715,
+                    "date": "9-7-2023",
+                    "current_status": "AVAILABLE-0053."
+                }
+            ]
+        }
     
         // wait for 1 second before making the next API request
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-        fetch(`https://irctc1.p.rapidapi.com/api/v1/checkSeatAvailability?classType=${document.getElementById("classType").value}&fromStationCode=${sourceStation}&quota=${document.getElementById("quota").value}&toStationCode=${destinationStation}&trainNo=${trainNumber}&date=${departureDate}`, options)
-            .then(response => response.json())
-            .then(response => {
+        // await new Promise((resolve) => setTimeout(resolve, 1000));
+        // fetch(`https://irctc1.p.rapidapi.com/api/v1/checkSeatAvailability?classType=${document.getElementById("classType").value}&fromStationCode=${sourceStation}&quota=${document.getElementById("quota").value}&toStationCode=${destinationStation}&trainNo=${trainNumber}&date=${departureDate}`, options)
+        //     .then(response => response.json())
+        //     .then(response => {
+                console.log(response);
                 const seatCards = response.data.map(seat => (
                     <SeatCard
                         fare={seat.total_fare}
@@ -117,8 +156,8 @@ export default function TrainCard(props) {
                 ));
                 ReactDOM.createRoot(document.getElementById('seatDetails')).render(seatCards);
                 // console.log(response);
-            })
-            .catch(err => setFlag(false));
+            // })
+            // .catch(err => setFlag(false));
         }
     
     useEffect(() => {
