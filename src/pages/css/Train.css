@@ -7,13 +7,13 @@
 }
 
 body {
-    background-color: rgba(0, 0, 0, 0.86);
+    background-color: black;
 }
 
 .image {
-    height: 40vh;
+    height: 45vh;
     width: 100vw;
-    background-image: linear-gradient(rgba(7, 7, 16, 0.71), rgb(217 217 217/37%)), url(../../images/train2.jpg);
+    background-image: linear-gradient(rgba(7, 7, 16, 0.71), rgb(217 217 217/37%)), url(../../images/scale.jfif);
     background-size: contain;
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -68,7 +68,9 @@ body {
 }
 
 .image .info {
-    background-color: #353635;
+    
+
+background: linear-gradient(180.45deg, #5898C6 0.39%, rgba(38, 123, 135, 0) 123.26%);
     height: 20vh;
     width: 68vw;
     margin: auto;
@@ -94,6 +96,7 @@ body {
     margin: auto;
     font-size: 28px;
     width: 240px;
+
 }
 
 .image .details .From form input,
@@ -253,7 +256,7 @@ body {
 @media only screen and (max-width: 900px) {
     .image .button2 {
         width: 43vw;
-        height: 8vh;
+        height: 10vh;
     }
 
     .image .details {

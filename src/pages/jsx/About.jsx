@@ -96,12 +96,12 @@ export default function About() {
                 <li>
                   <label for="first">How can I check the PNR status of my train ticket reservation<span>&#x3e;</span></label>
                   <input type="radio" name="accordion" id="first"></input>
-                  <div class="content"><p>You can check the PNR status of your train ticket reservation through Omnipass by going the Omnipass website &#x3e;Trains &#x3e;PNR check &#x3e;Enter PNR Number. This will display all the related information   </p></div>
+                  <div className="content"><p>You can check the PNR status of your train ticket reservation through Omnipass by going the Omnipass website &#x3e;Trains &#x3e;PNR check &#x3e;Enter PNR Number. This will display all the related information   </p></div>
                 </li>
                 <li>
                   <label for="second">Is the information on seat availability and pricing reliable?<span>&#x3e;</span></label>
                   <input type="radio" name="accordion" id="second" ></input>
-                  <div class="content"><p>The seating and pricing details available on our site are brought directly from the Indian Railways Reservation System. To make your search faster, we have cached the data on trains, routes and fares on our site. This information is updated many times in an hour.</p></div>
+                  <div className="content"><p>The seating and pricing details available on our site are brought directly from the Indian Railways Reservation System. To make your search faster, we have cached the data on trains, routes and fares on our site. This information is updated many times in an hour.</p></div>
                 </li>
                 <li>
                   <label for="third">What are the benefits of registering on the site<span>&#x3e;</span></label>
@@ -117,13 +117,13 @@ export default function About() {
               <li>
                 <label for="fourth">Can I choose my seat at the cinema?<span>&#x3e;</span></label>
                 <input type="radio" name="accordion" id="fourth"></input>
-                <div class="content"><p>Absolutely, this is one of the most beneficial feature we offer so that our customers have a good ticket experience. You have the choice of selecting or changing your seats at every step of transaction.</p></div>
+                <div className="content"><p>Absolutely, this is one of the most beneficial feature we offer so that our customers have a good ticket experience. You have the choice of selecting or changing your seats at every step of transaction.</p></div>
               </li>
 
               <li>
                 <label for="fifth">What are the various payment options available online to make payment?<span>&#x3e;</span></label>
                 <input type="radio" name="accordion" id="fifth"></input>
-                <div class="content"><p>The various payment options are:<br></br>
+                <div className="content"><p>The various payment options are:<br></br>
                   Credit Card<br></br>
                   Debit Card<br></br>
                   UPI</p></div>
@@ -131,7 +131,7 @@ export default function About() {
               <li>
                 <label for="sixth">How does OmniPass find such low flight prices?  <span>&#x3e;</span></label>
                 <input type="radio" name="accordion" id="sixth"></input>
-                <div class="content"><p>Omnipass processes over 2 million flight queries annually and displays results from hundreds of airlines and third party sites,allowing it to find a variety of flight  and options.It  also displays results from 2M+ properties and millions of verified reviews so users can see as many available travel options as possible. </p></div>
+                <div className="content"><p>Omnipass processes over 2 million flight queries annually and displays results from hundreds of airlines and third party sites,allowing it to find a variety of flight  and options.It  also displays results from 2M+ properties and millions of verified reviews so users can see as many available travel options as possible. </p></div>
               </li>
             </ul>
 
