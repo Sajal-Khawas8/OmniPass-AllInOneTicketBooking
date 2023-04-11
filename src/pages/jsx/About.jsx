@@ -20,11 +20,11 @@ export default function About() {
         <div className='point_cards'>
           <div className='point'>
             <h4>No Reservation Fees</h4>
-            <p>We don't charge you any booking fees or add any administrative charges and provide a top class service.</p>
+            <p>We don't charge you any booking fees or add any administrative charges and provide a top class service.You can book your flight, train, movie and other travel tickets without paying additional charges.</p>
           </div>
           <div className='point'>
             <h4>Secure Transactions</h4>
-            <p>We facilitate hundreds of thousands of transactions every day through our secure platform, and work to the highest standards to guarantee your privacy. For further details, please check our Privacy Statement</p>
+            <p>We facilitate hundreds of thousands of transactions every day through our secure platform, and work to the highest standards to guarantee your privacy. For further details,check Privacy Statement</p>
           </div>
           <div className='point'>
             <h4>Instant Confirmation</h4>

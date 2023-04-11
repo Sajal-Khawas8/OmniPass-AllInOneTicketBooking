@@ -40,7 +40,7 @@
 
 .services {
     width: 100vw;
-    background-color: rgb(48, 48, 48);
+     background-color:black;
 }
 
 .services h2 {
@@ -80,7 +80,7 @@
 
 .contactUs {
     width: 100vw;
-    background-color: rgb(48, 48, 48);
+    background-color: black;
 }
 
 .contactUs h2 {
@@ -100,7 +100,7 @@
 
 .form{
     width: 45%;
-    background-color: #D9D9D9;
+   background-color: #7259F3;
     margin: 20px;
 }
 
