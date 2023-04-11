@@ -1455,7 +1455,7 @@ export default function LiveStatus() {
                     </div>
                 </div>
             </div>
-            {!showLiveStatus && (<div className='logo2'>
+            {(!showLiveStatus || !data) && (<div className='logo2'>
                 <img src="./src/images/AppLogo.png" alt="" />
             </div>)}
 
@@ -1513,25 +1513,14 @@ export default function LiveStatus() {
                             <tbody>
                                 {data.stations.map(element => (
                                     <tr key={element.source_code}>
-                                        <td> <div style={{
-                                            height: '5px', width: '5px', borderRadius: '50px',
-                                            backgroundColor: element.is_arrived ? (element.is_departed ? 'green' : 'yellow') : 'red'
-                                        }}></div>
-                                            {element.source_name}{element.source_code} <br></br>{element.distance}kms</td>
-                                        {/* <td style={{ whiteSpace: "pre-wrap" }}>
-                                            {element.is_source === "1" ? (<span style={{color: ((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) === 0)?"green":"red"}}>Source</span>) 
-                                            : (<span style={{color: ((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) === 0)?"green":"red"}}>{element.actual_arrival_time}</span>) + "\n" + element.arrival_time}
-                                        </td>
-                                        <td style={{ whiteSpace: "pre-wrap" }}>
-                                            {element.is_destination === "1" ? (<span style={{color: ((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) === 0)?"green":"red"}}>Destination</span>) 
-                                            : (<span style={{color: ((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) === 0)?"green":"red"}}>{element.actual_departure_time}</span>) + "\n" + element.departure_time}
-                                        </td> */}
+                                        <td style={{color: element.is_arrived==="1" ? (element.is_departed==="1" ? '#31ff31' : 'yellow') : 'red'}}>
+                                            {element.source_name} ({element.source_code}) <br></br>{element.distance}kms</td>
                                         <td style={{ whiteSpace: "pre-wrap" }}>
                                             {element.is_source === "1" ? (
-                                                <span style={{color: ((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) === 0)?"green":"red"}}>Source</span>
+                                                <span style={{color: ((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) === 0)?"#31ff31":"red"}}>Source</span>
                                             ) : (
                                                 <div>
-                                                    <span style={{color: ((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) === 0)?"green":"red"}}>{element.actual_arrival_time}</span>
+                                                    <span style={{color: ((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) === 0)?"#31ff31":"red"}}>{element.actual_arrival_time}</span>
                                                     <br />
                                                     {element.arrival_time}
                                                 </div>
@@ -1539,10 +1528,10 @@ export default function LiveStatus() {
                                         </td>
                                         <td style={{ whiteSpace: "pre-wrap" }}>
                                             {element.is_destination === "1" ? (
-                                                <span style={{color: ((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) === 0)?"green":"red"}}>Destination</span>
+                                                <span style={{color: ((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) === 0)?"#31ff31":"red"}}>Destination</span>
                                             ) : (
                                                 <div>
-                                                    <span style={{color: ((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) === 0)?"green":"red"}}>{element.actual_departure_time}</span>
+                                                    <span style={{color: ((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) === 0)?"#31ff31":"red"}}>{element.actual_departure_time}</span>
                                                     <br />
                                                     {element.departure_time}
                                                 </div>
@@ -1553,8 +1542,8 @@ export default function LiveStatus() {
                                                 ? "On Time"
                                                 : (
                                                     ((Math.floor((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 / 60)) > 0 && (Math.floor((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 % 60)) > 0)
-                                                        ? (Math.floor((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 / 60) + "h " + Math.floor((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 % 60) + "m Late")
-                                                        : (Math.floor((new Date("01/02/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 / 60) + "h " + Math.floor((new Date("01/02/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 % 60) + "m Late")
+                                                        ?(Math.floor((new Date("01/02/2023 " + element.departure_time).getTime() - new Date("01/01/2023 " + element.actual_departure_time).getTime()) / 1000 / 60 / 60) + "h " + Math.floor((new Date("01/02/2023 " + element.departure_time).getTime() - new Date("01/01/2023 " + element.actual_departure_time).getTime()) / 1000 / 60 % 60) + "m Late") 
+                                                        : (Math.floor((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 / 60) + "h " + Math.floor((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.departure_time).getTime()) / 1000 / 60 % 60) + "m Late")
                                                 )
                                         }</td>
                                         <td>{(element.is_source === "1" || element.is_destination === "1") ? "--" : `${((new Date("01/01/2023 " + element.actual_departure_time).getTime() - new Date("01/01/2023 " + element.actual_arrival_time).getTime()) / 1000 / 60) + "m"}`}</td>
