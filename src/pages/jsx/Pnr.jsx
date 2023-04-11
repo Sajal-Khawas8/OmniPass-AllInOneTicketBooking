@@ -34,13 +34,13 @@ export default function Pnr() {
         </div>
         <div className='Source_Des'>
           <ul>
-            <li>01:25,February 26<br></br>Chandigarh</li>
+            <li>February 26,01:25<br></br>Chandigarh</li>
             <li>8h 48min</li>
             <li>Quota:GN</li>
-            <li>10:13,February 26<br></br>Firozabad</li>
+            <li>February 26,10:13<br></br>Firozabad</li>
           </ul>
         </div>
-        Passenger Details
+        <div className='text_pass'> Passenger Details</div>
         <div className='PNR_table'>
           <table>
             <thead>
