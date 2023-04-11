@@ -33,7 +33,7 @@ export default function Train() {
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': '67fa0219fdmsh1ccb35d28a17eddp1847c6jsn0bb426fc84fa',
+                'X-RapidAPI-Key': '52b9c92824msh2b6241b5cc1c848p1b5526jsnd0dd6c360cdc',
                 'X-RapidAPI-Host': 'irctc1.p.rapidapi.com'
             }
         };
@@ -141,7 +141,7 @@ export default function Train() {
                 }
             };
 
-            // [
+            // sampleResponse=[
             //     {
             //       "id": "2739",
             //       "display": "12312 - KALKA MAIL (KLK - HWH)",
@@ -155,31 +155,60 @@ export default function Train() {
             //     }
             //   ]
 
-            await fetch(`https://indian-railway-irctc.p.rapidapi.com/getTrainId?trainno=${document.getElementById("trainSearchNumber").value}`, options2)
-                .then(response => response.json())
-                .then(response => {
-                    console.log(response);
-                    response.forEach(train2 => {
-                        console.log(train2.source_code);
-                        console.log(train2.destination_code);
-                        fetch(`https://irctc1.p.rapidapi.com/api/v2/trainBetweenStations?fromStationCode=${train2.source_code}&toStationCode=${train2.destination_code}`, options)
-                            .then(response2 => response2.json())
-                            .then(response2 => {
-                                console.log(response2);
+            let response2={
+                "status": true,
+                "message": "Success",
+                "timestamp": 1681229207598,
+                "data": [
+                    {
+                        "train_number": "12312",
+                        "train_name": "Netaji Express",
+                        "train_type": "M",
+                        "run_days": [
+                            "Sun",
+                            "Mon",
+                            "Tue",
+                            "Wed",
+                            "Thu",
+                            "Fri",
+                            "Sat"
+                        ],
+                        "train_origin_station": "Kalka",
+                        "train_origin_station_code": "KLK",
+                        "train_destination_station": "Kolkata",
+                        "train_destination_station_code": "HWH",
+                        "depart_time": "23:55:00",
+                        "arrival_time": "08:05:00",
+                        "distance": "1743",
+                        "class_type": [
+                            "1A",
+                            "2A",
+                            "3A",
+                            "SL"
+                        ],
+                        "day_of_journey": 1
+                    }
+                ]
+            }
+
+            // await fetch(`https://indian-railway-irctc.p.rapidapi.com/getTrainId?trainno=${document.getElementById("trainSearchNumber").value}`, options2)
+            //     .then(response => response.json())
+            //     .then(response => {
+            //         console.log(response);
+            //         response.forEach(train2 => {
+            //             console.log(train2.source_code);
+            //             console.log(train2.destination_code);
+            //             fetch(`https://irctc1.p.rapidapi.com/api/v2/trainBetweenStations?fromStationCode=${train2.source_code}&toStationCode=${train2.destination_code}`, options)
+            //                 .then(response2 => response2.json())
+            //                 .then(response2 => {
+            //                     console.log(response2);
                                 const trainCards = response2.data.map(train => (
                                     <TrainCard
                                         trainNumber={train.train_number}
                                         trainName={train.train_name}
-                                        // trainType={train.train_type}
-                                        // runDays={train.run_days}
-                                        // origin={train.train_origin_station}
-                                        // originCode={train.train_origin_station_code}
-                                        // destination={train.train_destination_station}
-                                        // destinationCode={train.train_destination_station_code}
                                         departureTime={train.depart_time}
                                         arrivalTime={train.arrival_time}
                                         distance={train.distance}
-                                        // classType={train.class_type}
                                         dayOfJourney={train.day_of_journey}
                                         userSourceStation={train.train_origin_station}
                                         userDestinationStation={train.train_destination_station}
@@ -196,20 +225,20 @@ export default function Train() {
                                     />
                                 ));
                                 ReactDOM.createRoot(document.getElementById('trains')).render(trainCards);
-                            })
-                            .catch(err2 => {
-                                console.log(err2);
-                                trainData = false;
-                                setFlag(false);
-                                setErrMessage("Couldn't fetch trains at the moment. Please try again later and ensure that you are searching for valid train number. Inside")
-                            })
-                    });
-                })
-                .catch(err => {
-                    console.log(err);
-                    setFlag(false);
-                    setErrMessage("Couldn't fetch trains at the moment. Please try again later and ensure that you are searching for valid train number. Outside")
-                });
+                //             })
+                //             .catch(err2 => {
+                //                 console.log(err2);
+                //                 trainData = false;
+                //                 setFlag(false);
+                //                 setErrMessage("Couldn't fetch trains at the moment. Please try again later and ensure that you are searching for valid train number. Inside")
+                //             })
+                //     });
+                // })
+                // .catch(err => {
+                //     console.log(err);
+                //     setFlag(false);
+                //     setErrMessage("Couldn't fetch trains at the moment. Please try again later and ensure that you are searching for valid train number. Outside")
+                // });
 
             // console.log("train");
 
