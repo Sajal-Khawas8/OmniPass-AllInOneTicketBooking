@@ -15,15 +15,15 @@
 }
 
 .Searchbox {
-    height: 30vh;
+    height: 22vh;
     width: 80%;
-    
-    background: linear-gradient(180deg, #7259F3 0%, rgba(218, 111, 251, 0) 100%);
+    background: linear-gradient(180deg, #7259F3 0%, rgb(134 67 155 / 59%) 100%);
     display: flex;
     justify-content: space-evenly;
-    padding-top: 30px;
+    /* padding-top: 30px; */
     margin: auto;
     border-radius: 10px;
+    align-items: center;
 }
 
 .Tno,
@@ -244,6 +244,8 @@
     overflow: hidden;
     overflow-y: scroll;
     margin:auto;
+    display: flex;
+    justify-content: center;
 }
 /*
 .Table span {
