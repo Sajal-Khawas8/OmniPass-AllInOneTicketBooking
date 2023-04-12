@@ -32,8 +32,10 @@ export default function Home() {
                         <p>Infinite eyes, a million words,a potpourre of vibes- Metro can never be boring. Grab your Metro tickets Really Quick!! Book Today!</p>
                     </div>
                     <div className="card">
-                        <img src="./src/images/bus.png" alt="" />
-                        <p>Trip Planning? Trip Avoiding? Either way,you're going to want to get this on Bus. Book your seats Immediately!!</p>
+                        <Link to="/bus">
+                            <img src="./src/images/bus.png" alt="" />
+                            <p>Trip Planning? Trip Avoiding? Either way,you're going to want to get this on Bus. Book your seats Immediately!!</p>
+                        </Link>
                     </div>
                     <div className="card">
                         <img src="./src/images/movie.png" alt="" />
