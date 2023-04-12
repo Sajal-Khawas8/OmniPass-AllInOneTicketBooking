@@ -7,6 +7,7 @@ import About from './pages/jsx/About'
 import Train from './pages/jsx/Train'
 import LiveStatus from './pages/jsx/LiveStatus'
 import Pnr from './pages/jsx/Pnr'
+import ComingSoon from './pages/jsx/ComingSoon'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           <Route path='/train' element={<Train />}></Route>
           <Route path='/trainLiveStatus' element={<LiveStatus />}></Route>
           <Route path='/trainPnrStatus' element={<Pnr />}></Route>
+          <Route path='/bus' element={<ComingSoon />}></Route>
 
         </Routes>
 
