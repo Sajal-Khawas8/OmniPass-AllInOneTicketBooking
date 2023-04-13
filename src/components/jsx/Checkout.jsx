@@ -92,7 +92,7 @@ export default function Checkout() {
     // };
   
   const Razorpay = useRazorpay();
-  const [params, setParams] = useState({ amount: 100, email: "sajalkhawas8@gmail.com", name: "Sajal56" }); // Define params here
+  const [params, setParams] = useState({ amount: 100, email: "sajalkhawas8@gmail.com", name: "Sajal56", category: "Train" }); // Define params here
 
   async function createOrder(params) {
     const response = await fetch('http://localhost:4242/create-order', {
@@ -135,6 +135,7 @@ export default function Checkout() {
               amount: params.amount,
               email: params.email,
               name: params.name,
+              category: params.category,
             }),
           });
           const captureData = await captureResponse.json();

@@ -1,148 +1,118 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import '../css/SeatCard.css'
 import Button from './Button'
 import Error from './Error';
-import logo from '../../images/bus.png';
 import { useAuth0 } from '@auth0/auth0-react';
-import pdfMake from 'pdfmake/build/pdfmake';
-import pdfFonts from 'pdfmake/build/vfs_fonts';
-import htmlToPdfmake from 'html-to-pdfmake';
-import sendgrid from '@sendgrid/mail';
+import useRazorpay from "react-razorpay";
+import Success from './success';
+import { authenticated, userData } from './Navbar'
 
 export default function SeatCard(props) {
-    // const [paymentStatus, setPaymentStatus] = useState('');
-    // const { loginWithRedirect, logout, isAuthenticated, error, user } = useAuth0();
-    // const handlePaymentSuccess = (paymentRequest) => {
-    //     setPaymentStatus('success');
-    //     const invoice = generateInvoice(paymentRequest);
-    //     sendEmail(user.email, 'Ticket cum Invoive', invoice);
-    // };
+    const Razorpay = useRazorpay();
+    // const { isAuthenticated, user } = useAuth0();
+    const [paymentStatus, setPaymentStatus] = useState(null);
+    const params = {
+        amount: (props.fare) * 100,
+        email: userData.email,
+        name: userData.name,
+        category: "Train",
+    };
 
-    // const generateInvoice = (paymentRequest) => {
-    //     // Convert the logo image to a PDFMake-compatible JSON object
-    //     const logoData = htmlToPdfmake(`<img src="${logo}" />`);
+    async function createOrder(params) {
+        const response = await fetch('http://localhost:4242/create-order', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(params)
+        });
 
-    //     // Define the PDF document structure
-    //     const docDefinition = {
-    //         content: [
-    //             // Add background image
-    //             {
-    //                 image: logoData,
-    //                 width: '100%',
-    //                 height: '100%',
-    //                 absolutePosition: { x: 0, y: 0 }
-    //             },
-    //             // Add logo on top right corner
-    //             {
-    //                 image: logoData,
-    //                 width: 50,
-    //                 height: 50,
-    //                 absolutePosition: { x: 520, y: 20 }
-    //             },
-    //             // Add invoice details
-    //             { text: 'Invoice', style: 'header', alignment: 'center' },
-    //             { text: 'Invoice Number:', style: 'subheader', margin: [0, 80, 0, 0] },
-    //             { text: paymentRequest.transactionId, margin: [90, 80, 0, 0] },
-    //             { text: 'Date:', style: 'subheader', margin: [0, 10, 0, 0] },
-    //             { text: paymentRequest.transactionDate, margin: [90, 10, 0, 0] },
-    //             { text: 'Amount:', style: 'subheader', margin: [0, 10, 0, 0] },
-    //             { text: `${paymentRequest.currencyCode} ${paymentRequest.transactionAmount}`, margin: [90, 10, 0, 0] }
-    //         ],
-    //         styles: {
-    //             header: {
-    //                 fontSize: 22,
-    //                 bold: true,
-    //                 margin: [0, 0, 0, 20]
-    //             },
-    //             subheader: {
-    //                 fontSize: 16,
-    //                 bold: true,
-    //                 margin: [0, 0, 0, 5]
-    //             }
-    //         }
-    //     };
-
-    //     // Generate the PDF file
-    //     const fileName = `Ticket-${paymentRequest.transactionId}.pdf`;
-    //     pdfMake.createPdf(docDefinition).download(fileName);
-
-    //     return fileName;
-    // };
-
-    // const sendEmail = (toEmail, subject, attachment) => {
-    //     const msg = {
-    //         to: toEmail,
-    //         from: 'gouravkhawas@gmail.com', // Replace with your email address
-    //         subject: subject,
-    //         attachments: [
-    //             {
-    //                 content: attachment.buffer.toString('base64'),
-    //                 filename: attachment.name,
-    //                 type: attachment.type,
-    //                 disposition: 'attachment',
-    //             },
-    //         ],
-    //     };
-    //     sendgrid.setApiKey('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'); // Replace with your SendGrid API key
-    //     sendgrid.send(msg)
-    //         .then(() => console.log('Email sent'))
-    //         .catch((error) => console.error(error));
-    // };
+        const data = await response.json();
+        if (data.error) {
+            throw new Error(data.error);
+        }
+        return data.order;
+    }
 
 
-    // const handlePaymentError = (paymentRequest) => {
-    //     setPaymentStatus('error');
-    // };
+    const handlePayment = useCallback(async () => {
+        const order = await createOrder(params);
 
+        const options = {
+            key: "rzp_test_lxz0Bq1hhvIAUt",
+            amount: params.amount,
+            currency: "INR",
+            image: "https://www.renderforest.com/logo-maker/icons/5ec2420d221da04cb77361eb/b34edc677c53d2fa82843395ba36de21.svg",
+            name: "OmniPass",
+            handler: async (res) => {
+                if (res.razorpay_payment_id) {
+                    console.log("Success: ");
+                    console.log(res);
+
+                    // Capture payment and generate receipt
+                    const captureResponse = await fetch(`http://localhost:4242/capture-payment/${res.razorpay_payment_id}`, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            amount: params.amount,
+                            email: params.email,
+                            name: params.name,
+                            category: params.category,
+                        }),
+                    });
+                    const captureData = await captureResponse.json();
+
+                    if (captureData.error) {
+                        throw new Error(captureData.error);
+                    }
+
+                    console.log("captureData: ");
+                    console.log(captureData);
+                    if (captureData.captured) {
+                        setPaymentStatus("success");
+                    }
+                    else {
+                        setPaymentStatus("fail");
+                    }
+
+
+                } else {
+                    console.log("Fail: ");
+                    console.log(res);
+                    setPaymentStatus("fail");
+                }
+            },
+            prefill: {
+                name: params.name,
+                email: params.email,
+                contact: 91
+            },
+            theme: {
+                color: "#000000",
+            },
+            modal: {
+                backdropclose: true,
+                confirm_close: true
+            },
+            payment_capture: 1
+        };
+
+        const rzpay = new Razorpay(options);
+        rzpay.open();
+    }, [Razorpay, params]);
     return (
         <div className="seatCard">
+            {(!authenticated || !userData.email_verified) && (<Error errMessage="Please login and verify your email before booking your ticket" />)}
             <div className="fare">Rs. {props.fare}</div>
             <div className="date">{props.date}</div>
             <div className="seatsAvl">{props.status}</div>
-            {/* <GooglePayButton environment='TEST'
-                paymentRequest={{
-                    apiVersion: 2,
-                    apiVersionMinor: 0,
-                    allowedPaymentMethods: [
-                        {
-                            type: 'CARD',
-                            parameters: {
-                                allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
-                                allowedCardNetworks: ['MASTERCARD', 'VISA', 'DISCOVER', 'AMEX'],
-                            },
-                            tokenizationSpecification: {
-                                type: 'PAYMENT_GATEWAY',
-                                parameters: {
-                                    gateway: 'example',
-                                    gatewayMerchantId: 'exampleGatewayMerchantId',
-                                },
-                            },
-                        },
-                    ],
-                    merchantInfo: {
-                        merchantId: '12345678901234567890',
-                        merchantName: 'OmniPass',
-                    },
-                    transactionInfo: {
-                        totalPriceStatus: 'FINAL',
-                        totalPriceLabel: 'Total',
-                        totalPrice: `${props.fare}`,
-                        currencyCode: 'INR',
-                        countryCode: 'IN',
-                    },
-                    shippingAddressRequired: false,
-                    callbackIntents: ['PAYMENT_AUTHORIZATION'],
-                }}
-                onLoadPaymentData={handlePaymentSuccess}
-                onError={handlePaymentError}
-                buttonColor='Black' >
 
-            </GooglePayButton> */}
-            <Button content="Book Now" style={{height: '27px', fontSize: '20px', fontWeight: '500'}}></Button>
-            {/* <div className="btn">
-                <button>Book Now</button>
-            </div> */}
-            {/* {paymentStatus === 'error' && <Error errMessage="Payment failed. Please try again later." />} */}
+            <Button content="Book Now" style={{ height: '27px', fontSize: '20px', fontWeight: '500' }} onClick={handlePayment}></Button>
+
+            {paymentStatus === 'fail' && <Error errMessage="Payment failed. Please try again later." />}
+            {paymentStatus === 'success' && <Success message="Payment successfull. Please Check your email for Ticket and Invoice." />}
         </div>
     )
 }

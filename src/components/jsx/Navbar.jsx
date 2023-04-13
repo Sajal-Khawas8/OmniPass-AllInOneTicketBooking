@@ -4,10 +4,12 @@ import '../css/Navbar.css'
 import { useAuth0 } from "@auth0/auth0-react";
 import Error from './Error';
 import Button from './Button';
-
+let authenticated, userData;
 export default function Navbar() {
     const [navOpened, openNav] = useState(false);
     const { loginWithRedirect, logout, isAuthenticated, error, user } = useAuth0();
+    authenticated=isAuthenticated;
+    userData=user;
     return (
         <header>
             <div className="head">Omni<span>Pass</span></div>
@@ -41,3 +43,4 @@ export default function Navbar() {
         </header>
     )
 }
+export {authenticated, userData}
