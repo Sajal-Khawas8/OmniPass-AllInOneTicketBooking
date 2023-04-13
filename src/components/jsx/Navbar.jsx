@@ -14,7 +14,7 @@ export default function Navbar() {
         <header>
             <div className="head">Omni<span>Pass</span></div>
             {isAuthenticated && <div className="welcomeMessage">
-                <p>Welcome {user.name}</p>
+                <p>Welcome <br></br><span>{user.name}</span></p>
             </div> }
             <div className="hamburger" onClick={() => openNav(!navOpened)}>
                 <div className={navOpened ? "line line1" : "line"}></div>
