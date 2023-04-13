@@ -534,7 +534,7 @@
     .Accordion {
        
 
-        padding-left: 5px;
+        padding-left: 2px;
 
     }
 }
@@ -542,7 +542,7 @@
 @media only screen and (max-width:405px) {
     .Accordion {
       
-
+        background-color:aquamarine;
         padding-left: 10px;
 
     }
@@ -556,7 +556,24 @@
     .Accordion .flex {
         width: 55vw;
 
+    }
+    .FAQ ul li label {
+        font-size: 15px;
+    }
+}
+@media only screen and (max-width:390px) {
+    .Accordion {
+      
+        background-color:aquamarine;
+        padding-left: 5px;
 
+    }
+}
+@media only screen and (max-width:370px) {
+    .Accordion {
+      
+        background-color:aquamarine;
+        padding-left: 0.5px;
 
     }
 }
