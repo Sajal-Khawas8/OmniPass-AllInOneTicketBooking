@@ -47,10 +47,10 @@ export default function Home() {
                 <h2>Contact Us</h2>
                 <div className="contact">
                     <div className="form">
-                        <form action="" method="post">
-                            <input type="text" name="Name" id="Name" placeholder="Your Name" /><br />
-                            <input type="email" name="Email" id="Email" placeholder="Your Email" /><br />
-                            <textarea name="Message" id="Message" cols="30" rows="10" placeholder="Your Message"></textarea><br />
+                        <form action="mailto: help.omnipass@gmail.com" method="post">
+                            <input type="text" name="Name" id="Name" placeholder="Your Name" required /><br />
+                            <input type="email" name="Email" id="Email" placeholder="Your Email" required /><br />
+                            <textarea name="Message" id="Message" cols="30" rows="10" placeholder="Your Message" required></textarea><br />
                             <div className="btns">
                                 <input type="reset" value="Clear" id="reset" />
                                 <input type="submit" value="Submit" id="submit" />

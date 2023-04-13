@@ -116,10 +116,15 @@ hr{
     border-radius: 10px;
     font-size: 18px;
 }
+.quotaClass {
+    display: flex;
+    /* flex-wrap: wrap; */
+}
 
 .quota, .classType{
     /* width: 20vw; */
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin-left: 15px;
@@ -195,6 +200,10 @@ hr{
 
     .duration{
         margin: 0 7px;
+    }
+
+    .quotaClass{
+        flex-direction: column
     }
 }
 

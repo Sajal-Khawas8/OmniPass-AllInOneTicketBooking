@@ -2,25 +2,9 @@ import { useState } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import Button from '../../components/jsx/Button';
 import Error from '../../components/jsx/Error';
-// import ReactDOM from 'react-dom';
 import TrainCard from '../../components/jsx/TrainCard';
 import '../css/Train.css';
 import { Link } from 'react-router-dom';
-import Checkout from '../../components/jsx/Checkout';
-
-// userSourceStation=document.getElementById("userSourceStation").value
-// userDestinationStation=document.getElementById("userDestinationStation").value
-// let userDepartureDate=document.getElementById("userDepartureDate").value;
-// let sourceStation, destinationStation;
-
-// export {sourceStation, destinationStation, userDepartureDate}
-
-
-
-// function fetchTrains(params) {
-//     console.log(document.getElementById("userSourceStation").value);
-// }
-
 
 export default function Train() {
 
@@ -103,6 +87,11 @@ export default function Train() {
                             sourceStation={sourceStationCode}
                             destinationStation={destinationStationCode}
                             departureDate={document.getElementById("userDepartureDate").value}
+                            duration={`${(Math.floor(((train.day_of_journey * 24 * 60 * 60 * 1000) + ((new Date(`2000-01-01T${train.arrival_time}`) - new Date(`2000-01-01T${train.depart_time}`)) + 24 * 60 * 60 * 1000)) / (60 * 60 * 1000))).toString().padStart(2, '0')}h 
+                                                        ${(Math.floor((((train.day_of_journey * 24 * 60 * 60 * 1000) + ((new Date(`2000-01-01T${train.arrival_time}`) - new Date(`2000-01-01T${train.depart_time}`)) + 24 * 60 * 60 * 1000)) / (60 * 1000)) % 60)).toString().padStart(2, '0')}m 
+                                                        ${(Math.floor((((train.day_of_journey * 24 * 60 * 60 * 1000) + ((new Date(`2000-01-01T${train.arrival_time}`) - new Date(`2000-01-01T${train.depart_time}`)) + 24 * 60 * 60 * 1000)) / 1000) % 60)).toString().padStart(2, '0')}s`}
+                            formattedArrivalDate={new Date((new Date(document.getElementById("userDepartureDate").value + `T${train.depart_time}+05:30`)).getTime() + ((train.day_of_journey * 24 * 60 * 60 * 1000) + ((new Date(`2000-01-01T${train.arrival_time}`) - new Date(`2000-01-01T${train.depart_time}`)) + 24 * 60 * 60 * 1000))).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
+                            formattedDepartureDate={new Date(document.getElementById("userDepartureDate").value).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
                             key={train.train_number}
                         />
                     ));
@@ -118,21 +107,6 @@ export default function Train() {
             }
         }
         else if (searchMethod === "train") {
-
-            // {
-            //     "status": true,
-            //     "message": "Success",
-            //     "timestamp": 1680288645137,
-            //     "data": [
-            //       {
-            //         "train_number": "12312",
-            //         "train_name": "KALKA - HOWRAH Netaji SF Express",
-            //         "eng_train_name": "KALKA - HOWRAH Netaji SF Express",
-            //         "new_train_number": ""
-            //       }
-            //     ]
-            //   }
-
             const options2 = {
                 method: 'GET',
                 headers: {
@@ -141,7 +115,7 @@ export default function Train() {
                 }
             };
 
-            // sampleResponse=[
+            // let sampleResponse1=[
             //     {
             //       "id": "2739",
             //       "display": "12312 - KALKA MAIL (KLK - HWH)",
@@ -155,53 +129,53 @@ export default function Train() {
             //     }
             //   ]
 
-            let response2={
-                "status": true,
-                "message": "Success",
-                "timestamp": 1681229207598,
-                "data": [
-                    {
-                        "train_number": "12312",
-                        "train_name": "Netaji Express",
-                        "train_type": "M",
-                        "run_days": [
-                            "Sun",
-                            "Mon",
-                            "Tue",
-                            "Wed",
-                            "Thu",
-                            "Fri",
-                            "Sat"
-                        ],
-                        "train_origin_station": "Kalka",
-                        "train_origin_station_code": "KLK",
-                        "train_destination_station": "Kolkata",
-                        "train_destination_station_code": "HWH",
-                        "depart_time": "23:55:00",
-                        "arrival_time": "08:05:00",
-                        "distance": "1743",
-                        "class_type": [
-                            "1A",
-                            "2A",
-                            "3A",
-                            "SL"
-                        ],
-                        "day_of_journey": 1
-                    }
-                ]
-            }
+            // let sampleResponse2={
+            //     "status": true,
+            //     "message": "Success",
+            //     "timestamp": 1681229207598,
+            //     "data": [
+            //         {
+            //             "train_number": "12312",
+            //             "train_name": "Netaji Express",
+            //             "train_type": "M",
+            //             "run_days": [
+            //                 "Sun",
+            //                 "Mon",
+            //                 "Tue",
+            //                 "Wed",
+            //                 "Thu",
+            //                 "Fri",
+            //                 "Sat"
+            //             ],
+            //             "train_origin_station": "Kalka",
+            //             "train_origin_station_code": "KLK",
+            //             "train_destination_station": "Kolkata",
+            //             "train_destination_station_code": "HWH",
+            //             "depart_time": "23:55:00",
+            //             "arrival_time": "08:05:00",
+            //             "distance": "1743",
+            //             "class_type": [
+            //                 "1A",
+            //                 "2A",
+            //                 "3A",
+            //                 "SL"
+            //             ],
+            //             "day_of_journey": 1
+            //         }
+            //     ]
+            // }
 
-            // await fetch(`https://indian-railway-irctc.p.rapidapi.com/getTrainId?trainno=${document.getElementById("trainSearchNumber").value}`, options2)
-            //     .then(response => response.json())
-            //     .then(response => {
-            //         console.log(response);
-            //         response.forEach(train2 => {
-            //             console.log(train2.source_code);
-            //             console.log(train2.destination_code);
-            //             fetch(`https://irctc1.p.rapidapi.com/api/v2/trainBetweenStations?fromStationCode=${train2.source_code}&toStationCode=${train2.destination_code}`, options)
-            //                 .then(response2 => response2.json())
-            //                 .then(response2 => {
-            //                     console.log(response2);
+            await fetch(`https://indian-railway-irctc.p.rapidapi.com/getTrainId?trainno=${document.getElementById("trainSearchNumber").value}`, options2)
+                .then(response => response.json())
+                .then(response => {
+                    console.log(response);
+                    response.forEach(train2 => {
+                        console.log(train2.source_code);
+                        console.log(train2.destination_code);
+                        fetch(`https://irctc1.p.rapidapi.com/api/v2/trainBetweenStations?fromStationCode=${train2.source_code}&toStationCode=${train2.destination_code}`, options)
+                            .then(response2 => response2.json())
+                            .then(response2 => {
+                                console.log(response2);
                                 const trainCards = response2.data.map(train => (
                                     <TrainCard
                                         trainNumber={train.train_number}
@@ -225,65 +199,27 @@ export default function Train() {
                                     />
                                 ));
                                 ReactDOM.createRoot(document.getElementById('trains')).render(trainCards);
-                //             })
-                //             .catch(err2 => {
-                //                 console.log(err2);
-                //                 trainData = false;
-                //                 setFlag(false);
-                //                 setErrMessage("Couldn't fetch trains at the moment. Please try again later and ensure that you are searching for valid train number. Inside")
-                //             })
-                //     });
-                // })
-                // .catch(err => {
-                //     console.log(err);
-                //     setFlag(false);
-                //     setErrMessage("Couldn't fetch trains at the moment. Please try again later and ensure that you are searching for valid train number. Outside")
-                // });
-
-            // console.log("train");
-
-            // fetch('https://irctc1.p.rapidapi.com/api/v1/searchTrain?query=190', options)
-            //     .then(response => response.json())
-            //     .then(response => {
-            //         const trainCards = response.data.map(train => (
-            //             <TrainCard
-            //                 trainNumber={train.train_number}
-            //                 trainName={train.train_name}
-            //                 // trainType={train.train_type}
-            //                 // runDays={train.run_days}
-            //                 // origin={train.train_origin_station}
-            //                 // originCode={train.train_origin_station_code}
-            //                 // destination={train.train_destination_station}
-            //                 // destinationCode={train.train_destination_station_code}
-            //                 departureTime={train.depart_time}
-            //                 arrivalTime={train.arrival_time}
-            //                 distance={train.distance}
-            //                 // classType={train.class_type}
-            //                 dayOfJourney={train.day_of_journey}
-            //                 userSourceStation={document.getElementById("userSourceStation").value}
-            //                 userDestinationStation={document.getElementById("userDestinationStation").value}
-            //                 sourceStation={sourceStationCode}
-            //                 destinationStation={destinationStationCode}
-            //                 departureDate={document.getElementById("userDepartureDate").value}
-            //                 key={train.train_number}
-            //             />
-            //         ));
-            //         ReactDOM.createRoot(document.getElementById('trains')).render(trainCards);
-            //     })
-            //     .catch(err => {
-            //         setFlag(false);
-            //         setErrMessage("Couldn't fetch trains at the moment. Please try again later and ensure that you are searching for valid train number.")
-            //     });
+                            })
+                            .catch(err2 => {
+                                console.log(err2);
+                                trainData = false;
+                                setFlag(false);
+                                setErrMessage("Couldn't fetch trains at the moment. Please try again later and ensure that you are valid data.")
+                            })
+                    });
+                })
+                .catch(err => {
+                    console.log(err);
+                    setFlag(false);
+                    setErrMessage("Couldn't fetch trains at the moment. Please try again later and ensure that you are entering valid data.")
+                });
         }
     }
-    const [showPayment, setShowPayment]=useState(false);
     return (
         <>
             {!flag && <Error errMessage={errorMessage}></Error>}
             <div className="image">
                 <div className="button1">
-                    <Checkout></Checkout>
-                    <Button content="Book" onClick={()=>setShowPayment(true)}></Button>
                     <Link to='/trainLiveStatus'><Button className='active' content="Live Status" style={{ width: '140px', height: '37px', fontSize: '20px', fontWeight: '300' }}> Live Status</Button></Link>
                     <Link to='/trainPnrStatus'><Button className='active' content="PNR Check" style={{ width: '140px', height: '37px', fontSize: '20px', fontWeight: '300' }}> PNR Check</Button></Link>
                 </div>
