@@ -109,7 +109,7 @@ export default function SeatCard(props) {
             <div className="date">{props.date}</div>
             <div className="seatsAvl">{props.status}</div>
 
-            <Button content="Book Now" style={{ height: '27px', fontSize: '20px', fontWeight: '500' }} onClick={handlePayment}></Button>
+            <Button content="Book Now" style={{ height: '32px', width: '125px', fontSize: '20px', fontWeight: '500' }} onClick={handlePayment}></Button>
 
             {paymentStatus === 'fail' && <Error errMessage="Payment failed. Please try again later." />}
             {paymentStatus === 'success' && <Success message="Payment successfull. Please Check your email for Ticket and Invoice." />}

@@ -124,14 +124,15 @@ export default function About() {
                 <label for="fifth">What are the various payment options available online to make payment?<span>&#x3e;</span></label>
                 <input type="radio" name="accordion" id="fifth"></input>
                 <div className="content"><p>The various payment options are:<br></br>
-                  Credit Card<br></br>
-                  Debit Card<br></br>
-                  UPI</p></div>
+                  Card (Visa, MasterCard, RuPay, and Maestro)<br></br>
+                  UPI<br></br>
+                  Netbanking (All Indian banks)<br></br>
+                  Wallet (Mobikwik, Freecharge, Airtel Money, Ola Money, Jio Money)</p></div>
               </li>
               <li>
-                <label for="sixth">How does OmniPass find such low flight prices?  <span>&#x3e;</span></label>
+                <label for="sixth">Is EMI available on OmniPass?  <span>&#x3e;</span></label>
                 <input type="radio" name="accordion" id="sixth"></input>
-                <div className="content"><p>Omnipass processes over 2 million flight queries annually and displays results from hundreds of airlines and third party sites,allowing it to find a variety of flight  and options.It  also displays results from 2M+ properties and millions of verified reviews so users can see as many available travel options as possible. </p></div>
+                <div className="content"><p>Yes, EMI is available on OmniPass. You only need to choose 'Pay Later' option from Payment window. We have many EMI providers - ICICI Bank, Kotak Mahindra Bank, LazyPay, Simpl, ePayLater.</p></div>
               </li>
             </ul>
 
