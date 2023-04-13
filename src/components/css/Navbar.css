@@ -33,6 +33,20 @@ header {
 
     color: rgba(83, 170, 219, 1)
 }
+.welcomeMessage{
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+
+   
+}
+.welcomeMessage span{
+    font-size: 15px;
+    border-radius: 10px;
+    border:1px solid white;
+    padding-left: 5px;
+    padding-right: 5px;
+
+}
 
 .hamburger {
     display: none;
@@ -90,6 +104,10 @@ header {
 }
 
 @media only screen and (max-width: 990px) {
+    .welcomeMessage{
+        font-size: 18px;
+        letter-spacing: 0.03em;
+    }
     .hamburger {
         display: block;
         cursor: pointer;
@@ -186,6 +204,10 @@ header {
 
     .nav_text.active ul {
         opacity: 1;
+    }
+    .welcomeMessage{
+        font-size: 15px;
+        letter-spacing: 0.03em;
     }
 
     /* .nav_text ul li {
