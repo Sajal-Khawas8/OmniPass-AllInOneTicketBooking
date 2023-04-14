@@ -9,14 +9,26 @@ let authenticated, userData;
 export default function Navbar() {
     const [navOpened, openNav] = useState(false);
     const { loginWithRedirect, logout, isAuthenticated, error, user } = useAuth0();
-    authenticated=isAuthenticated;
-    userData=user;
+    authenticated = isAuthenticated;
+    userData = user;
     return (
         <header>
-            <div className="head">Omni<span>Pass</span></div>
+            <div className="head">
+                Omni<span>
+                    {"Pass".slice(4)}
+                    <img
+                        src='../../src/images/AppLogo.png'
+                        alt="P"
+                        style={{ verticalAlign: "middle", height: "0.8em", width: "auto" }}
+                    />
+                    {"Pass".slice(1)}
+                </span>
+
+            </div>
+
             {isAuthenticated && <div className="welcomeMessage">
                 <p>Welcome <br></br><span>{user.name}</span></p>
-            </div> }
+            </div>}
             <div className="hamburger" onClick={() => openNav(!navOpened)}>
                 <div className={navOpened ? "line line1" : "line"}></div>
                 <div className={navOpened ? "line line2" : "line"}></div>
@@ -28,16 +40,16 @@ export default function Navbar() {
                     <li> <Link to="/about"> About</Link></li>
                     <li> <HashLink to="/#services" smooth>Services</HashLink></li>
                     <li> <HashLink to="/#contactUs" smooth>Contact Us</HashLink></li>
-                    
+
                     {
                         isAuthenticated ?
-                            <li><Button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })} content="Log out" style={{ width: '110px', height: '37px'}}>
+                            <li><Button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })} content="Log out" style={{ width: '110px', height: '37px' }}>
                                 Log Out
                             </Button></li>
                             :
-                            <li> <Button className='active' onClick={() => loginWithRedirect({ redirectUri: window.location.href, onRedirectCallback: () => {} })} content="Log in" style={{ width: '110px', height: '45px'}}> Log in</Button></li>
-                            // <li> <Button className='active' onClick={() => loginWithRedirect({ redirectUri: window.location.href})} content="Log in" style={{ width: '110px', height: '45px' }}> Log in</Button></li>
-                            // <li> <Button className='active' onClick={() => loginWithRedirect()} content="Log in" style={{ width: '110px', height: '37px' }}> Log in</Button></li>
+                            <li> <Button className='active' onClick={() => loginWithRedirect({ redirectUri: window.location.href, onRedirectCallback: () => { } })} content="Log in" style={{ width: '110px', height: '45px' }}> Log in</Button></li>
+                        // <li> <Button className='active' onClick={() => loginWithRedirect({ redirectUri: window.location.href})} content="Log in" style={{ width: '110px', height: '45px' }}> Log in</Button></li>
+                        // <li> <Button className='active' onClick={() => loginWithRedirect()} content="Log in" style={{ width: '110px', height: '37px' }}> Log in</Button></li>
                     }
                     {error && !isAuthenticated && <Error errMessage={"Please verify your email and Click on Log in button"}></Error>}
                 </ul>
@@ -45,4 +57,4 @@ export default function Navbar() {
         </header>
     )
 }
-export {authenticated, userData}
+export { authenticated, userData }

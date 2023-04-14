@@ -6,7 +6,15 @@ export default function Home() {
     return (
         <>
             <div className="home">
-                <h1>Omni<span>Pass</span></h1>
+                <h1>Omni<span>
+                    {"Pass".slice(4)}
+                    <img
+                        src='../../src/images/AppLogo.png'
+                        alt="P"
+                        style={{ verticalAlign: "middle", height: "1em", width: "auto" }}
+                    />
+                    {"Pass".slice(1)}
+                </span></h1>
                 <p className="slogan">Choose the route, we'll pave the way</p>
                 <p>Book your tickets today without paying any extra charges!!!</p>
             </div>

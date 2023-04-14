@@ -31,7 +31,7 @@ header {
 
 .head span {
 
-    color: rgba(83, 170, 219, 1)
+    color: rgb(83, 170, 219)
 }
 .welcomeMessage{
     font-size: 20px;
@@ -228,6 +228,10 @@ header {
     /* .nav_text ul li {
         margin-bottom: 12px;
     } */
+
+    .welcomeMessage P{
+        flex-direction: column;
+    }
 }
 
 @media only screen and (max-width: 400px){
