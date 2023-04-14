@@ -29,7 +29,7 @@ export default function Home() {
                     </div>
                     <div className="card">
                         <img src="./src/images/flight.png" alt="" />
-                        <p>All you need is a passport, plane ticket & positive vibe.So get your Flight ticket ASAP... Book Now!!! </p>
+                        <p>All you need is a passport, plane ticket and positive vibe. So get your Flight ticket ASAP and Find the joy in the journey... Book Now!!! </p>
                     </div>
                     <div className="card">
                         <img src="./src/images/hotel.png" alt="" />
@@ -42,12 +42,12 @@ export default function Home() {
                     <div className="card">
                         <Link to="/bus">
                             <img src="./src/images/bus.png" alt="" />
-                            <p>Trip Planning? Trip Avoiding? Either way,you're going to want to get this on Bus. Book your seats Immediately!!</p>
+                            <p>Trip Planning? Trip Avoiding? Either way, you're going to want to get this on Bus. There is something great about long Bus ride. Book your seats </p>
                         </Link>
                     </div>
                     <div className="card">
                         <img src="./src/images/movie.png" alt="" />
-                        <p>Experience the story, on the big screen.Get your tickets, see the flicks! BOOk NOW..</p>
+                        <p>  Can't stop, won't stop watching movie. Experience the story, on the big screen. Get your tickets, see the flicks! BOOk NOW..</p>
                     </div>
                 </div>
             </div>
