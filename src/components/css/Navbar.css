@@ -52,7 +52,7 @@ header {
     padding-left: 5px;
     padding-right: 5px;
     margin-left: 0.5vw;
-    background-color: #007bf9;
+    background: linear-gradient(180.45deg, #5898C6 0.39%, rgba(38, 123, 135, 0) 123.26%);;
 }
 
 .hamburger {
