@@ -9,7 +9,17 @@ export default function Footer() {
         <footer>
             <div className="foot">
                 <div className="left_box">
-                    <div className="logo">Omni<span>Pass</span></div>
+                    <div className="logo">
+                        Omni<span>
+                            {"Pass".slice(4)}
+                            <img
+                                src='../../src/images/AppLogo.png'
+                                alt="P"
+                                style={{ verticalAlign: "middle", height: "0.8em", width: "auto" }}
+                            />
+                            {"Pass".slice(1)}
+                        </span>
+                    </div>
                     <ul>
                         <li><Link to="/about">About</Link></li>
                         <li><HashLink to="/#services" smooth>Services</HashLink></li>
@@ -27,14 +37,14 @@ export default function Footer() {
                     <form action="#">
                         Sign up for updates
                         <div className="text">Email*<input type="email" required /><br /></div>
-                        <div className="button"><input type="submit" value="Subscribe" id="button" style={{cursor: "pointer"}} /></div>
+                        <div className="button"><input type="submit" value="Subscribe" id="button" style={{ cursor: "pointer" }} /></div>
                     </form>
                     <div className="social">
-                        <a href="https://www.facebook.com/shaquib.ali.359"><FaFacebookSquare style={{backgroundColor: "#0034b7"}} /></a>
-                        <a href="https://twitter.com/Barleen_k0001?t=tt2lf53WDPzWN6RwdLjanA&s=08"><FaTwitterSquare style={{backgroundColor: "#1c93e4"}} /></a>
-                        <a href="https://www.linkedin.com/in/sajal-khawas-232929215"><FaLinkedin style={{backgroundColor: "#0961b8"}} /></a>
-                        <a href="https://instagram.com/sajal_khawas?igshid=ZDdkNTZiNTM="><FaInstagramSquare style={{backgroundColor: "#f20175"}} /></a>
-                        <a href="https://pin.it/C32sA9C"><FaPinterestSquare style={{backgroundColor: "#c11e26"}} /></a>
+                        <a href="https://www.facebook.com/shaquib.ali.359"><FaFacebookSquare style={{ backgroundColor: "#0034b7" }} /></a>
+                        <a href="https://twitter.com/Barleen_k0001?t=tt2lf53WDPzWN6RwdLjanA&s=08"><FaTwitterSquare style={{ backgroundColor: "#1c93e4" }} /></a>
+                        <a href="https://www.linkedin.com/in/sajal-khawas-232929215"><FaLinkedin style={{ backgroundColor: "#0961b8" }} /></a>
+                        <a href="https://instagram.com/sajal_khawas?igshid=ZDdkNTZiNTM="><FaInstagramSquare style={{ backgroundColor: "#f20175" }} /></a>
+                        <a href="https://pin.it/C32sA9C"><FaPinterestSquare style={{ backgroundColor: "#c11e26" }} /></a>
                     </div>
                 </div>
             </div>
