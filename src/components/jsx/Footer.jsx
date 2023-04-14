@@ -1,6 +1,7 @@
 import { FaFacebookSquare, FaInstagramSquare, FaLinkedin, FaPinterestSquare, FaTwitterSquare } from "react-icons/fa"
 import '../css/Footer.css'
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 
 export default function Footer() {
@@ -11,8 +12,8 @@ export default function Footer() {
                     <div className="logo">Omni<span>Pass</span></div>
                     <ul>
                         <li><Link to="/about">About</Link></li>
-                        <li><a href="/#services">Services</a></li>
-                        <li><a href="/#contactUs">Contact Us </a></li>
+                        <li><HashLink to="/#services" smooth>Services</HashLink></li>
+                        <li><HashLink to="/#contactUs" smooth>Contact Us</HashLink></li>
                     </ul>
                 </div>
                 <div className="centre_box">

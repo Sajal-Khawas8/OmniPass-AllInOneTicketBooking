@@ -110,7 +110,6 @@ async function sendEmail(response, email, name, category) {
         { text: 'Booking Date:', style: 'subsubheader', margin: [40, 20, 0, -38] },
         { text: new Date().toString().substring(0, 24), style: 'content', margin: [300, 20, 0, 0] },
         { text: '*This is an Electronically Generated document and does not require Signature.', style: 'content', alignment: 'center', margin: [0, 100, 0, 0] },
-        { text: new Date().toString().substring(0, 24), style: 'content', margin: [300, 20, 0, 0] },
       ],
       styles: {
         header: {

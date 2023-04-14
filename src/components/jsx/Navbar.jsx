@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import '../css/Navbar.css'
 import { useAuth0 } from "@auth0/auth0-react";
 import Error from './Error';
@@ -25,8 +26,9 @@ export default function Navbar() {
                 <ul>
                     <li> <Link to="/"> Home</Link></li>
                     <li> <Link to="/about"> About</Link></li>
-                    <li> <a href="/#services"> Services</a></li>
-                    <li> <a href="/#contactUs"> Contact Us</a></li>
+                    <li> <HashLink to="/#services" smooth>Services</HashLink></li>
+                    <li> <HashLink to="/#contactUs" smooth>Contact Us</HashLink></li>
+                    
                     {
                         isAuthenticated ?
                             <li><Button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })} content="Log out" style={{ width: '110px', height: '37px'}}>
