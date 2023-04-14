@@ -9,7 +9,7 @@ export default function Home() {
                 <h1>Omni<span>
                     {"Pass".slice(4)}
                     <img
-                        src='../../src/images/AppLogo.png'
+                        src='../../src/images/AppLogo.webp'
                         alt="P"
                         style={{ verticalAlign: "middle", height: "1em", width: "auto" }}
                     />
@@ -28,7 +28,7 @@ export default function Home() {
                         </Link>
                     </div>
                     <div className="card">
-                        <img src="./src/images/flight.png" alt="" />
+                        <img src="./src/images/flight.webp" alt="" />
                         <p>All you need is a passport, plane ticket and positive vibe. So get your Flight ticket ASAP and Find the joy in the journey... Book Now!!! </p>
                     </div>
                     <div className="card">
@@ -41,7 +41,7 @@ export default function Home() {
                     </div>
                     <div className="card">
                         <Link to="/bus">
-                            <img src="./src/images/bus.png" alt="" />
+                            <img src="./src/images/bus.webp" alt="" />
                             <p>Trip Planning? Trip Avoiding? Either way, you're going to want to get this on Bus. There is something great about long Bus ride. Book your seats </p>
                         </Link>
                     </div>

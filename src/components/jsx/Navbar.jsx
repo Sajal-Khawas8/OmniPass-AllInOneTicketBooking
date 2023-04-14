@@ -17,7 +17,7 @@ export default function Navbar() {
                 Omni<span>
                     {"Pass".slice(4)}
                     <img
-                        src='../../src/images/AppLogo.png'
+                        src='../../src/images/AppLogo.webp'
                         alt="P"
                         style={{ verticalAlign: "middle", height: "0.8em", width: "auto" }}
                     />
