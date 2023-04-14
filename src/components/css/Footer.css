@@ -30,15 +30,18 @@ footer{
     font-weight: 400;
     font-size: 50px;
     line-height: 50px;
-   color: white;    
-   padding-left: 35%;
+   color: white; 
+   text-align: center;   
+
 }
 .foot .left_box .logo span{
     color:rgb(83, 170, 219);
 }
+.foot .left_box ul{
+    margin-bottom: 5px;
+}
 .foot .left_box ul li{
-    padding-top: 0.5%;
-    padding-left: 40%;
+    text-align: center;
     font-size: large;
 }
 .foot .centre_box{
@@ -47,7 +50,7 @@ footer{
 }
 
 .foot .centre_box ul li{
-    padding-left: 30%;
+ text-align: center;
     padding-top: 2%;
     font-size: larger;
 }
@@ -57,7 +60,7 @@ footer{
 
 }
 .foot .right_box form{
-    padding-left: 30%;
+text-align: center;
     padding-top: 2%;
     font-size: larger;
     padding-top: 3%;
@@ -97,17 +100,14 @@ footer{
     .foot .left_box .logo{
 
         font-size: 30px;
-       padding-left: 30%;
+        text-align: center;
     }
     
 }
 @media screen and (max-width :750px) 
 {
-    .foot .centre_box ul li{
-        padding-left: 25%;
-    }
+
     .foot .right_box form{
-        padding-left: 20%;
         padding-top: 2%;
     }
     .foot .right_box form input{
@@ -116,8 +116,7 @@ footer{
     .foot .right_box .social a{
         height:40px;
         width: 40px;
-        padding-left: 8%;
-        margin-left: 3%;
+        padding-left: 5%;
     
     }
 
@@ -126,11 +125,35 @@ footer{
     .foot .left_box .logo{
 
         font-size: 30px;
-       padding-left: 20%;
     }
     .foot .centre_box ul li{
-        padding-left: 20%;
+      font-size: 18px;
     }
 
 }
+@media screen and (max-width :600px){
+    .foot .centre_box ul li{
+        font-size: 16px;
+      }
+      .foot .left_box ul li{
+        font-size: 16px;
+      }
+      .foot .right_box form{
+font-size: 16px;
+      }
+      .foot .right_box{
+        flex-basis: 40%;
+    
+    }
+
+}
+@media screen and (max-width :405px){
+    .foot .centre_box ul{
+        margin-top: 5%;
+    }
+    .foot .centre_box ul li{
+        font-size: 15px;
+      }
+    }
+
 
