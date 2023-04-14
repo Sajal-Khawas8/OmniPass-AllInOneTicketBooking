@@ -15,13 +15,12 @@ export default function Navbar() {
         <header>
             <div className="head">
                 Omni<span>
-                    {"Pass".slice(4)}
                     <img
                         src='../../src/images/AppLogo.webp'
                         alt="P"
-                        style={{ verticalAlign: "middle", height: "0.8em", width: "auto" }}
+                        style={{ verticalAlign: "-3px", height: "0.8em", width: "auto" }}
                     />
-                    {"Pass".slice(1)}
+                    ass
                 </span>
 
             </div>

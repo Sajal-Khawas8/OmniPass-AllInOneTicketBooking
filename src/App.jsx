@@ -21,7 +21,11 @@ function App() {
           <Route path='/train' element={<Train />}></Route>
           <Route path='/trainLiveStatus' element={<LiveStatus />}></Route>
           <Route path='/trainPnrStatus' element={<Pnr />}></Route>
+          <Route path='/flight' element={<ComingSoon />}></Route>
+          <Route path='/hotel' element={<ComingSoon />}></Route>
+          <Route path='/metro' element={<ComingSoon />}></Route>
           <Route path='/bus' element={<ComingSoon />}></Route>
+          <Route path='/movie' element={<ComingSoon />}></Route>
 
         </Routes>
 

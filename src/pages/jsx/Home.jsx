@@ -7,13 +7,12 @@ export default function Home() {
         <>
             <div className="home">
                 <h1>Omni<span>
-                    {"Pass".slice(4)}
                     <img
                         src='../../src/images/AppLogo.webp'
                         alt="P"
-                        style={{ verticalAlign: "middle", height: "1em", width: "auto" }}
+                        style={{ verticalAlign: "-13px", height: "1em", width: "auto" }}
                     />
-                    {"Pass".slice(1)}
+                    ass
                 </span></h1>
                 <p className="slogan">Choose the route, we'll pave the way</p>
                 <p>Book your tickets today without paying any extra charges!!!</p>
@@ -28,16 +27,22 @@ export default function Home() {
                         </Link>
                     </div>
                     <div className="card">
-                        <img src="./src/images/flight.webp" alt="" />
-                        <p>All you need is a passport, plane ticket and positive vibe. So get your Flight ticket ASAP and Find the joy in the journey... Book Now!!! </p>
+                        <Link to="/flight">
+                            <img src="./src/images/flight.webp" alt="" />
+                            <p>All you need is a passport, plane ticket and positive vibe. So get your Flight ticket ASAP and Find the joy in the journey... Book Now!!! </p>
+                        </Link>
                     </div>
                     <div className="card">
-                        <img src="./src/images/hotel.png" alt="" />
-                        <p>It's never too early to book a staycation. Give yourself the gift of restfull night.Book your weekend staycation Now!</p>
+                        <Link to="/hotel">
+                            <img src="./src/images/hotel.png" alt="" />
+                            <p>It's never too early to book a staycation. Give yourself the gift of restfull night.Book your weekend staycation Now!</p>
+                        </Link>
                     </div>
                     <div className="card">
-                        <img src="./src/images/metro.png" alt="" />
-                        <p>Infinite eyes, a million words,a potpourre of vibes- Metro can never be boring. Grab your Metro tickets Really Quick!! Book Today!</p>
+                        <Link to="/metro">
+                            <img src="./src/images/metro.png" alt="" />
+                            <p>Infinite eyes, a million words,a potpourre of vibes- Metro can never be boring. Grab your Metro tickets Really Quick!! Book Today!</p>
+                        </Link>
                     </div>
                     <div className="card">
                         <Link to="/bus">
@@ -46,8 +51,10 @@ export default function Home() {
                         </Link>
                     </div>
                     <div className="card">
-                        <img src="./src/images/movie.png" alt="" />
-                        <p>  Can't stop, won't stop watching movie. Experience the story, on the big screen. Get your tickets, see the flicks! BOOk NOW..</p>
+                        <Link to="/movie">
+                            <img src="./src/images/movie.png" alt="" />
+                            <p>Can't stop, won't stop watching movie. Experience the story, on the big screen. Get your tickets, see the flicks! BOOk NOW..</p>
+                        </Link>
                     </div>
                 </div>
             </div>

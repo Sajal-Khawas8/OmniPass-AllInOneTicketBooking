@@ -15,7 +15,7 @@ export default function Footer() {
                             <img
                                 src='../../src/images/AppLogo.webp'
                                 alt="P"
-                                style={{ verticalAlign: "middle", height: "0.8em", width: "auto" }}
+                                style={{ verticalAlign: "-3px", height: "0.8em", width: "auto" }}
                             />
                             {"Pass".slice(1)}
                         </span>
