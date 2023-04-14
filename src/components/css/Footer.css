@@ -18,7 +18,7 @@ footer{
 {
     display:flex;
     margin: auto;
-
+    align-items: center;
 }
 .foot .left_box{
     flex-basis: 33%;
@@ -87,11 +87,13 @@ text-align: center;
 }
 .foot .right_box .social{
     margin-top: 3%;
+    display: flex;
+    justify-content: center;
 }
 .foot .right_box .social a{
     height:40px;
     width: 40px;
-    padding-left: 10%;
+    /* padding-left: 10%; */
     margin-left: 3%;
 
 }
@@ -144,6 +146,9 @@ font-size: 16px;
       .foot .right_box{
         flex-basis: 40%;
     
+    }
+    .foot .right_box .social{
+        display: block;
     }
 
 }
