@@ -4,7 +4,7 @@ import Button from './Button'
 import Error from './Error';
 import { useAuth0 } from '@auth0/auth0-react';
 import useRazorpay from "react-razorpay";
-import Success from './success';
+import Success from './Success';
 import { authenticated, userData } from './Navbar'
 
 export default function SeatCard(props) {
