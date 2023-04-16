@@ -13,7 +13,7 @@ body {
 .image {
     height: 45vh;
     width: 100vw;
-    background-image: linear-gradient(rgba(7, 7, 16, 0.71), rgb(217 217 217/37%)), url(../../images/scale.jfif);
+    background-image: linear-gradient(rgba(217, 160, 98, 0.71), rgba(194, 188, 15, 0.026)), url(../../images/Flight.jpg);
     background-size: contain;
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -70,13 +70,14 @@ body {
 .image .info {
 
 
-    background: linear-gradient(180.45deg, #5898C6 0.39%, rgba(38, 123, 135, 0) 123.26%);
+    background: linear-gradient(180.2deg, #f7c2028d 0.17%, rgba(217, 217, 217, 0.208) 165.52%);
     height: 20vh;
-    width: 68vw;
+    width: 80vw;
     margin: auto;
     border-radius: 10px;
     margin-top: 10px;
     padding-right: 10px;
+    padding-left: 10px;
 }
 
 .image .details {
@@ -246,7 +247,8 @@ body {
 
     .image .info {
         width: 45vw;
-        height: 43vh;
+        height: 48vh;
+        padding-top: 5px;
     }
 
     .image .info .details .Search {
