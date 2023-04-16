@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import SeatCard from './SeatCard';
 import '../css/TrainCard.css';
+import Error from './Error';
 
 export default function TrainCard(props) {
     const [flag, setFlag] = useState(true);
@@ -10,7 +11,7 @@ export default function TrainCard(props) {
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': '52b9c92824msh2b6241b5cc1c848p1b5526jsnd0dd6c360cdc',
+                'X-RapidAPI-Key': 'b4e77aca3bmsh5fbe41549fdebb4p153d36jsn45e127003729',
                 'X-RapidAPI-Host': 'irctc1.p.rapidapi.com'
             }
         };

@@ -10,11 +10,12 @@ import { authenticated, userData } from './Navbar'
 export default function SeatCard(props) {
     const Razorpay = useRazorpay();
     // const { isAuthenticated, user } = useAuth0();
+    const [error, setError] =useState(false);
     const [paymentStatus, setPaymentStatus] = useState(null);
     const params = {
         amount: (props.fare) * 100,
-        email: userData.email,
-        name: userData.name,
+        email: userData?userData.email:'',
+        name: userData?userData.name:'',
         category: "Train",
     };
 
@@ -36,6 +37,7 @@ export default function SeatCard(props) {
 
 
     const handlePayment = useCallback(async () => {
+        if ((authenticated && userData)) {
         const order = await createOrder(params);
 
         const options = {
@@ -101,10 +103,13 @@ export default function SeatCard(props) {
 
         const rzpay = new Razorpay(options);
         rzpay.open();
+    } else{
+        setError(true);
+    }
     }, [Razorpay, params]);
     return (
         <div className="seatCard">
-            {(!authenticated || !userData.email_verified) && (<Error errMessage="Please login and verify your email before booking your ticket" />)}
+            {error && (<Error errMessage="Please login and verify your email before booking your ticket." />)}
             <div className="fare">Rs. {props.fare}</div>
             <div className="date">{props.date}</div>
             <div className="seatsAvl">{props.status}</div>

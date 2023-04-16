@@ -249,7 +249,7 @@ background: linear-gradient(180.45deg, #5898C6 0.39%, rgba(38, 123, 135, 0) 123.
     .image .details .To form input,
     .image .details .DD form input,
     .image .details .trainSearchNumber form input {
-        height: 23px;
+        height: 33px;
     }
 }
 

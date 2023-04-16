@@ -1,14 +1,117 @@
-import { useState, useEffect } from 'react';
-import * as ReactDOM from 'react-dom/client';
-import SeatCard from './SeatCard';
+import { useState, useCallback } from 'react';
 import '../css/FlightCard.css';
 import Button from './Button';
+import useRazorpay from "react-razorpay";
+import Error from './Error';
+import Success from './Success';
+import { authenticated, userData } from './Navbar'
 
 
 export default function FlightCard(props) {
+    const Razorpay = useRazorpay();
+    // const { isAuthenticated, user } = useAuth0();
+    const [paymentStatus, setPaymentStatus] = useState(null);
+    const [error, setError]=useState(false);
+    const params = {
+        amount: (props.fare) * 100,
+        email: userData? userData.email: '',
+        name: userData? userData.name: '',
+        category: "Flight",
+    };
 
+
+    async function createOrder(params) {
+        const response = await fetch('http://localhost:4242/create-order', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(params)
+        });
+
+        const data = await response.json();
+        if (data.error) {
+            throw new Error(data.error);
+        }
+        return data.order;
+    }
+
+
+    const handlePayment = useCallback(async () => {
+        if ((authenticated && userData)) {
+            
+        const order = await createOrder(params);
+        console.log("handlepayment");
+        const options = {
+            key: "rzp_test_lxz0Bq1hhvIAUt",
+            amount: params.amount,
+            currency: "INR",
+            image: "https://www.renderforest.com/logo-maker/icons/5ec2420d221da04cb77361eb/b34edc677c53d2fa82843395ba36de21.svg",
+            name: "OmniPass",
+            handler: async (res) => {
+                if (res.razorpay_payment_id) {
+                    console.log("Success: ");
+                    console.log(res);
+
+                    // Capture payment and generate receipt
+                    const captureResponse = await fetch(`http://localhost:4242/capture-payment/${res.razorpay_payment_id}`, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            amount: params.amount,
+                            email: params.email,
+                            name: params.name,
+                            category: params.category,
+                        }),
+                    });
+                    const captureData = await captureResponse.json();
+
+                    if (captureData.error) {
+                        throw new Error(captureData.error);
+                    }
+
+                    console.log("captureData: ");
+                    console.log(captureData);
+                    if (captureData.captured) {
+                        setPaymentStatus("success");
+                    }
+                    else {
+                        setPaymentStatus("fail");
+                    }
+
+
+                } else {
+                    console.log("Fail: ");
+                    console.log(res);
+                    setPaymentStatus("fail");
+                }
+            },
+            prefill: {
+                name: params.name,
+                email: params.email,
+                contact: 91
+            },
+            theme: {
+                color: "#000000",
+            },
+            modal: {
+                backdropclose: true,
+                confirm_close: true
+            },
+            payment_capture: 1
+        };
+
+        const rzpay = new Razorpay(options);
+        rzpay.open();
+    } else{
+        setError(true);
+    }
+    }, [Razorpay, params]);
     return (
         <div className="trainCard">
+            {error && (<Error errMessage="Please login and verify your email before booking your ticket." />)}
             <div className="trainDetails">
                 <div className="block1">
                     <div className="number">{props.flight_code}</div>
@@ -34,7 +137,12 @@ export default function FlightCard(props) {
                         <div className="destinationCity">{props.arrival_city}</div>
                     </div>
                 </div>
-                <Button content="Book now" />
+                <div className="total">
+                    INR {props.fare}
+                </div>
+                <Button content="Book Now" style={{ height: '32px', width: '125px', fontSize: '20px', fontWeight: '500' }} onClick={handlePayment}></Button>
+                {paymentStatus === 'fail' && <Error errMessage="Payment failed. Please try again later." />}
+                {paymentStatus === 'success' && <Success message="Payment successfull. Please Check your email for Ticket and Invoice." />}
             </div>
 
         </div>

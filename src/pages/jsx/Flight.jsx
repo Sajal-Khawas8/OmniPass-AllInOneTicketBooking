@@ -2,10 +2,10 @@ import { useState } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import Button from '../../components/jsx/Button';
 import Error from '../../components/jsx/Error';
-import TrainCard from '../../components/jsx/TrainCard';
 import '../css/Flight.css';
-import { Link } from 'react-router-dom';
 import FlightCard from '../../components/jsx/FlightCard';
+import { authenticated, userData } from '../../components/jsx/Navbar'
+
 
 export default function Flight() {
 
@@ -13,61 +13,45 @@ export default function Flight() {
     const [errorMessage, setErrMessage] = useState("");
 
     async function fetchFlights() {
-        let sourceStationCode, destinationStationCode, trainData = true;
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': 'faeca5e3dfmsh04ba3f5b4887182p1f2772jsnc0b401e4b225',
+                'X-RapidAPI-Key': 'b4e77aca3bmsh5fbe41549fdebb4p153d36jsn45e127003729',
                 'X-RapidAPI-Host': 'flight-fare-search.p.rapidapi.com'
             }
         };
 
+        fetch(`https://flight-fare-search.p.rapidapi.com/v2/flight/?from=${document.getElementById('userSourceStation').value}&to=${document.getElementById('userDestinationStation').value}&date=${document.getElementById('userDepartureDate').value}&adult=1&type=${document.getElementById('class').value}&currency=INR`, options)
+            .then(response => response.json())
+            .then(response => {
+                const uniqueResults = response.results.filter((result, index, self) =>
+                    index === self.findIndex(r => r.flight_code === result.flight_code)
+                );
 
-
-        //Train details
-        // await fetch(`https://irctc1.p.rapidapi.com/api/v2/trainBetweenStations?fromStationCode=${sourceStationCode}&toStationCode=${destinationStationCode}`, options)
-        //     .then(response => response.json())
-        //     .then(response => {
-        //         const trainCards = response.data.map(train => (
-        //             <TrainCard
-        //                 trainNumber={train.train_number}
-        //                 trainName={train.train_name}
-        //                 // trainType={train.train_type}
-        //                 // runDays={train.run_days}
-        //                 // origin={train.train_origin_station}
-        //                 // originCode={train.train_origin_station_code}
-        //                 // destination={train.train_destination_station}
-        //                 // destinationCode={train.train_destination_station_code}
-        //                 departureTime={train.depart_time}
-        //                 arrivalTime={train.arrival_time}
-        //                 distance={train.distance}
-        //                 // classType={train.class_type}
-        //                 dayOfJourney={train.day_of_journey}
-        //                 userSourceStation={document.getElementById("userSourceStation").value}
-        //                 userDestinationStation={document.getElementById("userDestinationStation").value}
-        //                 sourceStation={sourceStationCode}
-        //                 destinationStation={destinationStationCode}
-        //                 departureDate={document.getElementById("userDepartureDate").value}
-        //                 duration={`${(Math.floor(((train.day_of_journey * 24 * 60 * 60 * 1000) + ((new Date(`2000-01-01T${train.arrival_time}`) - new Date(`2000-01-01T${train.depart_time}`)) + 24 * 60 * 60 * 1000)) / (60 * 60 * 1000))).toString().padStart(2, '0')}h 
-        //                                                 ${(Math.floor((((train.day_of_journey * 24 * 60 * 60 * 1000) + ((new Date(`2000-01-01T${train.arrival_time}`) - new Date(`2000-01-01T${train.depart_time}`)) + 24 * 60 * 60 * 1000)) / (60 * 1000)) % 60)).toString().padStart(2, '0')}m 
-        //                                                 ${(Math.floor((((train.day_of_journey * 24 * 60 * 60 * 1000) + ((new Date(`2000-01-01T${train.arrival_time}`) - new Date(`2000-01-01T${train.depart_time}`)) + 24 * 60 * 60 * 1000)) / 1000) % 60)).toString().padStart(2, '0')}s`}
-        //                 formattedArrivalDate={new Date((new Date(document.getElementById("userDepartureDate").value + `T${train.depart_time}+05:30`)).getTime() + ((train.day_of_journey * 24 * 60 * 60 * 1000) + ((new Date(`2000-01-01T${train.arrival_time}`) - new Date(`2000-01-01T${train.depart_time}`)) + 24 * 60 * 60 * 1000))).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
-        //                 formattedDepartureDate={new Date(document.getElementById("userDepartureDate").value).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
-        //                 key={train.train_number}
-        //             />
-        //         ));
-        //         ReactDOM.createRoot(document.getElementById('trains')).render(trainCards);
-        //     })
-        //     .catch(err => {
-        //         trainData = false;
-        //         setFlag(false);
-        //         setErrMessage(`Couldn't fetch trains between ${document.getElementById("userSourceStation").value} and ${document.getElementById("userDestinationStation").value}. Please try again later.`)
-        //     });
-        // if (!trainData) {
-        //     return;
-        // }
-
+                // Map the unique results to flight cards
+                const flightCards = uniqueResults.map(flight => (
+                    <FlightCard
+                        flight_code={flight.flight_code}
+                        flight_name={flight.flight_name}
+                        departure_date={new Date(flight.departureAirport.time).toString().slice(4, 15)}
+                        departure_time={new Date(flight.departureAirport.time).toString().slice(16, 24)}
+                        departure_city={flight.departureAirport.city}
+                        arrival_date={new Date(flight.arrivalAirport.time).toString().slice(4, 15)}
+                        arrival_time={new Date(flight.arrivalAirport.time).toString().slice(16, 24)}
+                        arrival_city={flight.arrivalAirport.city}
+                        duration={flight.duration.text}
+                        fare={Math.round(flight.totals.total)}
+                        key={flight.flight_code}
+                    />
+                ));
+                ReactDOM.createRoot(document.getElementById('flights')).render(flightCards);
+            })
+            .catch(err => {
+                setFlag(false);
+                setErrMessage(`Couldn't fetch flight details at the moment. Please try again later.`)
+            });
     }
+
     return (
         <>
             {!flag && <Error errMessage={errorMessage}></Error>}
@@ -109,18 +93,7 @@ export default function Flight() {
                 </div>
             </div>
             <div id='flights'>
-                <FlightCard 
-                    flight_code="UK-638" 
-                    flight_name="Vistara" 
-                    stops="Direct" 
-                    departure_date="May 02 2023"
-                    departure_time="18:50:00"
-                    departure_city="Chandigarh"
-                    arrival_date="May 02 2023"
-                    arrival_time="18:50:00"
-                    arrival_city="New Delhi"
-                    duration="01h 00m"
-                />
+
             </div>
         </>
     )
