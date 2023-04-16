@@ -8,6 +8,7 @@ import Train from './pages/jsx/Train'
 import LiveStatus from './pages/jsx/LiveStatus'
 import Pnr from './pages/jsx/Pnr'
 import ComingSoon from './pages/jsx/ComingSoon'
+import Flight from './pages/jsx/Flight'
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
           <Route path='/train' element={<Train />}></Route>
           <Route path='/trainLiveStatus' element={<LiveStatus />}></Route>
           <Route path='/trainPnrStatus' element={<Pnr />}></Route>
-          <Route path='/flight' element={<ComingSoon />}></Route>
+          <Route path='/flight' element={<Flight />}></Route>
           <Route path='/hotel' element={<ComingSoon />}></Route>
           <Route path='/metro' element={<ComingSoon />}></Route>
           <Route path='/bus' element={<ComingSoon />}></Route>
