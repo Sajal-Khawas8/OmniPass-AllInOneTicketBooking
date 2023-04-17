@@ -10,7 +10,7 @@ const pdfFonts = require("pdfmake/build/vfs_fonts");
 
 
 const app = express();
-const port = 4242;
+const port = process.env.PORT || 4242;
 
 const razorpay = new Razorpay({
   key_id: process.env.RAZORPAY_KEY_ID,
