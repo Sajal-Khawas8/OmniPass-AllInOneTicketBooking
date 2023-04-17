@@ -21,7 +21,7 @@ export default function SeatCard(props) {
     };
 
     async function createOrder(params) {
-        const response = await fetch('https://omnipass.vercel.app/create-order', {
+        const response = await fetch('http://localhost:4242/create-order', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -50,7 +50,7 @@ export default function SeatCard(props) {
                 handler: async (res) => {
                     if (res.razorpay_payment_id) {
                         // Capture payment and generate receipt
-                        const captureResponse = await fetch(`https://omnipass.vercel.app/capture-payment/${res.razorpay_payment_id}`, {
+                        const captureResponse = await fetch(`http://localhost:4242/capture-payment/${res.razorpay_payment_id}`, {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json",
