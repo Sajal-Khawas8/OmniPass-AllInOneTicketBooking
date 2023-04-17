@@ -1,11 +1,14 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
-import '../css/Navbar.css'
+import '../css/Navbar.css';
 import { useAuth0 } from "@auth0/auth0-react";
 import Error from './Error';
 import Button from './Button';
+import AppLogo from '../../assets/images/AppLogo.webp';
+
 let authenticated, userData;
+
 export default function Navbar() {
     const [navOpened, openNav] = useState(false);
     const { loginWithRedirect, logout, isAuthenticated, error, user } = useAuth0();
@@ -16,7 +19,7 @@ export default function Navbar() {
             <div className="head">
                 Omni<span>
                     <img
-                        src='../../src/images/AppLogo.webp'
+                        src={AppLogo}
                         alt="P"
                         style={{ verticalAlign: "-3px", height: "0.8em", width: "auto" }}
                     />

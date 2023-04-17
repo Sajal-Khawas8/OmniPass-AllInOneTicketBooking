@@ -1,164 +1,159 @@
-@import url('https://fonts.googleapis.com/css2?family=Chilanka&family=Jolly+Lodger&family=Poppins:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300&display=swap');
-* {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
-    color:white;
-    
-}
-footer{
+footer {
     position: absolute;
-    width:100%;
+    width: 100%;
     background-color: black;
-    
 }
-.foot
-{
-    display:flex;
+
+.foot {
+    display: flex;
     margin: auto;
     align-items: center;
 }
-.foot .left_box{
-    flex-basis: 33%;
 
+.foot .left_box {
+    flex-basis: 33%;
 }
-.foot .left_box .logo{
-    font-family: 'Jolly Lodger';
+
+.foot .left_box .logo {
+    font-family: 'Jolly Lodger', cursive;
     font-style: normal;
     font-weight: 400;
     font-size: 50px;
     line-height: 50px;
-   color: white; 
-   text-align: center;   
+    color: white;
+    text-align: center;
+}
 
+.foot .left_box .logo span {
+    color: rgb(83, 170, 219);
 }
-.foot .left_box .logo span{
-    color:rgb(83, 170, 219);
-}
-.foot .left_box ul{
+
+.foot .left_box ul {
     margin-bottom: 5px;
 }
-.foot .left_box ul li{
+
+.foot .left_box ul li {
     text-align: center;
     font-size: large;
 }
-.foot .centre_box{
+
+.foot .centre_box {
     flex-basis: 33%;
     margin-top: 2%;
 }
 
-.foot .centre_box ul li{
- text-align: center;
+.foot .centre_box ul li {
+    text-align: center;
     padding-top: 2%;
     font-size: larger;
 }
 
-.foot .right_box{
+.foot .right_box {
     flex-basis: 34%;
-
 }
-.foot .right_box form{
-text-align: center;
+
+.foot .right_box form {
+    text-align: center;
     padding-top: 2%;
     font-size: larger;
     padding-top: 3%;
 }
-.foot .right_box form .text{
+
+.foot .right_box form .text {
     padding-top: 2%;
 }
-.foot .right_box form input{
-  
+
+.foot .right_box form input {
     background-color: #565050;
     filter: blur(5%);
-
-
 }
-.foot .right_box form .button{
+
+.foot .right_box form .button {
     padding-top: 2%;
 }
-.foot .right_box form .button input{
+
+.foot .right_box form .button input {
     background-color: #53AADB;
     filter: blur(5%);
     border-radius: 5px;
     width: 100px;
-    
 }
-.foot .right_box .social{
+
+.foot .right_box .social {
     margin-top: 3%;
     display: flex;
     justify-content: center;
 }
-.foot .right_box .social a{
-    height:40px;
+
+.foot .right_box .social a {
+    height: 40px;
     width: 40px;
     /* padding-left: 10%; */
     margin-left: 3%;
-
 }
-@media screen and (max-width :850px) 
-{
-    .foot .left_box .logo{
 
+@media screen and (max-width :850px) {
+    .foot .left_box .logo {
         font-size: 30px;
         text-align: center;
     }
-    
 }
-@media screen and (max-width :750px) 
-{
 
-    .foot .right_box form{
+@media screen and (max-width :750px) {
+    .foot .right_box form {
         padding-top: 2%;
     }
-    .foot .right_box form input{
+
+    .foot .right_box form input {
         width: 50%;
     }
-    .foot .right_box .social a{
-        height:40px;
+
+    .foot .right_box .social a {
+        height: 40px;
         width: 40px;
         padding-left: 5%;
-    
     }
-
 }
-@media screen and (max-width :600px){
-    .foot .left_box .logo{
 
+@media screen and (max-width :600px) {
+    .foot .left_box .logo {
         font-size: 30px;
     }
-    .foot .centre_box ul li{
-      font-size: 18px;
+
+    .foot .centre_box ul li {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width :600px) {
+    .foot .centre_box ul li {
+        font-size: 16px;
     }
 
-}
-@media screen and (max-width :600px){
-    .foot .centre_box ul li{
+    .foot .left_box ul li {
         font-size: 16px;
-      }
-      .foot .left_box ul li{
-        font-size: 16px;
-      }
-      .foot .right_box form{
-font-size: 16px;
-      }
-      .foot .right_box{
-        flex-basis: 40%;
-    
     }
-    .foot .right_box .social{
+
+    .foot .right_box form {
+        font-size: 16px;
+    }
+
+    .foot .right_box {
+        flex-basis: 40%;
+    }
+
+    .foot .right_box .social {
         display: block;
     }
 
 }
-@media screen and (max-width :405px){
-    .foot .centre_box ul{
+
+@media screen and (max-width :405px) {
+    .foot .centre_box ul {
         margin-top: 5%;
     }
-    .foot .centre_box ul li{
+
+    .foot .centre_box ul li {
         font-size: 15px;
-      }
     }
-
-
+}

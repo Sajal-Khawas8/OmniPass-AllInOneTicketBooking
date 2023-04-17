@@ -1,4 +1,4 @@
-.seatCard{
+.seatCard {
     min-width: 180px;
     margin-right: 10px;
     display: flex;
@@ -8,17 +8,19 @@
     padding: 4px;
 }
 
-.fare, .date, .seatsAvl{
+.fare,
+.date,
+.seatsAvl {
     color: black;
     font-family: 'Poppins', sans-serif;
 }
 
-.btn{
+.btn {
     width: 80%;
     margin: auto;
 }
 
-.btn button{
+.btn button {
     width: 100%;
     background-color: #D08124;
     /* margin: auto; */
@@ -27,12 +29,12 @@
     font-size: 18px;
 }
 
-.btn button:hover{
+.btn button:hover {
     cursor: pointer;
 }
 
-@media screen and (max-width: 430px){
-    .seatCard{
+@media screen and (max-width: 430px) {
+    .seatCard {
         min-width: 130px;
     }
 }

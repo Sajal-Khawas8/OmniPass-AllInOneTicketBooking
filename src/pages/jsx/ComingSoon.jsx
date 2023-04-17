@@ -1,5 +1,5 @@
-import React from 'react'
-import '../css/ComingSoon.css'
+import React from 'react';
+import '../css/ComingSoon.css';
 
 export default function ComingSoon() {
   return (

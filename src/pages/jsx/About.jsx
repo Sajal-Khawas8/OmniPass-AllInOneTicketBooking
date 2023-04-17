@@ -1,5 +1,5 @@
-import React from 'react'
-import '../css/About.css'
+import React from 'react';
+import '../css/About.css';
 
 
 export default function About() {
@@ -12,7 +12,6 @@ export default function About() {
         <div className='Slider'>
           <span>We assure to offer best deals to you</span>
         </div>
-
       </div>
 
       <div className='About_Content'>
@@ -90,8 +89,8 @@ export default function About() {
         <div className='FAQ'>
           Frequently Asked Questions (FAQ's)
           <div className='Accordion'>
-            
-              <div className='flex'>
+
+            <div className='flex'>
               <ul>
                 <li>
                   <label htmlFor="first">How can I check the PNR status of my train ticket reservation<span>&#x3e;</span></label>
@@ -108,42 +107,37 @@ export default function About() {
                   <input type="radio" name="accordion" id="third"></input>
                   <div className="content"><p>By registering, you get access to your booking history on site. You can also opt to get information on special offers.</p></div>
                 </li>
-            </ul>
+              </ul>
             </div>
-        
 
-          <div className='flex'>
-            <ul>
-              <li>
-                <label htmlFor="fourth">Can I choose my seat at the cinema?<span>&#x3e;</span></label>
-                <input type="radio" name="accordion" id="fourth"></input>
-                <div className="content"><p>Absolutely, this is one of the most beneficial feature we offer so that our customers have a good ticket experience. You have the choice of selecting or changing your seats at every step of transaction.</p></div>
-              </li>
+            <div className='flex'>
+              <ul>
+                <li>
+                  <label htmlFor="fourth">Can I choose my seat at the cinema?<span>&#x3e;</span></label>
+                  <input type="radio" name="accordion" id="fourth"></input>
+                  <div className="content"><p>Absolutely, this is one of the most beneficial feature we offer so that our customers have a good ticket experience. You have the choice of selecting or changing your seats at every step of transaction.</p></div>
+                </li>
 
-              <li>
-                <label htmlFor="fifth">What are the various payment options available online to make payment?<span>&#x3e;</span></label>
-                <input type="radio" name="accordion" id="fifth"></input>
-                <div className="content"><p>The various payment options are:<br></br>
-                  Card (Visa, MasterCard, RuPay, and Maestro)<br></br>
-                  UPI<br></br>
-                  Netbanking (All Indian banks)<br></br>
-                  Wallet (Mobikwik, Freecharge, Airtel Money, Ola Money, Jio Money)</p></div>
-              </li>
-              <li>
-                <label htmlFor="sixth">Is EMI available on OmniPass?  <span>&#x3e;</span></label>
-                <input type="radio" name="accordion" id="sixth"></input>
-                <div className="content"><p>Yes, EMI is available on OmniPass. You only need to choose 'Pay Later' option from Payment window. We have many EMI providers - ICICI Bank, Kotak Mahindra Bank, LazyPay, Simpl, ePayLater.</p></div>
-              </li>
-            </ul>
+                <li>
+                  <label htmlFor="fifth">What are the various payment options available online to make payment?<span>&#x3e;</span></label>
+                  <input type="radio" name="accordion" id="fifth"></input>
+                  <div className="content"><p>The various payment options are:<br></br>
+                    Card (Visa, MasterCard, RuPay, and Maestro)<br></br>
+                    UPI<br></br>
+                    Netbanking (All Indian banks)<br></br>
+                    Wallet (Mobikwik, Freecharge, Airtel Money, Ola Money, Jio Money)</p></div>
+                </li>
+                <li>
+                  <label htmlFor="sixth">Is EMI available on OmniPass?  <span>&#x3e;</span></label>
+                  <input type="radio" name="accordion" id="sixth"></input>
+                  <div className="content"><p>Yes, EMI is available on OmniPass. You only need to choose 'Pay Later' option from Payment window. We have many EMI providers - ICICI Bank, Kotak Mahindra Bank, LazyPay, Simpl, ePayLater.</p></div>
+                </li>
+              </ul>
 
-          </div>
+            </div>
           </div>
         </div>
-
-
       </div>
-      
-
     </>
   )
 }

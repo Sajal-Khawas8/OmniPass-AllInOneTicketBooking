@@ -1,13 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Chilanka&family=Jolly+Lodger&family=Poppins:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
-}
-
 header {
     background-color: black;
     width: 100vw;
@@ -21,7 +11,7 @@ header {
 }
 
 .head {
-    font-family: 'Jolly Lodger';
+    font-family: 'Jolly Lodger', cursive;
     font-style: normal;
     font-weight: 400;
     font-size: 50px;
@@ -30,29 +20,30 @@ header {
 }
 
 .head span {
-
     color: rgb(83, 170, 219)
 }
-.welcomeMessage{
+
+.welcomeMessage {
     font-size: 20px;
     font-family: 'Ubuntu', sans-serif;
 }
 
-.welcomeMessage p{
+.welcomeMessage p {
     display: flex;
     flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
 }
-.welcomeMessage span{
+
+.welcomeMessage span {
     font-size: 20px;
     border-radius: 10px;
-    border:1px solid white;
+    border: 1px solid white;
     padding-left: 5px;
     padding-right: 5px;
     margin-left: 0.5vw;
-    background: linear-gradient(180.45deg, #5898C6 0.39%, rgba(38, 123, 135, 0) 123.26%);;
+    background: linear-gradient(180.45deg, #5898C6 0.39%, rgba(38, 123, 135, 0) 123.26%);
 }
 
 .hamburger {
@@ -123,10 +114,11 @@ header {
 }
 
 @media only screen and (max-width: 990px) {
-    .welcomeMessage{
+    .welcomeMessage {
         font-size: 18px;
         letter-spacing: 0.03em;
     }
+
     .hamburger {
         display: block;
         cursor: pointer;
@@ -189,7 +181,6 @@ header {
         height: 3px;
         background: white;
         margin: 6px 0;
-
     }
 
     .head {
@@ -229,18 +220,18 @@ header {
         margin-bottom: 12px;
     } */
 
-    .welcomeMessage P{
+    .welcomeMessage P {
         flex-direction: column;
     }
 }
 
-@media only screen and (max-width: 400px){
-    .welcomeMessage{
+@media only screen and (max-width: 400px) {
+    .welcomeMessage {
         font-size: 17px;
         letter-spacing: 0.03em;
     }
 
-    .welcomeMessage span{
+    .welcomeMessage span {
         font-size: 17px;
     }
 }

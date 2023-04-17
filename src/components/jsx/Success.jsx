@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import '../css/Success.css'
+import React, { useState } from 'react';
+import '../css/Success.css';
 
 export default function Success(props) {
   const [dis, setDisplay]=useState("flex");

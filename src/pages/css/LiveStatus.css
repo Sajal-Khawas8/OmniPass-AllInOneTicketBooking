@@ -1,17 +1,11 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
-}
-.livestatushead{
-    background-color:black;
+.livestatushead {
+    background-color: black;
     font-size: 50px;
     text-align: center;
     padding-top: 10px;
     padding-bottom: 30px;
-    margin:auto;
-    height:30vh;
+    margin: auto;
+    height: 30vh;
 }
 
 .Searchbox {
@@ -46,30 +40,25 @@
     font-size: 22px;
 }
 
-.logo2{
-    height:44vh;
+.logo2 {
+    height: 44vh;
     background-color: black;
     align-items: center;
     display: flex;
     justify-content: center;
     margin: auto;
- 
-
 }
-.logo2 img{
-   
+
+.logo2 img {
     padding: auto;
     height: 30vh;
     padding-top: 10px;
     filter: blur(8px);
-
-
 }
 
 .Content {
     padding-top: 20px;
- 
-    background-color:black;
+    background-color: black;
     /* height: 70vh; */
 }
 
@@ -77,8 +66,6 @@
     color: white;
     font-size: 23px;
     font-weight: 300;
-
-
 }
 
 .Train_details ul {
@@ -125,7 +112,6 @@
     border-radius: 15px;
     font-size: 20px;
     font-weight: 100;
-
 }
 
 .Traintime {
@@ -144,7 +130,6 @@
     color: black;
     font-size: 30px;
     font-weight: 400;
-    
 }
 
 .Traintime ul {
@@ -175,20 +160,18 @@
 }
 
 .Stations {
-   
     color: black;
     padding-top: 5px;
     font-size: 20px;
 }
-.Stations ul{
+
+.Stations ul {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
 }
 
 .Stations ul li {
-
     padding: 0 20px;
     margin: 0 3px;
     border-color: black;
@@ -216,23 +199,20 @@
     margin-top: 10px;
     margin-left: 75px;
     background: white;
-    
     color: white;
     text-align: center;
 }
 
-.Table table  thead{
+.Table table thead {
     background-color: black;
     height: 8vh;
     padding-left: 50px;
     padding-right: 80px;
     padding-top: 15px;
     color: azure;
-
-
 }
-.Table table thead th
- {
+
+.Table table thead th {
     font-size: 30px;
     color: white;
 }
@@ -240,13 +220,14 @@
 .Table {
     padding-top: 15px;
     /* height:35vh; */
-    width:88vw;
+    width: 88vw;
     overflow: hidden;
     overflow-y: scroll;
-    margin:auto;
+    margin: auto;
     display: flex;
     justify-content: center;
 }
+
 /*
 .Table span {
     color: black;
@@ -258,20 +239,19 @@
     padding-right: 5px;
 
 }*/
-.Table tbody td{
-    color:white;
+.Table tbody td {
+    color: white;
     padding: 0 80px;
     font-size: 23px;
     background: #7259F3;
-    
     text-align: center;
-
 }
 
 
 
 @media only screen and (max-width: 1500px) {
-   /* .tablehead th {
+
+    /* .tablehead th {
         padding: 0 80px;
         font-size: 27px;
     }
@@ -280,17 +260,15 @@
         font-size: 27px;
         padding: 0 85px;
     }*/
-    .Table tbody td{
-        
+    .Table tbody td {
         padding: 0 70px;
-  
-    
     }
-   
+
 }
 
 @media only screen and (max-width: 1400px) {
-  /*  .tablehead th {
+
+    /*  .tablehead th {
         padding: 0 75px;
         font-size: 25px;
     }
@@ -299,16 +277,15 @@
         font-size: 25px;
         padding: 0 80px;
     }*/
-    .Table tbody td{
+    .Table tbody td {
         padding: 0 60px;
-   
-    
     }
 
 }
 
 @media only screen and (max-width: 1350px) {
-  /*  .tablehead th {
+
+    /*  .tablehead th {
         padding: 0 70px;
 
     }
@@ -317,15 +294,13 @@
 
         padding: 0 75px;
     }*/
-    .Table tbody td{
+    .Table tbody td {
         padding: 0 55px;
-   
-    
     }
 }
 
 @media only screen and (max-width: 1220px) {
-   /* .tablehead th {
+    /* .tablehead th {
         padding: 0 68px;
 
     }
@@ -353,18 +328,20 @@
     .StartDate {
         padding-left: 15px;
     }
-    .Table tbody td{
+
+    .Table tbody td {
         padding: 0 50px;
 
     }
-    .Table table thead th
- {
-    font-size: 25px;
- }
+
+    .Table table thead th {
+        font-size: 25px;
+    }
 }
 
 @media only screen and (max-width: 1170px) {
-  /*  .tablehead th {
+
+    /*  .tablehead th {
         padding: 0 63px;
 
     }
@@ -386,7 +363,7 @@
         width: 10vw;
 
     }*/
-    .Table tbody td{
+    .Table tbody td {
         padding: 0 45px;
         font-size: 20px;
 
@@ -394,7 +371,7 @@
 }
 
 @media only screen and (max-width: 1030px) {
-   /* .tablehead th {
+    /* .tablehead th {
         padding: 0 55px;
     }
 
@@ -413,8 +390,6 @@
         padding-left: 0px;
     }
 
-
-
     .Traintime {
         margin-left: 60px;
     }
@@ -422,24 +397,24 @@
     .livestatus {
         margin-left: 60px;
     }
-    .Table tbody td{
-        padding: 0 40px;
 
+    .Table tbody td {
+        padding: 0 40px;
     }
+
     .Traintime ul li {
         font-size: 25px;
-        
     }
+
     .Train_details span {
         font-size: 25px;
         font-weight: 250;
-    
-    
     }
 }
 
 @media only screen and (max-width: 980px) {
-  /*  .tablehead th {
+
+    /*  .tablehead th {
         padding: 0 50px;
     }
 
@@ -451,15 +426,14 @@
         padding-left: 35px;
 
     }*/
-    .Table tbody td{
+    .Table tbody td {
         padding: 0 35px;
-
     }
 
 }
 
 @media only screen and (max-width: 930px) {
-   /* .tablehead th {
+    /* .tablehead th {
         padding: 0 45px;
     }
 
@@ -485,7 +459,6 @@
 
     .Train_details .type form input {
         width: 12vw;
-
     }
 
     .Tno form input,
@@ -497,17 +470,16 @@
     .Tno,
     .BoardingS,
     .StartDate {
-
         font-size: 26px;
     }
-    .Table tbody td{
-        padding: 0 30px;
 
+    .Table tbody td {
+        padding: 0 30px;
     }
 }
 
 @media only screen and (max-width: 870px) {
-  /*  .tablehead th {
+    /*  .tablehead th {
         padding: 0 40px;
     }
 
@@ -525,19 +497,19 @@
     .StartDate {
         width: 24vw;
     }
-    .Table tbody td{
+
+    .Table tbody td {
         padding: 0 25px;
 
     }
-    .Table table thead th
-    {
-       font-size: 20px;
-    }
 
+    .Table table thead th {
+        font-size: 20px;
+    }
 }
 
 @media only screen and (max-width: 815px) {
-  /*  .tablehead th {
+    /*  .tablehead th {
         padding: 0 35px;
     }
 
@@ -555,8 +527,6 @@
         padding-left: 0px;
     }
 
-   
-
     .Traintime {
         margin-left: 50px;
     }
@@ -564,11 +534,11 @@
     .livestatus {
         margin-left: 50px;
     }
-    .Table tbody td{
+
+    .Table tbody td {
         padding: 0 24px;
         font-size: 18;
     }
-
 }
 
 @media only screen and (max-width: 810px) {
@@ -577,11 +547,11 @@
         margin-left: 40px;
     }
 
-   /* .Calender {
+    /* .Calender {
         margin-left: 40px;
         width: 93vw;
     }*/
-    .Table tbody td{
+    .Table tbody td {
         padding: 0 23px;
     }
 
@@ -622,16 +592,13 @@
     }
 
     .Stations ul li {
-
         padding: 0 5px;
         margin: 0 8px;
     }
 
-   /* .Table td {
+    /* .Table td {
         font-size: 23px;
     }
-
-
 
     .tablehead th {
         padding: 0 30px;
@@ -640,24 +607,25 @@
     .Table td {
         padding: 0 35px;
     }*/
-    .Table tbody td{
+    .Table tbody td {
         padding: 0 20px;
     }
-    .Table table thead th
-    {
-       font-size: 18px;
+
+    .Table table thead th {
+        font-size: 18px;
     }
 }
 
 @media only screen and (max-width: 755px) {
-  /*  .Calender form {
+
+    /*  .Calender form {
         margin-left: 15px;
     }
 
     .Calender form input {
         font-size: 15px;
     }*/
-    .Table tbody td{
+    .Table tbody td {
         padding: 0 18px;
         font-size: 17px;
     }
@@ -665,7 +633,8 @@
 }
 
 @media only screen and (max-width: 735px) {
-   /* .tablehead th {
+
+    /* .tablehead th {
         padding: 0 27px;
     }
 
@@ -687,8 +656,6 @@
         padding-left: 0px;
     }
 
-   
-
     .Traintime {
         margin-left: 30px;
     }
@@ -703,16 +670,15 @@
         height: 25px;
     }
 
-
     .Searchbox {
         height: 15vh;
         padding-top: 20px;
     }
-
-    
 }
-@media only screen and (max-width: 660px){
-   /* .tablehead th {
+
+@media only screen and (max-width: 660px) {
+
+    /* .tablehead th {
         padding: 0 23px;
     }
     .Table td {
@@ -723,12 +689,14 @@
         padding: 0 8px;
         margin :0 5px;
     }*/
-    .Table tbody td{
+    .Table tbody td {
         padding: 0 16px;
     }
 }
-@media only screen and (max-width: 642px){
-   /* .tablehead th {
+
+@media only screen and (max-width: 642px) {
+
+    /* .tablehead th {
         padding: 0 17px;
     }
     .Table td {
@@ -741,13 +709,16 @@
     .Train_details ul li {
         padding: 0 6px;
     }
-    .Train_details .type form{
+
+    .Train_details .type form {
         padding-left: 3px;
     }
+
     .Train_details .type form input {
         width: 10vw;
 
     }
+
     .Train_details {
         margin-left: 20px;
         padding-left: 0px;
@@ -755,24 +726,25 @@
 
     .Traintime {
         margin-left: 20px;
-        padding-left:40px;
+        padding-left: 40px;
         padding-right: 40px;
     }
 
     .livestatus {
         margin-left: 20px;
     }
-    .Table tbody td{
+
+    .Table tbody td {
         padding: 0 14px;
     }
+
     .Train_details span {
         font-size: 20px;
         font-weight: 150;
-    
-    
     }
 }
-@media only screen and (max-width: 610px){
+
+@media only screen and (max-width: 610px) {
     .Searchbox {
         height: 40vh;
         width: 80%;
@@ -780,24 +752,30 @@
         align-items: center;
         padding-top: 2px;
     }
-    .livestatushead{
-        height:50vh;
+
+    .livestatushead {
+        height: 50vh;
     }
+
     .Search {
         padding-top: 5px;
     }
+
     .Tno,
     .BoardingS,
     .StartDate {
         width: 30vw;
     }
-    .logo2{
-        height:30vh;
+
+    .logo2 {
+        height: 30vh;
     }
-    .logo2 img{
+
+    .logo2 img {
         height: 20vh;
     }
-   /* .Calender ul li {
+
+    /* .Calender ul li {
         
         padding: 0 3px;
         margin :0 3px;
@@ -805,14 +783,17 @@
     .tablehead th {
         padding: 0 14px;
     }
+
     .Table td {
         padding: 0 20px;
     }
+
     .Traintime {
-        
+
         padding-left: 30px;
         padding-right: 30px;
     }
+
     .Train_details span {
         font-size: 18px;
         font-weight: 150;
@@ -822,16 +803,19 @@
         font-size: 18px;
         font-weight: 100;
     }
-  /*  .Calender form {
+
+    /*  .Calender form {
         margin-left: 5px;
     }*/
-    .Table tbody td{
+    .Table tbody td {
         padding: 0 12px;
         font-size: 15px;
     }
 }
-@media only screen and (max-width: 555px){
-   /* .Table td {
+
+@media only screen and (max-width: 555px) {
+
+    /* .Table td {
         font-size: 21px;
     }
     .tablehead th {
@@ -850,21 +834,25 @@
     .Train_details ul li {
         padding: 0 4px;
     }
+
     .Traintime {
-        
+
         padding-left: 30px;
         padding-right: 30px;
     }
-    .Train_details{
+
+    .Train_details {
         font-size: 15px;
     }
-    .Table tbody td{
+
+    .Table tbody td {
         padding: 0 10px;
     }
-
 }
-@media only screen and (max-width: 520px){
-  /*  .tablehead th {
+
+@media only screen and (max-width: 520px) {
+
+    /*  .tablehead th {
         padding: 0 10px;
     }
     .Table td {
@@ -881,24 +869,28 @@
         margin: 0 5px;
         font-size: 20px;
     }
-    .Table tbody td{
+
+    .Table tbody td {
         padding: 0 9px;
         font-size: 13px;
     }
-    .Table table thead th
-    {
-       font-size: 15px;
+
+    .Table table thead th {
+        font-size: 15px;
     }
+
     .Traintime ul li {
         font-size: 22px;
-        padding-top: 10px; 
+        padding-top: 10px;
     }
+
     .Train_details ul li {
         font-size: 10px;
         font-weight: 100;
     }
 }
-@media only screen and (max-width: 500px){
+
+@media only screen and (max-width: 500px) {
     .Train_details .type form input {
         width: 13vw;
         height: 3vh;
@@ -906,42 +898,50 @@
         font-size: 10px;
         font-weight: 50;
     }
-   
+
     .Train_details ul li {
         color: white;
         padding: 0 5px;
         font-size: 15px;
     }
-    .Train_details{
+
+    .Train_details {
         font-size: 12px;
     }
+
     .Train_details span {
         font-size: 18px;
     }
+
     .Calender ul li {
-        
+
         padding: 0 2px;
-        margin :0 2px;
+        margin: 0 2px;
     }
+
     .tablehead th {
         padding: 0 5px;
         font-size: 25px;
     }
+
     .Table td {
         padding: 0 12px;
     }
+
     .Calender ul li {
         font-size: 15px;
     }
-
 }
-@media only screen and (max-width: 470px){
+
+@media only screen and (max-width: 470px) {
+
     .Tno,
     .BoardingS,
     .StartDate {
         width: 35vw;
     }
-  /*  .tablehead th {
+
+    /*  .tablehead th {
         padding: 0 3px;
     }
     .Table td {
@@ -950,18 +950,21 @@
     .Stations {
         font-size: 15px;
     }
+
     .Train_details ul li {
         color: white;
         padding: 0 3px;
     }
+
     .Traintime ul li {
         font-size: 20px;
-        padding-top: 10px; 
+        padding-top: 10px;
     }
-    
 }
-@media only screen and (max-width: 450px){
- /*   .Calender ul li {
+
+@media only screen and (max-width: 450px) {
+
+    /*   .Calender ul li {
         font-size: 13px;
     }
     .tablehead th {
@@ -972,66 +975,69 @@
     .Table td {
         padding: 0 8px;
     }*/
-    .Table tbody td{
+    .Table tbody td {
         padding: 0 7px;
         font-size: 11px;
     }
-    .Table table thead th
-    {
-       font-size: 12px;
+
+    .Table table thead th {
+        font-size: 12px;
     }
 }
-@media only screen and (max-width: 430px){
- /*   .Calender {
+
+@media only screen and (max-width: 430px) {
+
+    /*   .Calender {
         margin-left: 15px;
         width:95vw;
         
     }*/
     .Traintime ul li {
         font-size: 18px;
-        padding-top: 10px; 
+        padding-top: 10px;
     }
 
     .Traintime {
         margin-left: 15px;
-        width:95vw;
+        width: 95vw;
         padding-left: 15px;
     }
 
     .livestatus {
         margin-left: 15px;
-        width:95vw;
+        width: 95vw;
     }
+
     .Train_details {
         margin-left: 15px;
-        width:95vw;
-       
-
+        width: 95vw;
     }
-   /* .tablehead th {
+
+    /* .tablehead th {
         padding: 0 1px; 
    
     }*/
-
 }
-@media only screen and (max-width: 400px){
+
+@media only screen and (max-width: 400px) {
+
     .Tno,
     .BoardingS,
     .StartDate {
         width: 40vw;
     }
+
     .Train_details {
         padding-top: 2px;
-       
-
     }
+
     .Train_details span {
         font-size: 15px;
     }
 }
-@media only screen and (max-width: 380px){
-    .Table tbody td{
+
+@media only screen and (max-width: 380px) {
+    .Table tbody td {
         padding: 0 5px;
     }
-     
 }

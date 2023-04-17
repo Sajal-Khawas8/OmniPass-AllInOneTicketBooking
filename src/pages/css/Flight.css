@@ -1,30 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Chilanka&family=Jolly+Lodger&family=Poppins:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     background-color: black;
 }
 
-.image {
+.image2 {
     height: 45vh;
     width: 100vw;
-    background-image: linear-gradient(rgba(217, 160, 98, 0.71), rgba(194, 188, 15, 0.026)), url(../../images/Flight.jpg);
+    background-image: linear-gradient(rgba(217, 160, 98, 0.71), rgba(194, 188, 15, 0.026)), url(../../assets/images/flightPage.webp);
     background-size: contain;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     color: #fff;
     text-align: center;
     font-size: 28px;
-
-
 }
 
-.image .button1 {
+.image2 .button1 {
     margin-top: 1%;
     margin-right: 5%;
     float: right;
@@ -32,10 +22,9 @@ body {
     width: 22vw;
     display: flex;
     justify-content: space-evenly;
-
 }
 
-.image .button1 form input {
+.image2 .button1 form input {
     background-color: rgb(43 148 255);
     color: white;
     height: 40px;
@@ -56,7 +45,7 @@ body {
     color: #53AADB;
 }
 
-.image .button2 {
+.image2 .button2 {
     background: #332f2faf;
     border-radius: 15px;
     height: 10vh;
@@ -67,9 +56,7 @@ body {
     align-items: center;
 }
 
-.image .info {
-
-
+.image2 .info {
     background: linear-gradient(180.2deg, #f7c2028d 0.17%, rgba(217, 217, 217, 0.208) 165.52%);
     height: 20vh;
     width: 80vw;
@@ -80,7 +67,7 @@ body {
     padding-left: 10px;
 }
 
-.image .details {
+.image2 .details {
     height: 100%;
     margin: auto;
     display: flex;
@@ -88,22 +75,21 @@ body {
     align-items: center;
 }
 
-.image .details .From,
-.image .details .To,
-.image .details .DD,
-.image .details .trainSearchNumber {
+.image2 .details .From,
+.image2 .details .To,
+.image2 .details .DD,
+.image2 .details .trainSearchNumber {
     background: rgba(35, 41, 35, 0.204);
     border: 1px solid #000000;
     margin: auto;
     font-size: 28px;
     width: 240px;
-
 }
 
-.image .details .From form input,
-.image .details .To form input,
-.image .details .DD form input,
-.image .details .trainSearchNumber form input,
+.image2 .details .From form input,
+.image2 .details .To form input,
+.image2 .details .DD form input,
+.image2 .details .trainSearchNumber form input,
 .class {
     width: 95%;
     height: 36px;
@@ -127,146 +113,146 @@ body {
 }
 
 @media only screen and (max-width: 1450px) {
-    .image .info {
+    .image2 .info {
         width: 70vw;
     }
 }
 
 @media only screen and (max-width: 1400px) {
-    .image .button1 {
+    .image2 .button1 {
         width: 22vw;
     }
 }
 
 @media only screen and (max-width: 1350px) {
-    .image .button1 {
+    .image2 .button1 {
         width: 24vw;
     }
 
-    .image .info {
+    .image2 .info {
         width: 75vw;
     }
 }
 
 @media only screen and (max-width: 1300px) {
-    .image .info {
+    .image2 .info {
         width: 82vw;
     }
 
-    .image .button1 {
+    .image2 .button1 {
         width: 26vw;
     }
 }
 
 @media only screen and (max-width: 1250px) {
-    .image .info {
+    .image2 .info {
         width: 80vw;
     }
 
-    .image .button2 {
+    .image2 .button2 {
         width: 33vw;
     }
 }
 
 @media only screen and (max-width: 1200px) {
-    .image .info {
+    .image2 .info {
         width: 83vw;
     }
 
-    .image .button2 {
+    .image2 .button2 {
         width: 36vw;
     }
 
-    .image .button1 {
+    .image2 .button1 {
         height: 6vh;
     }
 }
 
 @media only screen and (max-width: 1150px) {
-    .image .info {
+    .image2 .info {
         width: 88vw;
     }
 
-    .image .button1 {
+    .image2 .button1 {
         width: 28vw;
     }
 }
 
 @media only screen and (max-width: 1050px) {
-    .image .info {
+    .image2 .info {
         width: 95vw;
     }
 
-    .image .button1 {
+    .image2 .button1 {
         width: 30vw;
     }
 }
 
 @media only screen and (max-width: 1000px) {
-    .image .info {
+    .image2 .info {
         width: 98vw;
     }
 
-    .image .button1 {
+    .image2 .button1 {
         width: 32vw;
         height: 5vh;
     }
 
-    .image .button2 {
+    .image2 .button2 {
         width: 38vw;
     }
 }
 
 @media only screen and (max-width: 950px) {
 
-    .image .details .From,
-    .image .details .To,
-    .image .details .DD,
-    .image .details .trainSearchNumber {
+    .image2 .details .From,
+    .image2 .details .To,
+    .image2 .details .DD,
+    .image2 .details .trainSearchNumber {
         width: 200px;
         font-size: 22px;
     }
 
-    .image .details .From form input,
-    .image .details .To form input,
-    .image .details .DD form input,
-    .image .details .trainSearchNumber form input {
+    .image2 .details .From form input,
+    .image2 .details .To form input,
+    .image2 .details .DD form input,
+    .image2 .details .trainSearchNumber form input {
         height: 33px;
     }
 }
 
 @media only screen and (max-width: 900px) {
-    .image .button2 {
+    .image2 .button2 {
         width: 43vw;
         height: 10vh;
     }
 
-    .image .details {
+    .image2 .details {
         flex-direction: column;
     }
 
-    .image .info {
+    .image2 .info {
         width: 45vw;
         height: 48vh;
         padding-top: 5px;
     }
 
-    .image .info .details .Search {
+    .image2 .info .details .Search {
         padding-bottom: 2%;
     }
 
-    .image .button1 {
+    .image2 .button1 {
         width: 35vw;
     }
 
 }
 
 @media only screen and (max-width: 850px) {
-    .image .button1 {
+    .image2 .button1 {
         width: 38vw;
     }
 
-    .image .button2 {
+    .image2 .button2 {
         width: 48vw;
     }
 
@@ -289,37 +275,37 @@ body {
         padding-left: 5%;
     }
 
-    .image .button1 {
+    .image2 .button1 {
         width: 45vw;
         height: 3vh;
     }
 
-    .image .button2 {
+    .image2 .button2 {
         width: 58vw;
     }
 }
 
 @media only screen and (max-width: 630px) {
-    .image .button1 {
+    .image2 .button1 {
         width: 50vw;
     }
 
-    .image .button2 {
+    .image2 .button2 {
         width: 60vw;
     }
 
-    .image .info {
+    .image2 .info {
         width: 50vw;
     }
 
 }
 
 @media only screen and (max-width: 580px) {
-    .image .button1 {
+    .image2 .button1 {
         width: 55vw;
     }
 
-    .image .button2 {
+    .image2 .button2 {
         width: 68vw;
     }
 
@@ -329,7 +315,7 @@ body {
 }
 
 @media only screen and (max-width: 515px) {
-    .image .button1 {
+    .image2 .button1 {
         width: 60vw;
     }
 
@@ -337,49 +323,49 @@ body {
         padding-top: 7%;
     }
 
-    .image .button2 {
+    .image2 .button2 {
         width: 72vw;
     }
 
-    .image .info {
+    .image2 .info {
         width: 55vw;
     }
 }
 
 @media only screen and (max-width: 480px) {
-    .image .button1 {
+    .image2 .button1 {
         width: 65vw;
     }
 
-    .image .button2 {
+    .image2 .button2 {
         width: 75vw;
     }
 }
 
 @media only screen and (max-width: 460px) {
-    .image .button1 {
+    .image2 .button1 {
         width: 70vw;
     }
 
-    .image .button2 {
+    .image2 .button2 {
         width: 85vw;
     }
 
-    .image .info {
+    .image2 .info {
         width: 68vw;
     }
 }
 
 @media only screen and (max-width: 400px) {
-    .image .button1 {
+    .image2 .button1 {
         width: 78vw;
     }
 
-    .image .button2 {
+    .image2 .button2 {
         width: 90vw;
     }
 
-    .image .info {
+    .image2 .info {
         width: 72vw;
     }
 }

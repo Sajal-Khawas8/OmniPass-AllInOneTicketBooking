@@ -5,6 +5,7 @@ import Error from '../../components/jsx/Error';
 import TrainCard from '../../components/jsx/TrainCard';
 import '../css/Train.css';
 import { Link } from 'react-router-dom';
+import AppLogo from '../../assets/images/AppLogo.webp';
 
 export default function Train() {
 
@@ -71,16 +72,9 @@ export default function Train() {
                         <TrainCard
                             trainNumber={train.train_number}
                             trainName={train.train_name}
-                            // trainType={train.train_type}
-                            // runDays={train.run_days}
-                            // origin={train.train_origin_station}
-                            // originCode={train.train_origin_station_code}
-                            // destination={train.train_destination_station}
-                            // destinationCode={train.train_destination_station_code}
                             departureTime={train.depart_time}
                             arrivalTime={train.arrival_time}
                             distance={train.distance}
-                            // classType={train.class_type}
                             dayOfJourney={train.day_of_journey}
                             userSourceStation={document.getElementById("userSourceStation").value}
                             userDestinationStation={document.getElementById("userDestinationStation").value}
@@ -225,7 +219,7 @@ export default function Train() {
                 </div>
                 <div className='head'><h1>Omni<span>
                     <img
-                        src='../../src/images/AppLogo.webp'
+                        src={AppLogo}
                         alt="P"
                         style={{ verticalAlign: "-13px", height: "1em", width: "auto" }}
                     />

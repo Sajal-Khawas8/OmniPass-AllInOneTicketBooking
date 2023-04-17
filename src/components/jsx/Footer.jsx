@@ -1,7 +1,8 @@
-import { FaFacebookSquare, FaInstagramSquare, FaLinkedin, FaPinterestSquare, FaTwitterSquare } from "react-icons/fa"
-import '../css/Footer.css'
+import { FaFacebookSquare, FaInstagramSquare, FaLinkedin, FaPinterestSquare, FaTwitterSquare } from "react-icons/fa";
+import '../css/Footer.css';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
+import AppLogo from '../../assets/images/AppLogo.webp';
 
 
 export default function Footer() {
@@ -13,7 +14,7 @@ export default function Footer() {
                         Omni<span>
                             {"Pass".slice(4)}
                             <img
-                                src='../../src/images/AppLogo.webp'
+                                src={AppLogo}
                                 alt="P"
                                 style={{ verticalAlign: "-3px", height: "0.8em", width: "auto" }}
                             />

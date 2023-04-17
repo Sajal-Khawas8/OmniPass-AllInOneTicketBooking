@@ -1,31 +1,26 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.trainCard{
+.trainCard {
     width: 80vw;
     /* height: 150px; */
     background: linear-gradient(180.45deg, #5898C6 0.39%, rgba(38, 123, 135, 0) 123.26%);
     margin: 0px auto;
-    margin-top: 120px; /* To be removed*/
+    margin-top: 120px;
+    /* To be removed*/
     border-radius: 10px;
     padding: 10px;
 }
 
-.sourceDestination{
+.sourceDestination {
     width: 100px;
     background-color: D9D9D9;
     margin-bottom: 5px;
 }
 
-hr{
+hr {
     width: 80vw;
     margin-left: -10px;
 }
 
-.trainDetails{
+.trainDetails {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -35,12 +30,13 @@ hr{
     font-family: 'Poppins', sans-serif;
 }
 
-.block1, .block2{
+.block1,
+.block2 {
     display: flex;
     align-items: center;
 }
 
-.number{
+.number {
     background-color: #D9D9D9;
     color: black;
     width: 75px;
@@ -50,33 +46,33 @@ hr{
     padding: 5px;
 }
 
-.duration{
+.duration {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.line{
+.line {
     display: flex;
     align-items: center;
     width: 20vw;
     margin: 0 10px;
 }
 
-.circle{
+.circle {
     width: 30px;
     height: 14px;
     border-radius: 100px;
     background-color: #D9D9D9;
 }
 
-.duration hr{
+.duration hr {
     width: 200%;
     margin: 0;
     background-color: #D9D9D9;
 }
 
-.seats{
+.seats {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -86,13 +82,13 @@ hr{
     font-family: 'Poppins', sans-serif;
 }
 
-.seatDetails{
+.seatDetails {
     width: 85%;
     display: flex;
     overflow-x: scroll;
 }
 
-.seatCard{
+.seatCard {
     min-width: 180px;
     margin-right: 10px;
     display: flex;
@@ -103,12 +99,12 @@ hr{
     font-family: 'Poppins', sans-serif;
 }
 
-.btn{
+.btn {
     width: 80%;
     margin: auto;
 }
 
-.btn button{
+.btn button {
     width: 100%;
     background-color: yellow;
     /* margin: auto; */
@@ -116,12 +112,14 @@ hr{
     border-radius: 10px;
     font-size: 18px;
 }
+
 .quotaClass {
     display: flex;
     /* flex-wrap: wrap; */
 }
 
-.quota, .classType{
+.quota,
+.classType {
     /* width: 20vw; */
     display: flex;
     flex-wrap: wrap;
@@ -130,7 +128,8 @@ hr{
     margin-left: 15px;
 }
 
-.quota select, .classType select{
+.quota select,
+.classType select {
     height: 50px;
     width: 110px;
     border-radius: 25px;
@@ -140,35 +139,37 @@ hr{
     color: black;
 }
 
-.quota select option, .classType select option{
+.quota select option,
+.classType select option {
     color: black;
 }
 
-.quota select:hover{
+.quota select:hover {
     cursor: pointer;
 }
 
-.classType select:hover{
+.classType select:hover {
     cursor: pointer;
 }
 
-.quota select option:hover{
+.quota select option:hover {
     cursor: pointer;
 }
 
-.classType select option:hover{
+.classType select option:hover {
     cursor: pointer;
 }
 
 @media screen and (max-width: 1072px) {
-    .trainCard{
+    .trainCard {
         width: 90vw;
     }
 
-    hr{
+    hr {
         width: 90vw;
     }
 }
+
 /*@media screen and (max-width: 900px){
     .trainCard{
         
@@ -178,37 +179,38 @@ hr{
 
 }*/
 
-@media screen and (max-width: 800px){
-    .trainDetails{
+@media screen and (max-width: 800px) {
+    .trainDetails {
         flex-direction: column;
     }
 
-    .block1, .block2{
+    .block1,
+    .block2 {
         margin: 5px;
     }
 
-    .number{
+    .number {
         margin-right: 50px;
     }
 
 }
 
-@media screen and (max-width: 500px){
-    .trainDetails{
+@media screen and (max-width: 500px) {
+    .trainDetails {
         font-size: 15px;
     }
 
-    .duration{
+    .duration {
         margin: 0 7px;
     }
 
-    .quotaClass{
+    .quotaClass {
         flex-direction: column
     }
 }
 
-@media screen and (max-width: 430px){
-    .seatCard{
+@media screen and (max-width: 430px) {
+    .seatCard {
         min-width: 130px;
     }
 }

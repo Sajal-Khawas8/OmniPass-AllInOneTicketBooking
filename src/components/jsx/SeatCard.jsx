@@ -1,11 +1,10 @@
 import React, { useState, useCallback } from 'react';
-import '../css/SeatCard.css'
-import Button from './Button'
+import '../css/SeatCard.css';
+import Button from './Button';
 import Error from './Error';
-import { useAuth0 } from '@auth0/auth0-react';
 import useRazorpay from "react-razorpay";
 import Success from './Success';
-import { authenticated, userData } from './Navbar'
+import { authenticated, userData } from './Navbar';
 
 export default function SeatCard(props) {
     const Razorpay = useRazorpay();

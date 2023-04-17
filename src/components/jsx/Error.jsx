@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import '../css/Error.css'
+import React, { useState } from 'react';
+import '../css/Error.css';
 
 export default function Error(props) {
   const [dis, setDisplay]=useState("flex");

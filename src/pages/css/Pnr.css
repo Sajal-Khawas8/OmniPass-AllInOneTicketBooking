@@ -1,131 +1,131 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
-
-}
-.PNR_no{
-    background-color:black;
+.PNR_no {
+    background-color: black;
     padding-top: 10px;
     padding-bottom: 10px;
-    margin:auto;
+    margin: auto;
     text-align: center;
     font-size: 50px;
-    
 }
-.PNR_no .checkpnr{
+
+.PNR_no .checkpnr {
     background: linear-gradient(180deg, #7259F3 0%, rgb(134 67 155 / 59%) 100%);
     display: flex;
     justify-content: space-evenly;
-    height:22vh;
-    width:60vw;
+    height: 22vh;
+    width: 60vw;
     align-items: center;
-    margin:auto;
+    margin: auto;
     margin-bottom: 20px;
     border-radius: 10px;
-
 }
-.PNR_no form{
-   background-color:white;
+
+.PNR_no form {
+    background-color: white;
     color: black;
-    height:15vh;
-    width:20vw;
+    height: 15vh;
+    width: 20vw;
     border-radius: 10px;
-    padding-top:10px ;
-  
+    padding-top: 10px;
     font-size: 30px;
 }
-.PNR_no form input{
-    color:black;
+
+.PNR_no form input {
+    color: black;
     height: 5vh;
-    width:15vw;
+    width: 15vw;
     font-size: 20px;
 }
-.PNR_no .Check{
+
+.PNR_no .Check {
     display: flex;
     align-items: center;
 }
-.PNR{
-    background-color:black;
-  padding-bottom: 30px;
+
+.PNR {
+    background-color: black;
+    padding-bottom: 30px;
 }
-.PNR_details{
-    background-color:white;
-    display:flex;
+
+.PNR_details {
+    background-color: white;
+    display: flex;
     justify-content: space-evenly;
-    width:90vw;
+    width: 90vw;
     margin: auto;
     padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 10px;
 }
-.PNR_details ul li{
-    color:black;
+
+.PNR_details ul li {
+    color: black;
     font-size: 25px;
     font-weight: 300;
 }
-.PNR_details ul li span{
-    color:black;
+
+.PNR_details ul li span {
+    color: black;
     font-size: 30px;
     font-weight: 800;
 }
-.Source_Des{
 
+.Source_Des {
     background: linear-gradient(180deg, #7259F3 0%, rgb(134 67 155 / 59%) 100%);
-    width:90vw;
-    margin:auto;
+    width: 90vw;
+    margin: auto;
     margin-top: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 10px;
 }
-.Source_Des ul{
-    display:flex;
+
+.Source_Des ul {
+    display: flex;
     align-items: center;
     justify-content: space-evenly;
-
 }
 
-.Source_Des ul li{
+.Source_Des ul li {
     background-color: black;
-    color:white;
+    color: white;
     font-size: 25px;
     font-weight: 300;
     text-align: center;
     padding-left: 20px;
-    padding-right: 20px;  
+    padding-right: 20px;
 }
 
-.PNR_table{
+.PNR_table {
     display: flex;
     justify-content: center;
     background-color: white;
-    width:90vw;
-    margin:auto;
+    width: 90vw;
+    margin: auto;
     margin-top: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 10px;
-    color:black;
+    color: black;
     font-size: 25px;
     text-align: center;
     font-weight: 700;
 }
-.PNR_table  table  thead{
-    background-color:black;
+
+.PNR_table table thead {
+    background-color: black;
     height: 8vh;
     padding-left: 50px;
     padding-right: 80px;
     padding-top: 15px;
 }
-.PNR_table table thead th
- {
+
+.PNR_table table thead th {
     font-size: 30px;
     color: white;
 }
-.PNR_table tbody td{
-    color:white;
+
+.PNR_table tbody td {
+    color: white;
     padding: 0 80px;
     font-size: 25px;
     background-color: black;
@@ -134,22 +134,24 @@
     padding-bottom: 20px;
 
 }
-.PNR_table tbody td span{
-    color:black;
+
+.PNR_table tbody td span {
+    color: black;
     background-color: white;
     border-radius: 10px;
     padding-left: 10px;
     padding-right: 10px;
 }
-.Fare{
+
+.Fare {
     background: linear-gradient(180deg, #7259F3 0%, rgba(218, 111, 251, 0) 100%);
-    width:90vw;
-    margin:auto;
+    width: 90vw;
+    margin: auto;
     margin-top: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 10px;
-    color:white;
+    color: white;
     font-size: 30px;
     padding-left: 20px;
     font-weight: 500;
@@ -157,116 +159,127 @@
     align-items: center;
     justify-content: space-around;
 }
-.text_pass{
+
+.text_pass {
     text-align: center;
     padding-top: 15px;
     font-size: 40px;
 }
-@media only screen and (max-width:1440px){
-    .PNR_table tbody td{
+
+@media only screen and (max-width:1440px) {
+    .PNR_table tbody td {
         padding: 0 75px;
         padding-top: 20px;
         padding-bottom: 20px;
     }
-    
+
 }
-@media only screen and (max-width:1365px){
-    .PNR_table tbody td{
+
+@media only screen and (max-width:1365px) {
+    .PNR_table tbody td {
         padding: 0 70px;
         padding-top: 20px;
         padding-bottom: 20px;
     }
 }
-@media only screen and (max-width:1300px){
-    .PNR_table tbody td{
+
+@media only screen and (max-width:1300px) {
+    .PNR_table tbody td {
         padding: 0 65px;
         padding-top: 20px;
         padding-bottom: 20px;
     }
 }
-@media only screen and (max-width:1220px){
-    .PNR_table tbody td{
+
+@media only screen and (max-width:1220px) {
+    .PNR_table tbody td {
         padding: 0 60px;
         padding-top: 20px;
         padding-bottom: 20px;
     }
-    .PNR_table table thead th
- {
-    font-size: 28px;
-    font-weight: 500;
- }
+
+    .PNR_table table thead th {
+        font-size: 28px;
+        font-weight: 500;
+    }
 }
-@media only screen and (max-width:1160px){
-    .PNR_table tbody td{
+
+@media only screen and (max-width:1160px) {
+    .PNR_table tbody td {
         padding: 0 55px;
         padding-top: 20px;
         padding-bottom: 20px;
     }
 }
-@media only screen and (max-width:1090px){
-    .PNR_table tbody td{
+
+@media only screen and (max-width:1090px) {
+    .PNR_table tbody td {
         padding: 0 50px;
         padding-top: 20px;
         padding-bottom: 20px;
     }
-    .PNR_table table thead th
-    {
-       font-size: 25px;
+
+    .PNR_table table thead th {
+        font-size: 25px;
     }
 }
-@media only screen and (max-width:1020px){
-    .PNR_table tbody td{
+
+@media only screen and (max-width:1020px) {
+    .PNR_table tbody td {
         padding: 0 45px;
         padding-top: 20px;
         padding-bottom: 20px;
         font-size: 23px;
     }
-    .PNR_table table thead th
-    {
-       font-size: 23px;
+
+    .PNR_table table thead th {
+        font-size: 23px;
     }
-    
-}
-@media only screen and (max-width:970px){
-    .PNR_no .checkpnr{
-        width:70vw;
-    }
-    .PNR_no form{
-        width:30vw;
-    }
-    .PNR_no form input{
-        width:24vw;
-    }
-    
 
 }
-@media only screen and (max-width:940px){
-    .PNR_table tbody td{
+
+@media only screen and (max-width:970px) {
+    .PNR_no .checkpnr {
+        width: 70vw;
+    }
+
+    .PNR_no form {
+        width: 30vw;
+    }
+
+    .PNR_no form input {
+        width: 24vw;
+    }
+}
+
+@media only screen and (max-width:940px) {
+    .PNR_table tbody td {
         padding: 0 40px;
         padding-top: 20px;
         padding-bottom: 20px;
     }
-    
+
 }
-@media only screen and (max-width:860px){
-    .PNR_table tbody td{
+
+@media only screen and (max-width:860px) {
+    .PNR_table tbody td {
         padding: 0 35px;
         padding-top: 20px;
         padding-bottom: 20px;
         font-size: 23px;
     }
-    .Source_Des ul li{
+
+    .Source_Des ul li {
         font-size: 19px;
     }
-    .PNR_table table thead th
-    {
-       font-size: 21px;
-    }
-   
 
+    .PNR_table table thead th {
+        font-size: 21px;
+    }
 }
-@media only screen and (max-width:792px){
-    .PNR_table tbody td{
+
+@media only screen and (max-width:792px) {
+    .PNR_table tbody td {
         padding: 0 30px;
         padding-top: 20px;
         padding-bottom: 20px;
@@ -274,141 +287,169 @@
     }
 
 }
-@media only screen and (max-width:715px){
-    .PNR_table tbody td{
+
+@media only screen and (max-width:715px) {
+    .PNR_table tbody td {
         padding: 0 25px;
         padding-top: 20px;
         padding-bottom: 20px;
     }
-    
-
 }
-@media only screen and (max-width:670px){
+
+@media only screen and (max-width:670px) {
     .PNR_details ul li span {
         font-size: 25px;
         font-weight: 600;
     }
-    .Source_Des ul li{
+
+    .Source_Des ul li {
         font-size: 16px;
     }
-    .text_pass{
+
+    .text_pass {
 
         font-size: 30px;
     }
 }
 
-@media only screen and (max-width:650px){
-    .PNR_no .checkpnr{
-        width:80vw;
+@media only screen and (max-width:650px) {
+    .PNR_no .checkpnr {
+        width: 80vw;
     }
-    .PNR_no form{
-        width:35vw;
+
+    .PNR_no form {
+        width: 35vw;
     }
-    .PNR_no form input{
-        width:26vw;
+
+    .PNR_no form input {
+        width: 26vw;
     }
-    .Fare{ font-size: 20px;}
+
+    .Fare {
+        font-size: 20px;
+    }
 
 }
-@media only screen and (max-width:630px){
-    .PNR_table tbody td{
+
+@media only screen and (max-width:630px) {
+    .PNR_table tbody td {
         padding: 0 17px;
         padding-top: 20px;
         padding-bottom: 20px;
     }
-    .PNR_details ul li{
+
+    .PNR_details ul li {
         font-size: 20px;
     }
-    .Source_Des ul li{
+
+    .Source_Des ul li {
         font-size: 14px;
     }
 }
-@media only screen and (max-width:550px){
-    .PNR_no .checkpnr{
+
+@media only screen and (max-width:550px) {
+    .PNR_no .checkpnr {
         height: 31vh;
-        width:60vw;
+        width: 60vw;
         flex-direction: column;
     }
-    .Source_Des ul li{
+
+    .Source_Des ul li {
         font-size: 12px;
     }
-    .PNR_details ul li{
+
+    .PNR_details ul li {
         font-size: 16px;
     }
-    .PNR_details ul li span{
+
+    .PNR_details ul li span {
         font-size: 20px;
     }
 }
-@media only screen and (max-width:530px){
-    .PNR_table tbody td{
+
+@media only screen and (max-width:530px) {
+    .PNR_table tbody td {
         padding: 0 14px;
         padding-top: 20px;
         padding-bottom: 20px;
     }
-    .PNR_table table thead th
-    {
-       font-size: 18px;
-    }
-    .Fare{ font-size: 15px;}
 
-}
-@media only screen and (max-width:520px){
-    .PNR_no form{
-        width:40vw;
+    .PNR_table table thead th {
+        font-size: 18px;
     }
-    .PNR_no form input{
-        width:28vw;
+
+    .Fare {
+        font-size: 15px;
     }
 
 }
-@media only screen and (max-width:490px){
-    .PNR_table tbody td{
+
+@media only screen and (max-width:520px) {
+    .PNR_no form {
+        width: 40vw;
+    }
+
+    .PNR_no form input {
+        width: 28vw;
+    }
+
+}
+
+@media only screen and (max-width:490px) {
+    .PNR_table tbody td {
         padding: 0 10px;
         padding-top: 20px;
         padding-bottom: 20px;
-        font-size:16px ;
+        font-size: 16px;
     }
-    .PNR_table table thead th
-    {
-       font-size: 16px;
+
+    .PNR_table table thead th {
+        font-size: 16px;
     }
-    .Source_Des ul li{
+
+    .Source_Des ul li {
         font-size: 10px;
         padding-left: 10px;
-    padding-right: 10px;
+        padding-right: 10px;
     }
-    .PNR_details ul li{
+
+    .PNR_details ul li {
         font-size: 14px;
     }
-    .PNR_details ul li span{
+
+    .PNR_details ul li span {
         font-size: 18px;
     }
 
 }
-@media only screen and (max-width:450px){
-    .PNR_no .checkpnr{
-        width:70vw;
+
+@media only screen and (max-width:450px) {
+    .PNR_no .checkpnr {
+        width: 70vw;
     }
-    .PNR_no form{
-        width:50vw;
+
+    .PNR_no form {
+        width: 50vw;
     }
-    .PNR_no form input{
-        width:35vw;
+
+    .PNR_no form input {
+        width: 35vw;
     }
-    
+
 }
-@media only screen and (max-width:380px){
-    .PNR_table tbody td{
+
+@media only screen and (max-width:380px) {
+    .PNR_table tbody td {
         padding: 0 6px;
         padding-top: 20px;
         padding-bottom: 20px;
-    
-    }
-    .PNR_details ul li{
-        font-size: 10px;
-    }
-    .PNR_details ul li span{
-        font-size: 15px;
     }
 
+    .PNR_details ul li {
+        font-size: 10px;
+    }
+
+    .PNR_details ul li span {
+        font-size: 15px;
+    }
 }

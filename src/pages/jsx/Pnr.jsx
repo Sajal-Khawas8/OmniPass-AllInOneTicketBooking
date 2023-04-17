@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react'
-import '../css/Pnr.css'
+import React, { useState, useEffect } from 'react';
+import '../css/Pnr.css';
 import Button from '../../components/jsx/Button';
 import Error from '../../components/jsx/Error';
+import AppLogo from '../../assets/images/AppLogo.webp';
 
 export default function Pnr() {
   const [showPnrStatus, setShowPnrStatus] = useState(false);
   const [data, setData] = useState(null);
   const [pnrNumber, setPnrNumber] = useState(null);
-  const [error, setError]=useState(false);
+  const [error, setError] = useState(false);
 
   // let response = {
   //   "status": true,
@@ -124,7 +125,7 @@ export default function Pnr() {
           'X-RapidAPI-Host': 'irctc1.p.rapidapi.com'
         }
       };
-      
+
       fetch(`https://irctc1.p.rapidapi.com/api/v3/getPNRStatus?pnrNumber=${pnrNumber}`, options)
         .then(response => response.json())
         .then(response => {
@@ -132,7 +133,7 @@ export default function Pnr() {
             console.log(response);
             setData(response)
           }
-          else{
+          else {
             setError(true);
           }
         })
@@ -150,7 +151,7 @@ export default function Pnr() {
   };
   return (
     <>
-    {error && <Error errMessage="Couldn't fetch pnr data for this pnr number at this moment. Please try again and check the pnr number. There is a possibilty that this pnr number is flushed now." />}
+      {error && <Error errMessage="Couldn't fetch pnr data for this pnr number at this moment. Please try again and check the pnr number. There is a possibilty that this pnr number is flushed now." />}
       <div className='PNR_no'>
         PNR Status
         <div className='checkpnr'>
@@ -164,7 +165,7 @@ export default function Pnr() {
         </div>
       </div>
       {(!showPnrStatus || !data) && (<div className='logo2'>
-        <img src="./src/images/AppLogo.png" alt="" />
+        <img src={AppLogo} alt="OmniPass" />
       </div>)}
       {showPnrStatus && data && (<div className='PNR'>
         <div className='PNR_details'>
@@ -207,7 +208,7 @@ export default function Pnr() {
                     <td>{element.BookingCoachId}</td>
                     <td>{element.BookingBerthNo}</td>
                     <td>{element.BookingBerthCode}</td>
-                    <td><span style={{backgroundColor: element.CurrentStatus==="CNF"?"#4dff00":""}}>{element.CurrentStatus}</span></td>
+                    <td><span style={{ backgroundColor: element.CurrentStatus === "CNF" ? "#4dff00" : "" }}>{element.CurrentStatus}</span></td>
                   </tr>
                 ))
               }
@@ -221,7 +222,7 @@ export default function Pnr() {
             Booking Fare: Rs.{data.data.BookingFare}
           </div>
           <div>
-            Chart Prepared: {data.data.ChartPrepared?(<span style={{color: data.data.ChartPrepared? "#4dff00":""}}>Yes</span>):"No"}
+            Chart Prepared: {data.data.ChartPrepared ? (<span style={{ color: data.data.ChartPrepared ? "#4dff00" : "" }}>Yes</span>) : "No"}
           </div>
 
         </div>

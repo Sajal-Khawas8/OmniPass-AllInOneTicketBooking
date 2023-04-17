@@ -1,11 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Chilanka&family=Jolly+Lodger&family=Poppins:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     background-color: black;
 }
@@ -13,15 +5,13 @@ body {
 .image {
     height: 45vh;
     width: 100vw;
-    background-image: linear-gradient(rgba(7, 7, 16, 0.71), rgb(217 217 217/37%)), url(../../images/scale.jfif);
+    background-image: linear-gradient(rgba(7, 7, 16, 0.71), rgb(217 217 217/37%)), url(../../assets/images/scale.webp);
     background-size: contain;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     color: #fff;
     text-align: center;
     font-size: 28px;
-
-
 }
 
 .image .button1 {
@@ -32,7 +22,6 @@ body {
     width: 22vw;
     display: flex;
     justify-content: space-evenly;
-
 }
 
 .image .button1 form input {
@@ -49,7 +38,6 @@ body {
     font-size: 2em;
     text-align: center;
     padding-top: 5%;
-
 }
 
 .head h1 span {
@@ -68,9 +56,7 @@ body {
 }
 
 .image .info {
-    
-
-background: linear-gradient(180.45deg, #5898C6 0.39%, rgba(38, 123, 135, 0) 123.26%);
+    background: linear-gradient(180.45deg, #5898C6 0.39%, rgba(38, 123, 135, 0) 123.26%);
     height: 20vh;
     width: 68vw;
     margin: auto;
@@ -96,7 +82,6 @@ background: linear-gradient(180.45deg, #5898C6 0.39%, rgba(38, 123, 135, 0) 123.
     margin: auto;
     font-size: 28px;
     width: 240px;
-
 }
 
 .image .details .From form input,

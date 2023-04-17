@@ -4,7 +4,7 @@ import Button from '../../components/jsx/Button';
 import Error from '../../components/jsx/Error';
 import '../css/Flight.css';
 import FlightCard from '../../components/jsx/FlightCard';
-import { authenticated, userData } from '../../components/jsx/Navbar'
+import AppLogo from '../../assets/images/AppLogo.webp';
 
 
 export default function Flight() {
@@ -55,10 +55,10 @@ export default function Flight() {
     return (
         <>
             {!flag && <Error errMessage={errorMessage}></Error>}
-            <div className="image">
+            <div className="image2">
                 <div className='head'><h1>Omni<span>
                     <img
-                        src='../../src/images/AppLogo.webp'
+                        src={AppLogo}
                         alt="P"
                         style={{ verticalAlign: "-13px", height: "1em", width: "auto" }}
                     />
