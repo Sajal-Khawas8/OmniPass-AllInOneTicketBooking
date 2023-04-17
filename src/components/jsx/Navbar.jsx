@@ -49,7 +49,7 @@ export default function Navbar() {
                                 Log Out
                             </Button></li>
                             :
-                            <li> <Button className='active' onClick={() => loginWithRedirect({ redirectUri: window.location.href, onRedirectCallback: () => { } })} content="Log in" style={{ width: '110px', height: '45px' }}> Log in</Button></li>
+                            <li> <Button className='active' onClick={() => loginWithRedirect({ redirectUri: 'https://omnipass.vercel.app/bookFlightTickets', onRedirectCallback: () => { } })} content="Log in" style={{ width: '110px', height: '45px' }}> Log in</Button></li>
                         // <li> <Button className='active' onClick={() => loginWithRedirect({ redirectUri: window.location.href})} content="Log in" style={{ width: '110px', height: '45px' }}> Log in</Button></li>
                         // <li> <Button className='active' onClick={() => loginWithRedirect()} content="Log in" style={{ width: '110px', height: '37px' }}> Log in</Button></li>
                     }
