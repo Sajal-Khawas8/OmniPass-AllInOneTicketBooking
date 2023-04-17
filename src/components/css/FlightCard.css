@@ -1,4 +1,4 @@
-.trainCard {
+.flightCard {
     width: 80vw;
     /* height: 150px; */
     background: linear-gradient(180.2deg, #f7c2028d 0.17%, rgba(217, 217, 217, 0.208) 165.52%);
@@ -168,7 +168,7 @@ hr {
 }
 
 @media screen and (max-width: 1072px) {
-    .trainCard {
+    .flightCard {
         width: 90vw;
     }
 
@@ -178,7 +178,7 @@ hr {
 }
 
 @media screen and (max-width: 900px) {
-    .trainCard {
+    .flightCard {
         margin-top: 188px;
     }
 }

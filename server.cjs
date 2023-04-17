@@ -41,24 +41,23 @@ app.post('/create-order', async (req, res) => {
 
 app.post("/capture-payment/:paymentId", async (req, res) => {
   const { paymentId } = req.params;
-  const { amount, email, name, category } = req.body;
+  const { amount, email, name, category, carrierCode, carrierName } = req.body;
   try {
     const response = await razorpay.payments.capture(paymentId, amount);
 
     if (response.error) {
-      console.log("Error in capture payment")
       res.status(500).json({ error: response.error });
     } else {
       res.json(response);
 
-      sendEmail(response, email, name, category);
+      sendEmail(response, email, name, category, carrierCode, carrierName);
     }
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
 
-async function sendEmail(response, email, name, category) {
+async function sendEmail(response, email, name, category, carrierCode, carrierName) {
   try {
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -103,13 +102,17 @@ async function sendEmail(response, email, name, category) {
         { text: category, style: 'content', margin: [300, 20, 0, 0] },
         { text: 'Ticket/Invoice Number:', style: 'subsubheader', margin: [40, 20, 0, -38] },
         { text: response.id, style: 'content', margin: [300, 20, 0, 0] },
+        { text: `${category} Number:`, style: 'subsubheader', margin: [40, 20, 0, -38] },
+        { text: carrierCode, style: 'content', margin: [300, 20, 0, 0] },
+        { text: `${category} Name:`, style: 'subsubheader', margin: [40, 20, 0, -38] },
+        { text: carrierName, style: 'content', margin: [300, 20, 0, 0] },
         { text: 'Amount:', style: 'subsubheader', margin: [40, 20, 0, -38] },
         { text: `${response.currency} ${((response.amount) / 100).toFixed(2)}`, style: 'content', margin: [300, 20, 0, 0] },
         { text: 'Payment Method:', style: 'subsubheader', margin: [40, 20, 0, -38] },
         { text: response.method, style: 'content', margin: [300, 20, 0, 0] },
         { text: 'Booking Date:', style: 'subsubheader', margin: [40, 20, 0, -38] },
         { text: new Date().toString().substring(0, 24), style: 'content', margin: [300, 20, 0, 0] },
-        { text: '*This is an Electronically Generated document and does not require Signature.', style: 'content', alignment: 'center', margin: [0, 100, 0, 0] },
+        { text: '*This is an Electronically Generated document and does not require Signature.', style: 'content, fontSize: 14', alignment: 'center', margin: [0, 100, 0, 0] },
       ],
       styles: {
         header: {
@@ -156,7 +159,6 @@ async function sendEmail(response, email, name, category) {
         attachments: [{ filename: fileName, content: buffer }],
       });
 
-      console.log('Message sent: %s', info.messageId);
     });
   } catch (error) {
     res.status(500).json({ error: 'Internal server error' });
@@ -177,5 +179,5 @@ app.get('/check-payment-status/:paymentId', async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+  // console.log(`Server running at http://localhost:${port}`);
 });

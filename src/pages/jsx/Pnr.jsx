@@ -130,7 +130,6 @@ export default function Pnr() {
         .then(response => response.json())
         .then(response => {
           if (response.status) {
-            console.log(response);
             setData(response)
           }
           else {
@@ -147,7 +146,6 @@ export default function Pnr() {
     const pnrNumber = document.getElementById("pnrNumber").value;
     setPnrNumber(pnrNumber);
     setShowPnrStatus(true);
-    console.log("handle search fired");
   };
   return (
     <>

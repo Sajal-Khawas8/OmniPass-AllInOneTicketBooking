@@ -59,19 +59,19 @@ export default function TrainCard(props) {
         fetch(`https://irctc1.p.rapidapi.com/api/v1/checkSeatAvailability?classType=${document.getElementById("classType").value}&fromStationCode=${sourceStation}&quota=${document.getElementById("quota").value}&toStationCode=${destinationStation}&trainNo=${trainNumber}&date=${departureDate}`, options)
             .then(response => response.json())
             .then(response => {
-        console.log(response);
-        const seatCards = response.data.map(seat => (
-            <SeatCard
-                fare={seat.total_fare}
-                date={seat.date}
-                status={seat.current_status}
-                key={seat.date}
-            />
-        ));
-        ReactDOM.createRoot(document.getElementById('seatDetails')).render(seatCards);
-        console.log(response);
-        })
-        .catch(err => setFlag(false));
+                const seatCards = response.data.map(seat => (
+                    <SeatCard
+                        fare={seat.total_fare}
+                        date={seat.date}
+                        status={seat.current_status}
+                        trainName={props.trainName}
+                        trainNumber={props.trainNumber}
+                        key={seat.date}
+                    />
+                ));
+                ReactDOM.createRoot(document.getElementById('seatDetails')).render(seatCards);
+            })
+            .catch(err => setFlag(false));
     }
 
     useEffect(() => {

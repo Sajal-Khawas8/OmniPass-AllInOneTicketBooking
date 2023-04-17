@@ -1207,11 +1207,9 @@ export default function LiveStatus() {
             fetch(`https://indian-railway-irctc.p.rapidapi.com/getTrainId?trainno=${trainId}`, options)
                 .then(response => response.json())
                 .then(response => {
-                    console.log(response);
                     fetch(`https://indian-railway-irctc.p.rapidapi.com/getTrainLiveStatusById?id=${response[0].id}&date=${departureDate}`, options)
                         .then(response2 => response2.json())
                         .then(response2 => {
-                            console.log(response2);
                             setData(response2);
                         })
                         .catch(err2 => {
@@ -1230,7 +1228,6 @@ export default function LiveStatus() {
         setTrainId(trainNumber);
         setDepartureDate(userDepartureDate);
         setShowLiveStatus(true);
-        console.log("handle search fired");
     };
 
     return (
@@ -1259,7 +1256,6 @@ export default function LiveStatus() {
 
 
             {showLiveStatus && data && (<div className='Content'>
-                {console.log("data: " + data)}
                 <div className='Train_details'>
                     <ul>
                         <li>

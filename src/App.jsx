@@ -19,14 +19,14 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route path='/about' element={<About />}></Route>
-          <Route path='/train' element={<Train />}></Route>
-          <Route path='/trainLiveStatus' element={<LiveStatus />}></Route>
-          <Route path='/trainPnrStatus' element={<Pnr />}></Route>
-          <Route path='/flight' element={<Flight />}></Route>
-          <Route path='/hotel' element={<ComingSoon />}></Route>
-          <Route path='/metro' element={<ComingSoon />}></Route>
-          <Route path='/bus' element={<ComingSoon />}></Route>
-          <Route path='/movie' element={<ComingSoon />}></Route>
+          <Route path='/bookTrainTickets' element={<Train />}></Route>
+          <Route path='/checkTrainLiveStatus' element={<LiveStatus />}></Route>
+          <Route path='/checkPnrStatus' element={<Pnr />}></Route>
+          <Route path='/bookFlightTickets' element={<Flight />}></Route>
+          <Route path='/bookHotelRooms' element={<ComingSoon />}></Route>
+          <Route path='/bookMetroTickets' element={<ComingSoon />}></Route>
+          <Route path='/bookBusTickets' element={<ComingSoon />}></Route>
+          <Route path='/bookMovieTickets' element={<ComingSoon />}></Route>
 
         </Routes>
 

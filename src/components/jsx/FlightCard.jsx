@@ -4,24 +4,26 @@ import Button from './Button';
 import useRazorpay from "react-razorpay";
 import Error from './Error';
 import Success from './Success';
-import { authenticated, userData } from './Navbar'
+import { authenticated, userData } from './Navbar';
 
 
 export default function FlightCard(props) {
     const Razorpay = useRazorpay();
     // const { isAuthenticated, user } = useAuth0();
     const [paymentStatus, setPaymentStatus] = useState(null);
-    const [error, setError]=useState(false);
+    const [error, setError] = useState(false);
     const params = {
         amount: (props.fare) * 100,
-        email: userData? userData.email: '',
-        name: userData? userData.name: '',
+        email: userData ? userData.email : '',
+        name: userData ? userData.name : '',
         category: "Flight",
+        carrierCode: props.flight_code,
+        carrierName: props.flight_name,
     };
 
 
     async function createOrder(params) {
-        const response = await fetch('http://localhost:4242/create-order', {
+        const response = await fetch('https://omnipass.vercel.app/create-order', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -39,78 +41,73 @@ export default function FlightCard(props) {
 
     const handlePayment = useCallback(async () => {
         if ((authenticated && userData)) {
-            
-        const order = await createOrder(params);
-        console.log("handlepayment");
-        const options = {
-            key: "rzp_test_lxz0Bq1hhvIAUt",
-            amount: params.amount,
-            currency: "INR",
-            image: "https://www.renderforest.com/logo-maker/icons/5ec2420d221da04cb77361eb/b34edc677c53d2fa82843395ba36de21.svg",
-            name: "OmniPass",
-            handler: async (res) => {
-                if (res.razorpay_payment_id) {
-                    console.log("Success: ");
-                    console.log(res);
 
-                    // Capture payment and generate receipt
-                    const captureResponse = await fetch(`http://localhost:4242/capture-payment/${res.razorpay_payment_id}`, {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify({
-                            amount: params.amount,
-                            email: params.email,
-                            name: params.name,
-                            category: params.category,
-                        }),
-                    });
-                    const captureData = await captureResponse.json();
+            const order = await createOrder(params);
+            const options = {
+                key: "rzp_test_lxz0Bq1hhvIAUt",
+                amount: params.amount,
+                currency: "INR",
+                image: "https://www.renderforest.com/logo-maker/icons/5ec2420d221da04cb77361eb/b34edc677c53d2fa82843395ba36de21.svg",
+                name: "OmniPass",
+                handler: async (res) => {
+                    if (res.razorpay_payment_id) {
 
-                    if (captureData.error) {
-                        throw new Error(captureData.error);
-                    }
+                        // Capture payment and generate receipt
+                        const captureResponse = await fetch(`https://omnipass.vercel.app/capture-payment/${res.razorpay_payment_id}`, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify({
+                                amount: params.amount,
+                                email: params.email,
+                                name: params.name,
+                                category: params.category,
+                                carrierCode: params.carrierCode,
+                                carrierName: params.carrierName
+                            }),
+                        });
+                        const captureData = await captureResponse.json();
 
-                    console.log("captureData: ");
-                    console.log(captureData);
-                    if (captureData.captured) {
-                        setPaymentStatus("success");
-                    }
-                    else {
+                        if (captureData.error) {
+                            throw new Error(captureData.error);
+                        }
+
+                        if (captureData.captured) {
+                            setPaymentStatus("success");
+                        }
+                        else {
+                            setPaymentStatus("fail");
+                        }
+
+
+                    } else {
                         setPaymentStatus("fail");
                     }
+                },
+                prefill: {
+                    name: params.name,
+                    email: params.email,
+                    contact: 91
+                },
+                theme: {
+                    color: "#000000",
+                },
+                modal: {
+                    backdropclose: true,
+                    confirm_close: true
+                },
+                payment_capture: 1
+            };
 
-
-                } else {
-                    console.log("Fail: ");
-                    console.log(res);
-                    setPaymentStatus("fail");
-                }
-            },
-            prefill: {
-                name: params.name,
-                email: params.email,
-                contact: 91
-            },
-            theme: {
-                color: "#000000",
-            },
-            modal: {
-                backdropclose: true,
-                confirm_close: true
-            },
-            payment_capture: 1
-        };
-
-        const rzpay = new Razorpay(options);
-        rzpay.open();
-    } else{
-        setError(true);
-    }
+            const rzpay = new Razorpay(options);
+            rzpay.open();
+        } else {
+            setError(true);
+        }
     }, [Razorpay, params]);
     return (
-        <div className="trainCard">
+        <div className="flightCard">
             {error && (<Error errMessage="Please login and verify your email before booking your ticket." />)}
             <div className="trainDetails">
                 <div className="block1">

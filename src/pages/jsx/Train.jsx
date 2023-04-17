@@ -162,14 +162,10 @@ export default function Train() {
             await fetch(`https://indian-railway-irctc.p.rapidapi.com/getTrainId?trainno=${document.getElementById("trainSearchNumber").value}`, options2)
                 .then(response => response.json())
                 .then(response => {
-                    console.log(response);
                     response.forEach(train2 => {
-                        console.log(train2.source_code);
-                        console.log(train2.destination_code);
                         fetch(`https://irctc1.p.rapidapi.com/api/v2/trainBetweenStations?fromStationCode=${train2.source_code}&toStationCode=${train2.destination_code}`, options)
                             .then(response2 => response2.json())
                             .then(response2 => {
-                                console.log(response2);
                                 const trainCards = response2.data.map(train => (
                                     <TrainCard
                                         trainNumber={train.train_number}
@@ -195,7 +191,6 @@ export default function Train() {
                                 ReactDOM.createRoot(document.getElementById('trains')).render(trainCards);
                             })
                             .catch(err2 => {
-                                console.log(err2);
                                 trainData = false;
                                 setFlag(false);
                                 setErrMessage("Couldn't fetch trains at the moment. Please try again later and ensure that you are valid data.")
@@ -203,7 +198,6 @@ export default function Train() {
                     });
                 })
                 .catch(err => {
-                    console.log(err);
                     setFlag(false);
                     setErrMessage("Couldn't fetch trains at the moment. Please try again later and ensure that you are entering valid data.")
                 });
@@ -214,8 +208,8 @@ export default function Train() {
             {!flag && <Error errMessage={errorMessage}></Error>}
             <div className="image">
                 <div className="button1">
-                    <Link to='/trainLiveStatus'><Button className='active' content="Live Status" style={{ width: '140px', height: '37px', fontSize: '20px', fontWeight: '300' }}> Live Status</Button></Link>
-                    <Link to='/trainPnrStatus'><Button className='active' content="PNR Check" style={{ width: '140px', height: '37px', fontSize: '20px', fontWeight: '300' }}> PNR Check</Button></Link>
+                    <Link to='/checkTrainLiveStatus'><Button className='active' content="Live Status" style={{ width: '140px', height: '37px', fontSize: '20px', fontWeight: '300' }}> Live Status</Button></Link>
+                    <Link to='/checkPnrStatus'><Button className='active' content="PNR Check" style={{ width: '140px', height: '37px', fontSize: '20px', fontWeight: '300' }}> PNR Check</Button></Link>
                 </div>
                 <div className='head'><h1>Omni<span>
                     <img

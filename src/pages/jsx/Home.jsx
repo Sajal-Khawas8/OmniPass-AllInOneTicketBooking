@@ -28,37 +28,37 @@ export default function Home() {
                 <h2>Services</h2>
                 <div className="cards">
                     <div className="card">
-                        <Link to="/train">
+                        <Link to="/bookTrainTickets">
                             <img src={TrainImg} alt="Book Train Tickets" />
                             <p>It's a freight day to go for a ride on Train. Book your train tickets Now!!! Also check your PNR & Live Status without paying any charges</p>
                         </Link>
                     </div>
                     <div className="card">
-                        <Link to="/flight">
+                        <Link to="/bookFlightTickets">
                             <img src={FlightImg} alt="Book Flight Tickets" />
                             <p>All you need is a passport, plane ticket and positive vibe. So get your Flight ticket ASAP and Find the joy in the journey... Book Now!!! </p>
                         </Link>
                     </div>
                     <div className="card">
-                        <Link to="/hotel">
+                        <Link to="/bookHotelRooms">
                             <img src={HotelImg} alt="Book Hotel Rooms" />
                             <p>It's never too early to book a staycation. Give yourself the gift of restfull night.Book your weekend staycation Now!</p>
                         </Link>
                     </div>
                     <div className="card">
-                        <Link to="/metro">
+                        <Link to="/bookMetroTickets">
                             <img src={MetroImg} alt="Book Metro Tickets" />
                             <p>Infinite eyes, a million words,a potpourre of vibes- Metro can never be boring. Grab your Metro tickets Really Quick!! Book Today!</p>
                         </Link>
                     </div>
                     <div className="card">
-                        <Link to="/bus">
+                        <Link to="/bookBusTickets">
                             <img src={BusImg} alt="Book Bus Tickets" />
                             <p>Trip Planning? Trip Avoiding? Either way, you're going to want to get this on Bus. There is something great about long Bus ride. Book your seats </p>
                         </Link>
                     </div>
                     <div className="card">
-                        <Link to="/movie">
+                        <Link to="/bookMovieTickets">
                             <img src={MovieImg} alt="Book Movie/Cinema Tickets" />
                             <p>Can't stop, won't stop watching movie. Experience the story, on the big screen. Get your tickets, see the flicks! BOOk NOW..</p>
                         </Link>
