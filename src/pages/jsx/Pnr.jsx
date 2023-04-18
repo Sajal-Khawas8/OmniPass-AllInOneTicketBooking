@@ -121,7 +121,7 @@ export default function Pnr() {
       const options = {
         method: 'GET',
         headers: {
-          'X-RapidAPI-Key': 'faeca5e3dfmsh04ba3f5b4887182p1f2772jsnc0b401e4b225',
+          'X-RapidAPI-Key': 'e7aeee0ebbmsh0e8880b3a016942p1a3dbbjsn40e9221762fb',
           'X-RapidAPI-Host': 'irctc1.p.rapidapi.com'
         }
       };
@@ -206,7 +206,7 @@ export default function Pnr() {
                     <td>{element.BookingCoachId}</td>
                     <td>{element.BookingBerthNo}</td>
                     <td>{element.BookingBerthCode}</td>
-                    <td><span style={{ backgroundColor: element.CurrentStatus === "CNF" ? "#4dff00" : "" }}>{element.CurrentStatus}</span></td>
+                    <td><span style={{ backgroundColor: (element.CurrentStatus === "CNF" || element.CurrentStatus === `CNF ${element.BookingCoachId} ${element.BookingBerthNo}`) ? "#4dff00" : "" }}>{element.CurrentStatus}</span></td>
                   </tr>
                 ))
               }

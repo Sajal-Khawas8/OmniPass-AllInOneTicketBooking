@@ -11,7 +11,7 @@ export default function TrainCard(props) {
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': 'd775811f7emsh0e94c15de29e2c7p14cdf3jsne6437728f5a5',
+                'X-RapidAPI-Key': 'e7aeee0ebbmsh0e8880b3a016942p1a3dbbjsn40e9221762fb',
                 'X-RapidAPI-Host': 'irctc1.p.rapidapi.com'
             }
         };
@@ -59,6 +59,7 @@ export default function TrainCard(props) {
         fetch(`https://irctc1.p.rapidapi.com/api/v1/checkSeatAvailability?classType=${document.getElementById("classType").value}&fromStationCode=${sourceStation}&quota=${document.getElementById("quota").value}&toStationCode=${destinationStation}&trainNo=${trainNumber}&date=${departureDate}`, options)
             .then(response => response.json())
             .then(response => {
+                console.log(response);
                 const seatCards = response.data.map(seat => (
                     <SeatCard
                         fare={seat.total_fare}
@@ -71,7 +72,10 @@ export default function TrainCard(props) {
                 ));
                 ReactDOM.createRoot(document.getElementById('seatDetails')).render(seatCards);
             })
-            .catch(err => setFlag(false));
+            .catch(err => {
+                console.log(err);
+                setFlag(false)
+            });
     }
 
     useEffect(() => {
@@ -122,7 +126,9 @@ export default function TrainCard(props) {
                 <div className='quotaClass'>
                     <div className="quota">
                         Quota
-                        <select name="quota" id="quota" onChange={() => { fetchSeats(props.trainNumber, props.sourceStation, props.destinationStation, props.departureDate) }}>
+                        <select name="quota" id="quota" onChange={() => {
+                            fetchSeats(props.trainNumber, props.sourceStation, props.destinationStation, props.departureDate)
+                        }}>
                             <option value="GN">General</option>
                             <option value="TQ">Tatkal</option>
                             <option value="PT">Premium Tatkal</option>

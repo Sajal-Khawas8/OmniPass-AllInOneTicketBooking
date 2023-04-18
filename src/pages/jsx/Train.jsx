@@ -18,7 +18,7 @@ export default function Train() {
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': 'd775811f7emsh0e94c15de29e2c7p14cdf3jsne6437728f5a5',
+                'X-RapidAPI-Key': 'e7aeee0ebbmsh0e8880b3a016942p1a3dbbjsn40e9221762fb',
                 'X-RapidAPI-Host': 'irctc1.p.rapidapi.com'
             }
         };
