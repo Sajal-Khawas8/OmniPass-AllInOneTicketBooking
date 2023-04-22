@@ -16,7 +16,7 @@ export default function Flight() {
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': 'b4e77aca3bmsh5fbe41549fdebb4p153d36jsn45e127003729',
+                'X-RapidAPI-Key': 'b4542aca3bmsh5fbe41549fdebb4p153d36jsn45e127003729',
                 'X-RapidAPI-Host': 'flight-fare-search.p.rapidapi.com'
             }
         };

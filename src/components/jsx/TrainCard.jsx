@@ -11,7 +11,7 @@ export default function TrainCard(props) {
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': '300a1a5fe9msh4b15ef5e2e5e86dp17eb52jsn74638ab4c79a',
+                'X-RapidAPI-Key': '300a1a8tw9msh4b15ef5e2e5e86dp17eb52jsn74638ab4c79a',
                 'X-RapidAPI-Host': 'irctc1.p.rapidapi.com'
             }
         };

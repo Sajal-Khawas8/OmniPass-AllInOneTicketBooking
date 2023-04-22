@@ -10,7 +10,7 @@ export default function LiveStatus() {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': 'faeca5e3dfmsh04ba3f5b4887182p1f2772jsnc0b401e4b225',
+            'X-RapidAPI-Key': 'faecartwdfmsh04ba3f56887182p1f2772jsnc0b401e4b225',
             'X-RapidAPI-Host': 'indian-railway-irctc.p.rapidapi.com'
         }
     };

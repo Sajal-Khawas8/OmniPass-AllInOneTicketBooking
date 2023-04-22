@@ -18,7 +18,7 @@ export default function Train() {
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': '300a1a5fe9msh4b15ef5e2e5e86dp17eb52jsn74638ab4c79a',
+                'X-RapidAPI-Key': '300gew5fe9msh4b15ef5e2e5e86dp17eb52jsn74638ab4c79a',
                 'X-RapidAPI-Host': 'irctc1.p.rapidapi.com'
             }
         };
@@ -104,7 +104,7 @@ export default function Train() {
             const options2 = {
                 method: 'GET',
                 headers: {
-                    'X-RapidAPI-Key': 'faeca5e3dfmsh04ba3f5b4887182p1f2772jsnc0b401e4b225',
+                    'X-RapidAPI-Key': 'fahwere3dfmsh04ba3f5b4887182p1f2772jsnc0b401e4b225',
                     'X-RapidAPI-Host': 'indian-railway-irctc.p.rapidapi.com'
                 }
             };

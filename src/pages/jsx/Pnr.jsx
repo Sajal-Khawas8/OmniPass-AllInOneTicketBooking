@@ -121,7 +121,7 @@ export default function Pnr() {
       const options = {
         method: 'GET',
         headers: {
-          'X-RapidAPI-Key': 'e7aeee0ebbmsh0e8880b3a016942p1a3dbbjsn40e9221762fb',
+          'X-RapidAPI-Key': 'e7aerb0ebbmsh0e8880b3a016942p1a3dbbjsn40e9221762fb',
           'X-RapidAPI-Host': 'irctc1.p.rapidapi.com'
         }
       };
